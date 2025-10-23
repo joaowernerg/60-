@@ -3,168 +3,227 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Entendendo seu Coração | Vida Saudável 60+</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <title>Vida Saudável 60+ • Entendendo seu Coração</title>
+  <link rel="stylesheet" href="style-jornal.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;700;900&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
 </head>
-
 <body>
-  <header class="site-header">
-    <h1>🫀 Entendendo seu Coração: Fisiologia, Movimento e Reabilitação</h1>
+  <!-- Masthead -->
+  <header class="masthead">
+    <div class="container topbar">
+      <a class="brand" href="#">
+        <div class="badge">60+</div>
+        <div>
+          <h1 class="title">Vida Saudável 60+</h1>
+          <p class="tagline">Saúde • Movimento • Longevidade</p>
+        </div>
+      </a>
+      <button id="menuBtn" class="menu-btn" aria-label="Abrir menu">☰</button>
+      <nav id="nav" class="nav">
+        <a href="#capa">Capa</a>
+        <a href="#reportagem">Reportagem</a>
+        <a href="#videos">Vídeos</a>
+        <a href="#referencias">Referências</a>
+      </nav>
+    </div>
   </header>
 
-  <main class="card">
+  <!-- Linha de edição -->
+  <div class="container sectionbar">
+    <span>Edição Especial</span>
+    <span class="dot">•</span>
+    <time id="today"></time>
+  </div>
 
-    <!-- ========================
-         SEÇÃO 1: TEXTO PRINCIPAL
-    =========================== -->
-    <h2>Cuidando do Coração: Energia para a Vida</h2>
-    <p>O coração é o motor da vida, responsável por levar sangue e energia para todo o corpo. Ele funciona como uma bomba:</p>
+  <!-- Manchete de capa -->
+  <section id="capa" class="container cover">
+    <article class="hero">
+      <header>
+        <h2 class="headline">Entendendo seu Coração: Fisiologia, Movimento e Reabilitação</h2>
+        <p class="dek">Cuidando do Coração: Energia para a Vida — como o coração funciona, por que se mover todos os dias reduz riscos e quando procurar avaliação.</p>
+      </header>
+      <figure class="hero-art">
+        <div class="hero-img" role="img" aria-label="Ilustração estilizada do coração humano"></div>
+        <figcaption class="caption">Ilustração • Redação Vida Saudável</figcaption>
+      </figure>
+    </article>
+  </section>
 
-    <ul>
-      <li>O lado direito recebe o sangue com pouco oxigênio e o envia aos pulmões para ser “limpo”.</li>
-      <li>O lado esquerdo envia o sangue cheio de oxigênio para órgãos e músculos, mantendo tudo funcionando.</li>
-    </ul>
+  <!-- Corpo (colunas de jornal) -->
+  <main class="container paper-grid">
+    <!-- Coluna principal -->
+    <section id="reportagem" class="column">
+      <!-- Bloco 1 -->
+      <article class="article">
+        <h3 class="kicker">Reportagem</h3>
+        <h2 class="article-title">Como o coração trabalha — e por que isso importa</h2>
+        <p>O coração é o motor da vida, responsável por levar sangue e energia para todo o corpo. Ele funciona como uma bomba:</p>
+        <ul>
+          <li>O lado direito recebe o sangue com pouco oxigênio e o envia aos pulmões para ser “limpo”.</li>
+          <li>O lado esquerdo envia o sangue cheio de oxigênio para órgãos e músculos, mantendo tudo funcionando.</li>
+        </ul>
+        <p>Com o passar dos anos, o coração e as artérias ficam mais rígidos, o que pode aumentar a pressão e causar cansaço. O excesso de sal na alimentação também eleva a pressão, especialmente em pessoas idosas.</p>
+        <p><strong>Três cuidados essenciais:</strong> evitar excesso de sal e gordura; fazer caminhadas leves diariamente; consultar o médico regularmente. Pequenos cuidados ajudam o coração a continuar forte e saudável — cuidar do coração é cuidar da vida.</p>
+      </article>
 
-    <p>Com o passar dos anos, o coração e as artérias ficam mais rígidos, o que pode aumentar a pressão e causar cansaço. O excesso de sal na alimentação também eleva a pressão, especialmente em pessoas idosas.</p>
+      <!-- Bloco 2 -->
+      <article class="article">
+        <h2 class="article-title">Coração, pulmões e músculos: uma parceria pela sua energia</h2>
+        <p>O coração, o pulmão e os músculos trabalham juntos o tempo todo. O pulmão coloca o oxigênio no sangue, o coração o distribui pelo corpo e os músculos usam esse oxigênio para gerar energia e movimento. Quando essa parceria funciona bem, o corpo fica mais forte e saudável.</p>
+        <p>Ficar parado por muito tempo faz mal, pois enfraquece os músculos, piora a circulação e aumenta o risco de pressão alta e doenças do coração. Mesmo pequenas pausas para se levantar, andar ou se alongar já ajudam o coração a trabalhar melhor.</p>
+        <p>Durante o movimento, o coração e o pulmão aceleram para levar mais oxigênio aos músculos. Com atividades leves e regulares, o coração se fortalece, a circulação melhora e o corpo fica mais resistente ao cansaço. Mexer-se todos os dias — <em>caminhando, dançando ou alongando</em> — está entre as melhores formas de manter o coração saudável.</p>
+      </article>
 
-    <p>Por isso, é importante cuidar bem do coração:</p>
+      <!-- Bloco 3 -->
+      <article class="article">
+        <h2 class="article-title">Sinais de alerta e o papel da fisioterapia</h2>
+        <p>O corpo se ajusta sozinho para manter tudo funcionando. Quando a pessoa se movimenta, o coração bate mais rápido; em repouso, desacelera. Com o tempo e a prática de exercícios leves, o coração trabalha com mais calma e eficiência, e a pressão tende a melhorar.</p>
+        <p><strong>Regra da conversa:</strong> durante o exercício, a pessoa deve conseguir conversar sem ficar sem ar. Se não conseguir, o esforço está alto demais.</p>
+        <div class="callouts">
+          <div class="callout warn">⚠️ Falta de ar, cansaço forte ou inchaço nas pernas são sinais de alerta e precisam de avaliação médica.</div>
+          <div class="callout ok">✅ Fisioterapia: exercícios leves, alongamentos e respiração profunda melhoram a circulação, reduzem a pressão e fortalecem o coração.</div>
+        </div>
+      </article>
 
-    <ul>
-      <li>Evitar excesso de sal e gordura.</li>
-      <li>Fazer caminhadas leves diariamente.</li>
-      <li>Consultar o médico regularmente.</li>
-    </ul>
+      <!-- ===== VÍDEOS (MODO CINEMA + LIGHTBOX) ===== -->
+      <section id="videos" class="article videos-wrap">
+        <h3 class="kicker">Serviço</h3>
+        <div class="videos-header">
+          <h2 class="article-title">Vídeos recomendados</h2>
+          <div class="video-actions">
+            <button id="btnCinema" class="btn-outline" aria-pressed="false">🎞️ Modo cinema</button>
+          </div>
+        </div>
 
-    <p><strong>Pequenos cuidados ajudam o coração a continuar forte e saudável — cuidar do coração é cuidar da vida.</strong></p>
+        <div class="video-grid">
+          <figure class="video">
+            <div class="video-frame">
+              <iframe
+                src="https://www.youtube.com/embed/BBk7VKpG4Mg?modestbranding=1&rel=0&cc_load_policy=1&color=white"
+                title="Anatomia do Coração Humano em 3D" loading="lazy" allowfullscreen></iframe>
+            </div>
+            <figcaption>Anatomia do Coração (3D)
+              <button class="open-lightbox" data-yt="BBk7VKpG4Mg">⤢ ampliar</button>
+            </figcaption>
+          </figure>
 
-    <!-- ========================
-         SEÇÃO 2: VÍDEO 3D
-    =========================== -->
-    <section class="video-section" aria-labelledby="video-title">
-      <h2 id="video-title">🎬 Anatomia do Coração Humano em 3D</h2>
-      <p class="video-descricao">
-        Entenda como o coração funciona e visualize sua estrutura em uma animação realista em 3D.
-      </p>
+          <figure class="video">
+            <div class="video-frame">
+              <iframe
+                src="https://www.youtube.com/embed/lrzCIUTBgds?modestbranding=1&rel=0&cc_load_policy=1&color=white"
+                title="Circulação Sanguínea - Hemocentro RP" loading="lazy" allowfullscreen></iframe>
+            </div>
+            <figcaption>Circulação Sanguínea — Hemocentro RP
+              <button class="open-lightbox" data-yt="lrzCIUTBgds">⤢ ampliar</button>
+            </figcaption>
+          </figure>
 
-      <div class="video-wrapper">
-        <iframe
-          class="video-frame"
-          src="https://www.youtube.com/embed/BBk7VKpG4Mg?rel=0&modestbranding=1&showinfo=0"
-          title="Anatomia do Coração Humano em 3D"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen
-          loading="lazy">
-        </iframe>
+          <figure class="video">
+            <div class="video-frame">
+              <iframe
+                src="https://www.youtube.com/embed/I5AGYOjfZiE?modestbranding=1&rel=0&cc_load_policy=1&color=white"
+                title="Por que fazer atividade física — Drauzio Varella" loading="lazy" allowfullscreen></iframe>
+            </div>
+            <figcaption>Por que fazer atividade física? — Drauzio
+              <button class="open-lightbox" data-yt="I5AGYOjfZiE">⤢ ampliar</button>
+            </figcaption>
+          </figure>
+
+          <figure class="video">
+            <div class="video-frame">
+              <iframe
+                src="https://www.youtube.com/embed/alZZ2PQ0SL8?modestbranding=1&rel=0&cc_load_policy=1&color=white"
+                title="150 minutos por semana | Animação #03" loading="lazy" allowfullscreen></iframe>
+            </div>
+            <figcaption>150 minutos/semana — Animação
+              <button class="open-lightbox" data-yt="alZZ2PQ0SL8">⤢ ampliar</button>
+            </figcaption>
+          </figure>
+        </div>
+
+        <p class="ext-link">
+          <a class="btn" target="_blank" href="https://www.canva.com/design/DAG2P_brfZw/n5aLjdkMhg_PKYF_PuZ3Bw/edit?utm_content=DAG2P_brfZw&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton">🎥 Vídeo curto no Canva</a>
+        </p>
+      </section>
+
+      <!-- Lightbox (modal) -->
+      <div id="lightbox" class="lightbox" aria-hidden="true" role="dialog" aria-label="Player em destaque">
+        <div class="lightbox-backdrop"></div>
+        <div class="lightbox-dialog" role="document">
+          <button id="lbClose" class="lb-close" aria-label="Fechar">✕</button>
+          <div class="lightbox-player"><!-- Iframe é injetado via JS --></div>
+        </div>
       </div>
+
+      <!-- Link Voltar (página anterior) -->
+<nav class="back-wrap container" aria-label="Navegação secundária">
+  <button type="button" class="back-link" id="goBackBtn" aria-label="Voltar para a página anterior">← Voltar</button>
+</nav>
+
+
+      <!-- Referências -->
+      <section id="referencias" class="article">
+        <h3 class="kicker">Biblioteca</h3>
+        <h2 class="article-title">Referências bibliográficas (2003–2025)</h2>
+        <input id="refSearch" class="ref-search" type="search" placeholder="Filtrar (ex.: DASH, 2025, meta-análise)" aria-label="Filtrar referências" />
+        <ol id="refList" class="refs">
+          <li>AMBROSETTI, M. et al. Secondary prevention through comprehensive cardiovascular rehabilitation: from knowledge to implementation. 2020 update. A position paper from the Secondary Prevention and Rehabilitation Section of the European Association of Preventive Cardiology. <em>European Journal of Preventive Cardiology</em>, 28(5):460–495, 2021. DOI: 10.1177/2047487320913379</li>
+          <li>APPEL, L. J. Lifestyle modification as a means to prevent and treat high blood pressure. <em>Journal of the American Society of Nephrology</em>, 14(7 Suppl 2):S99–S102, 2003. DOI: 10.1097/01.asn.0000070141.69483.5a</li>
+          <li>DAMLUJI, A. A. et al. Secondary cardiovascular prevention in older adults: an evidence based review. <em>Journal of Geriatric Cardiology</em>, 12(5):459–64, 2015. DOI: 10.11909/j.issn.1671-5411.2015.05.019</li>
+          <li>DIBBEN, G. et al. Exercise-based cardiac rehabilitation for coronary heart disease (Review). <em>Cochrane Database of Systematic Reviews</em>, Issue 11, Art. No.: CD001800. DOI: 10.1002/14651858.CD001800.pub4, 2021.</li>
+          <li>EDWARDS, J. J. et al. Exercise training and resting blood pressure: a large-scale pairwise and network meta-analysis of randomised controlled trials. 2023. (Nota: Referência citada como uma fonte da meta-análise de 2025 sobre exercício e PA). DOI: 10.1136/bjsports-2022-106503</li>
+          <li>HU, H. et al. The impact of aerobic exercise on health management in older hypertensive patients: a systematic review and meta-analysis. <em>International Journal of General Medicine</em>, 2025. DOI: 10.2147/IJGM.S516371</li>
+          <li>HUMMEL, S. L. et al. Low-sodium DASH diet improves diastolic function and ventricular-arterial coupling in hypertensive heart failure with preserved ejection fraction. <em>Circulation: Heart Failure</em>, 6(6):1165–71, 2013. DOI: 10.1161/CIRCHEARTFAILURE.113.000481</li>
+          <li>IZQUIERDO, M. et al. International exercise recommendations in older adults (ICFSR): expert consensus guidelines. <em>Journal of Nutrition, Health and Aging</em>, 25(7):824–53, 2021. DOI: 10.1007/s12603-021-1665-8</li>
+          <li>FUKUTA, H.; GOTO, T.; WAKAMI, K.; KAMIYA, T.; OHTE, N. Effects of exercise training on cardiac function, exercise capacity, and quality of life in heart failure with preserved ejection fraction: a meta-analysis of randomized controlled trials. <em>Heart Failure Reviews</em>, 2019. DOI: 10.1007/s10741-019-09774-5</li>
+          <li>MEN, J. et al. Effects of high-intensity interval training on physical morphology, cardiopulmonary function, and metabolic indicators in older adults: a systematic review and meta-analysis. <em>Frontiers in Endocrinology</em>, 16, 2025. DOI: 10.3389/fendo.2025.1543775</li>
+          <li>OLIVEIRA, J. et al. Postaerobic exercise blood pressure reduction in very old persons with hypertension. <em>Journal of Geriatric Physical Therapy</em>, 39(1):8–13, 2016. DOI: 10.1519/JPT.0000000000000049</li>
+          <li>POGOSOVA, N. et al. Psychosocial aspects in cardiac rehabilitation: from theory to practice. <em>European Journal of Preventive Cardiology</em>, 22(10):1290–1306, 2015. DOI: 10.1177/2047487314543075</li>
+          <li>PRATESI, A. et al. Long-term functional outcomes after cardiac rehabilitation in older patients: data from the CR-AGE EXTRA randomized study. <em>European Journal of Preventive Cardiology</em>, 26(14):1470–1478, 2019. DOI: 10.1177/2047487319854141</li>
+          <li>PROMMABAN, A. et al. The effect of exercise program interventions on frailty, clinical outcomes, and biomarkers in older adults: a systematic review. <em>Journal of Clinical Medicine</em>, 13:6570, 2024. DOI: 10.3390/jcm13216570</li>
+          <li>RUKSKULPIWAT, S. et al. Medication adherence of older adults with hypertension: a systematic review. <em>Patient Preference and Adherence</em>, 18:957–967, 2024. DOI: 10.2147/PPA.S459678</li>
+          <li>SANTAULARIA, N. et al. The efficacy of a supervised exercise training programme on readmission rates in patients with myocardial ischemia: results from a randomized controlled trial. <em>European Journal of Cardiovascular Nursing</em>, 16(3):201–212, 2017. DOI: 10.1177/1474515116648801</li>
+          <li>SCHMIDT-TRUCKSÄSS, A. et al. Lifestyle determinants of ASCVD risk: improving healthy lifestyle determinants is the primary goal. <em>Atherosclerosis</em>, 395:117577, 2024. DOI: 10.1016/j.atherosclerosis.2024.117577</li>
+          <li>TARAZONA-SANTABALBINA, F. J. et al. Multicomponent exercise reverses frailty and improves cognition: RCT. <em>Journal of the American Medical Directors Association</em>, 17(5):426–433, 2016. DOI: 10.1016/j.jamda.2016.01.019</li>
+          <li>VALENZUELA, P. L. et al. Exercise on physical function in older adults in residential care: network meta-analysis of RCTs. <em>The Lancet Healthy Longevity</em>, 4(5):e247–e256, 2023. DOI: 10.1016/S2666-7568(23)00057-0</li>
+          <li>YOSHIDA, H. et al. Association between salt intake and blood pressure among older adults considering frailty status. <em>Hypertension Research</em>, 2025. DOI: 10.1038/s41440-024-02066-y</li>
+        </ol>
+      </section>
     </section>
 
-    <!-- ========================
-         SEÇÃO 3: VÍDEO CIRCULAÇÃO
-    =========================== -->
-    <section class="video-section" aria-labelledby="video-circulacao">
-      <h2 id="video-circulacao">🩸 Circulação Sanguínea – Hemocentro RP</h2>
-      <p class="video-descricao">
-        Veja como o sangue circula pelo corpo humano, garantindo o transporte de oxigênio e nutrientes.
-      </p>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <section class="box">
+        <h3 class="box-title">Destaques</h3>
+        <ul class="bullets">
+          <li>“Regra da conversa” define intensidade segura.</li>
+          <li>150 min/semana reduzem riscos cardiometabólicos.</li>
+          <li>DASH + menos sal melhora função diastólica.</li>
+        </ul>
+      </section>
 
-      <div class="video-wrapper">
-        <iframe
-          class="video-frame"
-          src="https://www.youtube.com/embed/lrzCIUTBgds?rel=0&modestbranding=1&showinfo=0"
-          title="Circulação Sanguínea - Hemocentro RP"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen
-          loading="lazy">
-        </iframe>
-      </div>
-    </section>
+      <section class="box">
+        <h3 class="box-title">Links rápidos</h3>
+        <ul class="links">
+          <li><a href="#reportagem">Reportagem completa</a></li>
+          <li><a href="#videos">Vídeos recomendados</a></li>
+          <li><a href="#referencias">Referências</a></li>
+        </ul>
+      </section>
 
-  <section class="video-section">
-  <h2>🎥 Vídeo Curto — Coração Motor da Vida</h2>
-  <p class="video-descricao">
-    Assista ao vídeo curto sobre o coração diretamente no site:
-  </p>
-
-  <div class="video-wrapper">
-    <video class="video-frame" controls playsinline>
-      <source src="Coração motor da vida. (1).mp4" type="video/mp4">
-      Seu navegador não suporta vídeos HTML5.
-    </video>
-  </div>
-</section>
-
-    <!-- ========================
-         SEÇÃO 5: TEXTO FINAL
-    =========================== -->
-    <section class="card">
-      <h2>💪 Coração, Pulmão e Movimento</h2>
-
-      <p>O coração, o pulmão e os músculos trabalham juntos o tempo todo. O pulmão coloca o oxigênio no sangue, o coração o distribui pelo corpo e os músculos usam esse oxigênio para gerar energia e movimento. Quando essa parceria funciona bem, o corpo fica mais forte e saudável.</p>
-
-      <p>Ficar parado por muito tempo faz mal, pois enfraquece os músculos, piora a circulação e aumenta o risco de pressão alta e doenças do coração. Mesmo pequenas pausas para se levantar, andar ou se alongar já ajudam o coração a trabalhar melhor.</p>
-
-      <p>Durante o movimento, o coração e o pulmão aceleram para levar mais oxigênio aos músculos. Com atividades leves e regulares, o coração se fortalece, a circulação melhora e o corpo fica mais resistente ao cansaço.</p>
-
-      <p><strong>Mexer-se todos os dias — caminhando, dançando ou fazendo alongamentos — é uma das melhores formas de manter o coração e o corpo saudáveis.</strong></p>
-    </section>
-
-    <section class="video-section">
-  <h2>🧠 Por que fazer atividade física é bom para a saúde? — Drauzio Varella</h2>
-  <p class="video-descricao">
-    O Dr. Drauzio Varella explica de forma simples e direta os benefícios da atividade física regular para o corpo e o coração.
-  </p>
-  <div class="video-wrapper">
-    <iframe
-      class="video-frame"
-      src="Vídeo do WhatsApp de 2025-10-22 à(s) 00.23.06_cd17575c.mp4"
-      title="Por que fazer atividade física é bom para a saúde - Drauzio Varella"
-      frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      allowfullscreen
-      loading="lazy">
-    </iframe>
-  </div>
-</section>
-
-
-<section class="video-section">
-  <h2>🧠 Por que fazer atividade física é bom para a saúde?</h2>
- <!-- Imagem de capa -->
-  <div class="video-thumb">
-    <img src="Imagem do WhatsApp de 2025-10-22 à(s) 00.07.37_120c377f.jpg" alt="Dr. Drauzio Varella falando sobre atividade física e saúde">
-  </div>
-
-  <section class="card">
-  <h2>💓 O Corpo em Movimento e a Saúde do Coração</h2>
-
-  <p>O corpo se ajusta sozinho para manter tudo funcionando bem. Quando a pessoa se movimenta, o coração bate mais rápido para levar oxigênio aos músculos; quando descansa, ele desacelera. Com o tempo e a prática de exercícios leves, o coração aprende a trabalhar com mais calma e eficiência, e a pressão tende a melhorar.</p>
-
-  <p>É importante prestar atenção aos sinais do corpo. Durante o exercício, a pessoa deve conseguir conversar sem ficar sem ar — se não conseguir, é sinal de que está fazendo esforço demais. Falta de ar, cansaço forte ou inchaço nas pernas são sinais de alerta e precisam de avaliação médica.</p>
-
-  <p>A fisioterapia ajuda muito na saúde do coração. Exercícios leves, alongamentos e respiração profunda melhoram a circulação, reduzem a pressão e fortalecem o coração. Mesmo com atividades simples, feitas todos os dias, é possível cuidar bem do coração.</p>
-
-  <p><strong>O importante é se mover sempre, com segurança e regularidade.</strong></p>
-</section>
-
-
-
-
-    
-
-
-
+      <section class="box note">
+        <h3 class="box-title">Nota do editor</h3>
+        <p>Em caso de dor torácica, falta de ar intensa, tontura ou desmaio, procure atendimento médico imediato.</p>
+      </section>
+    </aside>
   </main>
 
-  <div class="voltar">
-  <a href="index.html" class="btn-voltar">⬅️ Voltar</a>
-</div>
-
-
-  <footer class="site-footer">
-    <p>© 2025 Vida Saudável 60+ | Saúde e Bem-Estar</p>
+  <footer class="footer">
+    <div class="container">
+      © <span id="year"></span> Vida Saudável 60+ • Jornal de Saúde e Bem-Estar
+    </div>
   </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>

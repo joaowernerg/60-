@@ -2,61 +2,182 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" /> 
-  <title>Jornal Agora • Início</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vida Saudável 60+ | Início</title>
+  <meta name="description" content="Notícias, vídeos e dicas para cuidar da saúde, do corpo e do coração na melhor idade." />
+
+  <!-- ===== FONTES E ÍCONES ===== -->
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-  <header class="site-header">
-    <div class="container header-grid">
-      <button id="menuBtn" class="menu-btn">☰</button>
-      <a class="brand" href="index.html">
-        <span class="brand-badge">AG</span>
-        <div class="brand-text">
-          <h1>Jornal Agora</h1>
-          <p class="tag">Notícias ao vivo e análises</p>
+  <!-- ======= HEADER ======= -->
+  <header>
+    <div class="container header-flex">
+      <a href="index.html" class="brand" aria-label="Página inicial Vida Saudável 60+">
+        <div class="logo" aria-hidden="true">60+</div>
+        <div>
+          <h1>Vida Saudável 60+</h1>
+          <small>Saúde • Alimentação • Dicas • Jogos</small>
         </div>
       </a>
-      <nav class="top-nav" id="topNav">
-        <a href="#ultimas">Últimas</a>
-        <a href="#brasil">Brasil</a>
-        <a href="#mundo">Mundo</a>
+
+      <button class="menu-btn" id="menuBtn" aria-controls="siteNav" aria-expanded="false">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
+      <nav class="nav" id="siteNav">
+        <a href="#noticias"><i class="fa-solid fa-newspaper"></i> Notícias</a>
+        <a href="#saude"><i class="fa-solid fa-heart-pulse"></i> Saúde</a>
+        <a href="#contato"><i class="fa-solid fa-envelope"></i> Contato</a>
+        <a href="denuncia.html"><i class="fa-solid fa-triangle-exclamation"></i> Denúncia</a>
+        <a href="#jogos" class="dropbtn"><i class="fa-solid fa-gamepad"></i> Jogos</a>
       </nav>
     </div>
   </header>
 
-  <main class="container section" id="saude">
-    <h3 class="section-title">Saúde</h3>
+  <!-- ======= HERO ======= -->
+  <section class="hero container" aria-labelledby="boas-vindas">
+    <h1 id="boas-vindas"><i class="fa-solid fa-leaf"></i> Bem-vindo ao Portal Vida Saudável 60+</h1>
+    <p>Notícias, vídeos e dicas para cuidar da saúde, do corpo e do coração <i class="fa-solid fa-heart"></i></p>
+  </section>
+
+  <!-- ======= NOTÍCIAS ======= -->
+  <section id="noticias" class="container" aria-labelledby="ultimas">
+    <h2 class="section-title"><i class="fa-solid fa-stethoscope"></i> Últimas Notícias de Saúde</h2>
+
     <div class="news-grid">
+      <!-- CARD 1 -->
       <article class="news-card">
-        <a href="coracao.html" class="thumb">
-          <img src="ChatGPT Image 23_10_2025, 00_32_57.png" alt="Imagem ilustrativa sobre o coração">
+        <a class="thumb" href="coracao.html" aria-label="Ler: Entendendo seu Coração">
+          <img loading="lazy" src="https://www.drhugothome.com.br/images/blog/entenda-seu-coracao2.jpg" alt="Ilustração de um coração saudável">
         </a>
         <div class="news-content">
-          <h4><a href="noticia1.html">Entendendo seu Coração</a></h4>
-          <p>O coração é o motor da vida, responsável por levar sangue e energia para todo o corpo. Ele funciona como uma bomba essencial para nossa saúde.</p>
-          <span class="categoria">Categoria: Saúde</span>
+          <h2>Entendendo seu Coração: Fisiologia, Movimento e Reabilitação</h2>
+          <div class="news-meta">
+            <span><i class="fa-solid fa-user-doctor"></i> Reportagem</span> • <time datetime="2025-10-23">23 out 2025</time>
+          </div>
+          <p>O coração é o motor da vida — entenda como ele funciona e como atividade física e fisioterapia mantêm tudo forte e saudável.</p>
+          <a href="coracao.html" class="read-more"><i class="fa-solid fa-arrow-right"></i> Ler mais</a>
         </div>
       </article>
 
+      <!-- CARD 2 -->
       <article class="news-card">
-        <a href="noticia2.html" class="thumb">
-          <img src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?q=80&w=1200&auto=format&fit=crop" alt="Privacidade e tecnologia">
+        <a class="thumb" href="alimentacao.html" aria-label="Ler: Alimentação e Saúde do Coração">
+          <img loading="lazy" src="https://medworld.com.br/2022/wp-content/uploads/2015/12/alimentos-beneficios-coracao-medworld.jpg" alt="Cesta com frutas coloridas e alimentos naturais">
         </a>
         <div class="news-content">
-          <h4><a href="noticia2.html">Privacidade: novas regras para aplicativos</a></h4>
-          <p>Empresas precisam se adaptar às novas políticas digitais.</p>
-          <span class="categoria">Categoria: Tecnologia</span>
+          <h2>Alimentação e Saúde do Coração</h2>
+          <div class="news-meta">
+            <span><i class="fa-solid fa-apple-whole"></i> Guia</span> • <time datetime="2025-10-20">20 out 2025</time>
+          </div>
+          <p>Como montar pratos equilibrados e reduzir o sal do dia a dia para proteger o coração sem abrir mão do sabor.</p>
+          <a href="alimentacao.html" class="read-more"><i class="fa-solid fa-arrow-right"></i> Ler matéria completa</a>
+        </div>
+      </article>
+
+      <!-- CARD 3 -->
+      <article class="news-card">
+        <a class="thumb" href="melhor-idade.html" aria-label="Ler: Cuidando do Coração na Melhor Idade">
+          <img loading="lazy" src="https://cardiologianiteroi.com.br/wp-content/uploads/2024/09/Saude-do-coracao-na-terceira-idade-como-envelhecer-com-vitalidade.jpg" alt="Coração estilizado sobre fundo escuro">
+        </a>
+        <div class="news-content">
+          <h2>Cuidando do Coração na Melhor Idade</h2>
+          <div class="news-meta">
+            <span><i class="fa-solid fa-hands-holding-heart"></i> Especial</span> • <time datetime="2025-10-15">15 out 2025</time>
+          </div>
+          <p>Dicas práticas e seguras: sinais de alerta, metas de pressão e o papel da equipe multidisciplinar.</p>
+          <a href="melhor-idade.html" class="read-more"><i class="fa-solid fa-arrow-right"></i> Ler matéria completa</a>
+        </div>
+      </article>
+
+      <!-- CARD 4 -->
+      <article class="news-card">
+        <a class="thumb" href="pele.html" aria-label="Ler: Saúde da Pele na Melhor Idade">
+          <img loading="lazy" src="https://www.julianatoma.com.br/wp-content/uploads/2016/04/dicas-para-pele-na-terceira-idade.jpg" alt="Mãos idosas recebendo hidratação">
+        </a>
+        <div class="news-content">
+          <h2>Saúde da Pele na Melhor Idade</h2>
+          <div class="news-meta">
+            <span><i class="fa-solid fa-droplet"></i> Dermatologia</span> • <time datetime="2025-10-23">23 out 2025</time>
+          </div>
+          <p>Fotoproteção, hidratação e banho morno: rotina simples que protege a pele e o conforto no dia a dia.</p>
+          <a href="pele.html" class="read-more"><i class="fa-solid fa-arrow-right"></i> Ler matéria</a>
+        </div>
+      </article>
+
+      <!-- CARD 5 -->
+      <article class="news-card">
+        <a class="thumb" href="inclusao.html" aria-label="Ler: Inclusão digital no envelhecimento ativo">
+          <img loading="lazy" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZvPuQf1Q2ou3XfnB3hBXXcspaO_7y_r75-g&s" alt="Pessoa idosa usando smartphone">
+        </a>
+        <div class="news-content">
+          <h2>Inclusão Digital no Envelhecimento Ativo</h2>
+          <div class="news-meta">
+            <span><i class="fa-solid fa-universal-access"></i> Bem-estar</span> • <time datetime="2025-10-23">23 out 2025</time>
+          </div>
+          <p>Aprenda a usar o celular e a internet com segurança, acessibilidade e autonomia — passo a passo.</p>
+          <a href="inclusao.html" class="read-more"><i class="fa-solid fa-arrow-right"></i> Ler matéria</a>
+        </div>
+      </article>
+
+      <!-- CARD 6 -->
+      <article class="news-card">
+        <a class="thumb" href="tecnologias-assistivas.html" aria-label="Ler: Tecnologias Assistivas">
+          <img loading="lazy" src="imagens/assistiva-capa.jpg" alt="Pessoa idosa caminhando com andador">
+        </a>
+        <div class="news-content">
+          <h2>Tecnologias Assistivas na Marcha e Locomoção</h2>
+          <div class="news-meta">
+            <span><i class="fa-solid fa-wheelchair"></i> Mobilidade</span> • <time datetime="2025-10-23">23 out 2025</time>
+          </div>
+          <p>Bengalas, andadores, órteses e soluções “smart” que garantem mais segurança e autonomia.</p>
+          <a href="https://www.reab.me/wp-content/uploads/2019/10/Honda-Walking-Assistant.png" class="read-more"><i class="fa-solid fa-arrow-right"></i> Ler matéria</a>
         </div>
       </article>
     </div>
-  </main>
+  </section>
 
-  <footer class="site-footer">
-    <p>© <span id="year"></span> Jornal Agora</p>
+  <!-- ======= JOGOS ======= -->
+  <section id="jogos" class="container">
+    <h2 class="section-title"><i class="fa-solid fa-gamepad"></i> Jogos</h2>
+    <div class="games-grid">
+      <article class="game-card">
+        <a href="memoria.html">
+          <img src="https://www.sitededicas.com.br/gifs/imagens-software/jogo-memoria-frutas.jpg" alt="Cartas do jogo da memória">
+          <h3><i class="fa-solid fa-brain"></i> Jogo da Memória</h3>
+          <p>Combine as cartas e exercite sua mente!</p>
+        </a>
+      </article>
+
+  <!-- ======= SAÚDE ======= -->
+  <section id="saude" class="container">
+    <h2 class="section-title"><i class="fa-solid fa-heart-pulse"></i> Saúde</h2>
+    <p class="muted">Em breve: conteúdo sobre atividade física, reabilitação e prevenção para a melhor idade.</p>
+  </section>
+
+
+
+
+
+  <!-- ======= CONTATO ======= -->
+  <section id="contato" class="container">
+    <h2 class="section-title"><i class="fa-solid fa-envelope"></i> Contato</h2>
+    <p class="muted">Fale com a redação: <a href="mailto:contato@vidas60.com">contato@vidas60.com</a></p>
+  </section>
+
+  <!-- ======= FOOTER ======= -->
+  <footer>
+    <div class="container">
+      © <span id="year"></span> Vida Saudável 60+ — Promovendo saúde e bem-estar
+    </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Inclusão Digital no Envelhecimento Ativo | Vida Saudável 60+</title>
+  <meta name="description" content="Como a tecnologia e a inclusão digital fortalecem a autonomia, a participação social e a saúde na melhor idade. Passo a passo prático e vídeo explicativo." />
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style-jornal.css" />
+</head>
+<body>
+  <!-- Topo estilo jornal -->
+  <header class="container topbar">
+    <a class="brand" href="index.html">
+      <div class="badge">60+</div>
+      <div>
+        <h1 class="title">Vida Saudável 60+</h1>
+        <p class="tagline">Saúde • Alimentação • Dicas • Jogos</p>
+      </div>
+    </a>
+    <button id="menuBtn" class="menu-btn" aria-label="Abrir menu">☰</button>
+    <nav id="nav" class="nav">
+      <a href="index.html">Início</a>
+      <a href="#reportagem">Reportagem</a>
+      <a href="#video">Vídeo</a>
+    </nav>
+  </header>
+
+  <div class="container sectionbar">
+    <span>Edição Bem-Estar e Tecnologia</span>
+    <span class="dot">•</span>
+    <time id="today"></time>
+  </div>
+
+  <!-- Link Voltar (histórico) -->
+  <nav class="back-wrap container" aria-label="Navegação secundária">
+    <button type="button" class="back-link" id="goBackBtn" aria-label="Voltar para a página anterior">← Voltar</button>
+  </nav>
+
+  <!-- Capa -->
+  <section class="container cover">
+    <article class="hero">
+      <header>
+        <h2 class="headline">Inclusão digital no envelhecimento ativo</h2>
+        <p class="dek">Autonomia, participação e segurança: como o uso do celular e da internet pode melhorar sua saúde, seu convívio social e sua qualidade de vida.</p>
+      </header>
+
+      <!-- TAG DE IMAGEM — “O Que é Envelhecimento Ativo?” -->
+      <figure class="hero-art">
+        <img
+          class="hero-img"
+          src="https://www.ovictoriano.com.br/public/img/media/inclusao-idosos1690803003.jpg"
+          alt="Pessoa idosa usando um smartphone com apoio de um familiar; conceito de envelhecimento ativo e inclusão digital" />
+        <figcaption class="caption"></figcaption>
+      </figure>
+    </article>
+  </section>
+
+  <!-- Corpo da matéria -->
+  <main class="container paper-grid">
+    <!-- Coluna principal -->
+    <section id="reportagem" class="column">
+
+      <article class="article">
+        <h3 class="kicker">Reportagem</h3>
+        <h2 class="article-title">Envelhecimento ativo: o ideal e o caminho</h2>
+        <p>O aumento da expectativa de vida e o desejo por longevidade com qualidade são ideais para todos. <strong>Envelhecimento Ativo</strong> é otimizar oportunidades para saúde, participação e segurança — realçando a qualidade de vida.</p>
+        <p>A tecnologia e a inclusão digital são ferramentas poderosas para viver essa fase com mais <strong>autonomia</strong> e <strong>bem-estar</strong>.</p>
+      </article>
+
+      <article class="article">
+        <h2 class="article-title">O que é envelhecer ativamente</h2>
+        <p>Não é apenas ser fisicamente ativo ou permanecer na força de trabalho. É manter o <strong>engajamento contínuo com a vida</strong>, considerando determinantes comportamentais, sociais, econômicos e pessoais.</p>
+        <ul>
+          <li><strong>Participação Social</strong>: diálogo, amizade, convívio; a inserção social ajuda a evitar isolamento e transtornos mentais.</li>
+          <li><strong>Saúde Física e Mental</strong>: atividade física regular, caminhadas e alimentação adequada favorecem bem-estar integral.</li>
+          <li><strong>Mente Ativa</strong>: atividades prazerosas, leitura, jogos de memória e aprendizagem contínua.</li>
+          <li><strong>Autonomia</strong>: manter a independência funcional nas tarefas diárias e a capacidade de autogoverno.</li>
+        </ul>
+      </article>
+
+      <article class="article">
+        <h2 class="article-title">A inclusão digital a favor da sua saúde</h2>
+        <p>Em um mundo digital, o acesso à informação é um princípio ético importante. As tecnologias facilitam que você:</p>
+        <ol>
+          <li><strong>Acompanhe sua saúde</strong>: ampliar recursos para compreender e agir nas questões de saúde — crucial na velhice pelo maior autocuidado em doenças crônicas.</li>
+          <li><strong>Tenha registros organizados</strong>: plataformas públicas (ex.: caderneta digital da pessoa idosa) e apps de saúde ajudam a monitorar consultas, exames, vacinas e medicações.</li>
+        </ol>
+        <div class="callouts">
+          <div class="callout ok"><strong>Dica:</strong> fixe na tela inicial os apps de saúde, agenda, contatos de emergência e o mensageiro da família.</div>
+        </div>
+      </article>
+
+      <!-- VÍDEO -->
+      <section id="video" class="article videos-wrap">
+        <h3 class="kicker">Serviço</h3>
+        <div class="videos-header">
+          <h2 class="article-title">Vídeo explicativo</h2>
+          <div class="video-actions">
+            <button id="btnCinema" class="btn-outline" aria-pressed="false">🎞️ Modo cinema</button>
+          </div>
+        </div>
+
+        <div class="video-grid">
+          <figure class="video">
+            <div class="video-frame">
+              <!-- CORRIGIDO: agora o iframe aponta para o YouTube (antes estava um .jpeg) -->
+              <iframe
+                src="https://www.youtube.com/embed/cQ6jaLPFKbw?modestbranding=1&rel=0&cc_load_policy=1&color=white"
+                title="Inclusão digital no envelhecimento ativo — vídeo explicativo"
+                loading="lazy"
+                allowfullscreen></iframe>
+            </div>
+            <figcaption>Inclusão digital no envelhecimento ativo
+              <button class="open-lightbox" data-yt="cQ6jaLPFKbw">⤢ ampliar</button>
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- Encerramento -->
+      <article class="article">
+        <h2 class="article-title">Comece simples, comece hoje</h2>
+        <p>Ajuste o tamanho das letras, ative o alto contraste, crie um PIN/biometria e aprenda a fazer chamada de vídeo com quem você ama. A tecnologia pode — e deve — trabalhar a seu favor.</p>
+      </article>
+
+      <!-- Link Voltar (página anterior) -->
+      <nav class="back-wrap" aria-label="Navegação secundária">
+        <button type="button" class="back-link" id="goBackBtn" aria-label="Voltar para a página anterior">← Voltar</button>
+      </nav>
+    </section>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <section class="box">
+        <h3 class="box-title">Resumo rápido</h3>
+        <ul class="bullets">
+          <li>Envelhecer ativamente = engajamento contínuo na vida.</li>
+          <li>Inclusão digital aumenta autonomia e acesso à saúde.</li>
+          <li>Fixe apps essenciais e ative recursos de acessibilidade.</li>
+        </ul>
+      </section>
+
+      <section class="box">
+        <h3 class="box-title">Links úteis</h3>
+        <ul class="links">
+          <li><a href="#reportagem">Reportagem completa</a></li>
+          <li><a href="#video">Vídeo explicativo</a></li>
+        </ul>
+      </section>
+    </aside>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      © <span id="year"></span> Vida Saudável 60+ • Jornal de Saúde e Bem-Estar
+    </div>
+  </footer>
+
+  <!-- Voltar ao topo -->
+  <button id="backToTop" class="back-to-top" aria-label="Voltar ao topo" title="Voltar ao topo">↑</button>
+
+  <script src="script.js"></script>
+</body>
+</html>
