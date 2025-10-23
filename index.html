@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" /> 
+  <title>Jornal Agora • Início</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-grid">
+      <button id="menuBtn" class="menu-btn">☰</button>
+      <a class="brand" href="index.html">
+        <span class="brand-badge">AG</span>
+        <div class="brand-text">
+          <h1>Jornal Agora</h1>
+          <p class="tag">Notícias ao vivo e análises</p>
+        </div>
+      </a>
+      <nav class="top-nav" id="topNav">
+        <a href="#ultimas">Últimas</a>
+        <a href="#brasil">Brasil</a>
+        <a href="#mundo">Mundo</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container section" id="saude">
+    <h3 class="section-title">Saúde</h3>
+    <div class="news-grid">
+      <article class="news-card">
+        <a href="coracao.html" class="thumb">
+          <img src="ChatGPT Image 23_10_2025, 00_32_57.png" alt="Imagem ilustrativa sobre o coração">
+        </a>
+        <div class="news-content">
+          <h4><a href="noticia1.html">Entendendo seu Coração</a></h4>
+          <p>O coração é o motor da vida, responsável por levar sangue e energia para todo o corpo. Ele funciona como uma bomba essencial para nossa saúde.</p>
+          <span class="categoria">Categoria: Saúde</span>
+        </div>
+      </article>
+
+      <article class="news-card">
+        <a href="noticia2.html" class="thumb">
+          <img src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?q=80&w=1200&auto=format&fit=crop" alt="Privacidade e tecnologia">
+        </a>
+        <div class="news-content">
+          <h4><a href="noticia2.html">Privacidade: novas regras para aplicativos</a></h4>
+          <p>Empresas precisam se adaptar às novas políticas digitais.</p>
+          <span class="categoria">Categoria: Tecnologia</span>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> Jornal Agora</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

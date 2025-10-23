@@ -1,0 +1,336 @@
+/* ===========================================
+   🌎 ESTILO GLOBAL — JORNAL & VIDA SAUDÁVEL
+   =========================================== */
+
+/* ===== VARIÁVEIS ===== */
+:root {
+  --bg: #fff8ef;
+  --text: #2e2e2e;
+  --muted: #555;
+  --brand: #ff7a00;
+  --accent: #ffd23f;
+  --white: #ffffff;
+  --shadow: 0 8px 24px rgba(255, 122, 0, 0.2);
+  --radius: 14px;
+  --font-title: 'Merriweather', serif;
+  --font-body: 'Poppins', sans-serif;
+}
+
+/* ===== RESET ===== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.8;
+  overflow-x: hidden;
+}
+
+img, video, iframe {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--radius);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ===========================================
+   📰 CABEÇALHO PADRÃO
+   =========================================== */
+.site-header {
+  background: linear-gradient(90deg, var(--brand), var(--accent));
+  color: var(--white);
+  padding: 16px 12px;
+  box-shadow: var(--shadow);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-grid {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--white);
+}
+
+.brand-badge {
+  background: var(--white);
+  color: var(--brand);
+  font-weight: 700;
+  font-size: 1.2rem;
+  border-radius: 50%;
+  padding: 10px 14px;
+  margin-right: 10px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+.brand-text h1 {
+  font-family: var(--font-title);
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.brand-text p {
+  font-size: 0.9rem;
+  margin: 0;
+  opacity: 0.9;
+}
+
+/* ===== MENU ===== */
+.top-nav a {
+  margin-left: 16px;
+  font-weight: 500;
+  color: var(--white);
+  transition: opacity 0.3s;
+}
+
+.top-nav a:hover {
+  opacity: 0.8;
+}
+
+/* ===== MENU MOBILE ===== */
+.menu-btn {
+  display: none;
+  background: transparent;
+  border: none;
+  color: var(--white);
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .menu-btn {
+    display: block;
+  }
+
+  .top-nav {
+    display: none;
+    width: 100%;
+    text-align: center;
+    margin-top: 12px;
+  }
+
+  .top-nav a {
+    display: block;
+    padding: 8px 0;
+  }
+
+  .top-nav.is-open {
+    display: block;
+  }
+}
+
+/* ===========================================
+   📰 GRADE DE NOTÍCIAS (PÁGINA PRINCIPAL)
+   =========================================== */
+.section-title {
+  font-family: var(--font-title);
+  color: var(--brand);
+  margin: 30px 0 10px;
+  text-align: left;
+}
+
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.news-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  transition: transform 0.3s;
+}
+
+.news-card:hover {
+  transform: translateY(-5px);
+}
+
+.news-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.news-content {
+  padding: 15px;
+}
+
+.news-content h4 {
+  color: var(--brand);
+  margin-bottom: 8px;
+  font-size: 1.05rem;
+}
+
+.news-content p {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.categoria {
+  display: block;
+  font-size: 0.8rem;
+  margin-top: 8px;
+  color: var(--brand);
+}
+
+/* ===========================================
+   ❤️ CONTEÚDO DE ARTIGOS (PÁGINA DE SAÚDE)
+   =========================================== */
+.card {
+  width: min(1100px, 92%);
+  margin: 40px auto;
+  background: var(--white);
+  padding: 40px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.card h2 {
+  color: var(--brand);
+  font-family: var(--font-title);
+  margin-bottom: 12px;
+}
+
+.card p {
+  text-align: justify;
+  margin-bottom: 15px;
+}
+
+.card ul {
+  margin: 15px 0;
+  padding-left: 25px;
+}
+
+.card li {
+  margin-bottom: 8px;
+  color: var(--text);
+}
+
+/* ===========================================
+   🎬 VÍDEOS (YouTube e Locais)
+   =========================================== */
+.video-section {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.video-section h2 {
+  color: var(--brand);
+  font-family: var(--font-title);
+  margin-bottom: 8px;
+}
+
+.video-descricao {
+  color: var(--muted);
+  margin-bottom: 14px;
+  font-size: 1rem;
+}
+
+.video-wrapper {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto 30px;
+  aspect-ratio: 16 / 9;
+  background: #000;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.video-frame {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+  object-fit: cover;
+}
+
+/* ===========================================
+   🔙 BOTÃO VOLTAR
+   =========================================== */
+.voltar {
+  text-align: center;
+  margin: 40px 0 20px;
+}
+
+.btn-voltar {
+  display: inline-block;
+  background: var(--brand);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 12px 28px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: background 0.3s, transform 0.2s;
+}
+
+.btn-voltar:hover {
+  background: var(--accent);
+  color: var(--text);
+  transform: translateY(-2px);
+}
+
+/* ===========================================
+   ⚫ RODAPÉ
+   =========================================== */
+.site-footer {
+  text-align: center;
+  padding: 25px 10px;
+  background: var(--brand);
+  color: var(--white);
+  margin-top: 40px;
+  font-size: 0.95rem;
+  box-shadow: var(--shadow);
+}
+
+/* ===========================================
+   📱 RESPONSIVIDADE GERAL
+   =========================================== */
+@media (max-width: 768px) {
+  .card {
+    padding: 24px;
+  }
+
+  .site-header h1 {
+    font-size: 1.4rem;
+  }
+
+  .brand-text h1 {
+    font-size: 1.2rem;
+  }
+
+  .news-card img {
+    height: auto;
+  }
+
+  .news-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .video-wrapper {
+    width: 100%;
+    max-width: 100%;
+  }
+}
