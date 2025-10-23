@@ -1,12 +1,19 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Vida Saudável 60+ | Início</title>
   <meta name="description" content="Notícias, vídeos e dicas para cuidar da saúde, do corpo e do coração na melhor idade." />
+  <meta name="theme-color" content="#ff7a00" />
+
+  <!-- Social (opcional) -->
+  <meta property="og:title" content="Vida Saudável 60+ | Início" />
+  <meta property="og:description" content="Notícias, vídeos e dicas para cuidar da saúde, do corpo e do coração na melhor idade." />
+  <meta property="og:type" content="website" />
 
   <!-- ===== FONTES E ÍCONES ===== -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="style.css" />
@@ -24,11 +31,11 @@
         </div>
       </a>
 
-      <button class="menu-btn" id="menuBtn" aria-controls="siteNav" aria-expanded="false">
+      <button class="menu-btn" id="menuBtn" aria-controls="siteNav" aria-expanded="false" aria-label="Abrir menu">
         <i class="fa-solid fa-bars"></i>
       </button>
 
-      <nav class="nav" id="siteNav">
+      <nav class="nav" id="siteNav" aria-label="Navegação principal">
         <a href="#noticias"><i class="fa-solid fa-newspaper"></i> Notícias</a>
         <a href="#saude"><i class="fa-solid fa-heart-pulse"></i> Saúde</a>
         <a href="#contato"><i class="fa-solid fa-envelope"></i> Contato</a>
@@ -46,7 +53,7 @@
 
   <!-- ======= NOTÍCIAS ======= -->
   <section id="noticias" class="container" aria-labelledby="ultimas">
-    <h2 class="section-title"><i class="fa-solid fa-stethoscope"></i> Últimas Notícias de Saúde</h2>
+    <h2 id="ultimas" class="section-title"><i class="fa-solid fa-stethoscope"></i> Últimas Notícias de Saúde</h2>
 
     <div class="news-grid">
       <!-- CARD 1 -->
@@ -79,21 +86,7 @@
         </div>
       </article>
 
-      <!-- CARD 3 -->
-      <article class="news-card">
-        <a class="thumb" href="melhor-idade.html" aria-label="Ler: Cuidando do Coração na Melhor Idade">
-          <img loading="lazy" src="https://cardiologianiteroi.com.br/wp-content/uploads/2024/09/Saude-do-coracao-na-terceira-idade-como-envelhecer-com-vitalidade.jpg" alt="Coração estilizado sobre fundo escuro">
-        </a>
-        <div class="news-content">
-          <h2>Cuidando do Coração na Melhor Idade</h2>
-          <div class="news-meta">
-            <span><i class="fa-solid fa-hands-holding-heart"></i> Especial</span> • <time datetime="2025-10-15">15 out 2025</time>
-          </div>
-          <p>Dicas práticas e seguras: sinais de alerta, metas de pressão e o papel da equipe multidisciplinar.</p>
-          <a href="melhor-idade.html" class="read-more"><i class="fa-solid fa-arrow-right"></i> Ler matéria completa</a>
-        </div>
-      </article>
-
+  
       <!-- CARD 4 -->
       <article class="news-card">
         <a class="thumb" href="pele.html" aria-label="Ler: Saúde da Pele na Melhor Idade">
@@ -112,7 +105,7 @@
       <!-- CARD 5 -->
       <article class="news-card">
         <a class="thumb" href="inclusao.html" aria-label="Ler: Inclusão digital no envelhecimento ativo">
-          <img loading="lazy" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZvPuQf1Q2ou3XfnB3hBXXcspaO_7y_r75-g&s" alt="Pessoa idosa usando smartphone">
+          <img loading="lazy" src="c" alt="Pessoa idosa usando smartphone">
         </a>
         <div class="news-content">
           <h2>Inclusão Digital no Envelhecimento Ativo</h2>
@@ -142,8 +135,8 @@
   </section>
 
   <!-- ======= JOGOS ======= -->
-  <section id="jogos" class="container">
-    <h2 class="section-title"><i class="fa-solid fa-gamepad"></i> Jogos</h2>
+  <section id="jogos" class="container" aria-labelledby="tit-jogos">
+    <h2 id="tit-jogos" class="section-title"><i class="fa-solid fa-gamepad"></i> Jogos</h2>
     <div class="games-grid">
       <article class="game-card">
         <a href="memoria.html">
@@ -152,20 +145,18 @@
           <p>Combine as cartas e exercite sua mente!</p>
         </a>
       </article>
+    </div>
+  </section>
 
   <!-- ======= SAÚDE ======= -->
-  <section id="saude" class="container">
-    <h2 class="section-title"><i class="fa-solid fa-heart-pulse"></i> Saúde</h2>
+  <section id="saude" class="container" aria-labelledby="tit-saude">
+    <h2 id="tit-saude" class="section-title"><i class="fa-solid fa-heart-pulse"></i> Saúde</h2>
     <p class="muted">Em breve: conteúdo sobre atividade física, reabilitação e prevenção para a melhor idade.</p>
   </section>
 
-
-
-
-
   <!-- ======= CONTATO ======= -->
-  <section id="contato" class="container">
-    <h2 class="section-title"><i class="fa-solid fa-envelope"></i> Contato</h2>
+  <section id="contato" class="container" aria-labelledby="tit-contato">
+    <h2 id="tit-contato" class="section-title"><i class="fa-solid fa-envelope"></i> Contato</h2>
     <p class="muted">Fale com a redação: <a href="mailto:contato@vidas60.com">contato@vidas60.com</a></p>
   </section>
 
@@ -176,8 +167,28 @@
     </div>
   </footer>
 
+  <script src="script.js" defer></script>
+
+  <!-- JS mínimo para menu mobile e ano -->
   <script>
+    // Ano
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Menu mobile
+    const menuBtn = document.getElementById('menuBtn');
+    const siteNav = document.getElementById('siteNav');
+    menuBtn?.addEventListener('click', () => {
+      const isOpen = siteNav.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', String(isOpen));
+    });
+    // Fechar menu ao clicar em um link (no mobile)
+    siteNav?.addEventListener('click', (e) => {
+      if (e.target.closest('a') && siteNav.classList.contains('open')) {
+        siteNav.classList.remove('open');
+        menuBtn.setAttribute('aria-expanded', 'false');
+      }
+    });
+    
   </script>
 </body>
 </html>
