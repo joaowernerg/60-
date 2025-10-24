@@ -1,105 +1,53 @@
-// =====================================================
-// Vida Saudável 60+ • funcionalidades do artigo
-// =====================================================
+// ===== Menu mobile =====
+const menuBtn = document.getElementById('menuBtn');
+const topNav = document.getElementById('topNav');
 
-// Helpers
-const $ = (s, c = document) => c.querySelector(s);
-const $$ = (s, c = document) => Array.from(c.querySelectorAll(s));
+menuBtn.addEventListener('click', () => {
+  const open = topNav.classList.toggle('open');
+  menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+});
 
-// Data de hoje (pt-BR) na linha de edição
-(function setToday(){
-  const el = $('#today');
-  if (!el) return;
-  const now = new Date();
-  const opts = { weekday: 'long', year: 'numeric', month: 'long', day: '2-digit' };
-  const text = now.toLocaleDateString('pt-BR', opts);
-  el.textContent = text.charAt(0).toUpperCase() + text.slice(1);
-})();
+// ===== Data de hoje e ano =====
+const dataHoje = document.getElementById('dataHoje');
+const anoAtual = document.getElementById('anoAtual');
 
-// Ano no rodapé
-(function setYear(){
-  const y = $('#year');
-  if (y) y.textContent = new Date().getFullYear();
-})();
+const agora = new Date(); // usa o fuso do dispositivo
+const nomeMes = agora.toLocaleDateString('pt-BR', { month: 'long' });
+const dia = String(agora.getDate()).padStart(2, '0');
+const ano = agora.getFullYear();
+dataHoje.textContent = `${dia} de ${nomeMes} de ${ano}`;
+anoAtual.textContent = ano;
 
-// Menu mobile
-(function mobileMenu(){
-  const btn = $('#menuBtn');
-  const nav = $('#nav');
-  if (!btn || !nav) return;
-  btn.addEventListener('click', () => {
-    const isOpen = nav.classList.toggle('open');
-    btn.setAttribute('aria-expanded', String(isOpen));
-  });
-  nav.addEventListener('click', e => {
-    if (e.target.matches('a')) { nav.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); }
-  });
-})();
+// ===== Busca simples por seção =====
+const buscaForm = document.getElementById('buscaForm');
+const buscaInput = document.getElementById('busca');
 
-// Botão Voltar (histórico)
-(function backButton(){
-  const btn = $('#goBackBtn');
-  if (!btn) return;
-  btn.addEventListener('click', () => {
-    if (history.length > 1) history.back(); else window.location.href = 'index.html';
-  });
-})();
+const mapAlvos = {
+  'noticia': '#noticias',
+  'notícias': '#noticias',
+  'noticias': '#noticias',
+  'jogo': '#jogos',
+  'jogos': '#jogos',
+  'vídeo': '#videos',
+  'video': '#videos',
+  'vídeos': '#videos',
+  'videos': '#videos',
+  'dica': '#dicas',
+  'dicas': '#dicas'
+};
 
-// Filtro de referências
-(function refFilter(){
-  const input = $('#refSearch');
-  const items = $$('#refList > li');
-  if (!input || !items.length) return;
-  input.addEventListener('input', () => {
-    const terms = input.value.trim().toLowerCase().split(/\s+/).filter(Boolean);
-    items.forEach(li => {
-      const txt = li.textContent.toLowerCase();
-      const ok = terms.every(t => txt.includes(t));
-      li.style.display = ok ? '' : 'none';
-    });
-  });
-})();
+buscaForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const termo = (buscaInput.value || '').toLowerCase().trim();
+  let destino = null;
 
-// Lightbox de vídeo (YouTube)
-(function lightbox(){
-  const lb = $('#lightbox');
-  if (!lb) return;
-  const player = $('.lightbox-player', lb);
-  const closeBtn = $('#lbClose', lb);
-  const openers = $$('.open-lightbox');
-
-  function openWith(src){
-    document.body.classList.add('no-scroll');
-    lb.setAttribute('aria-hidden', 'false');
-    player.innerHTML = `<iframe src="${src}" title="Player de vídeo" allow="autoplay; accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen style="width:100%;height:100%;border:0"></iframe>`;
-    closeBtn.focus({ preventScroll: true });
-  }
-  function close(){
-    document.body.classList.remove('no-scroll');
-    lb.setAttribute('aria-hidden', 'true');
-    player.innerHTML = '';
+  for (const chave in mapAlvos) {
+    if (termo.includes(chave)) {
+      destino = mapAlvos[chave];
+      break;
+    }
   }
 
-  openers.forEach(opener => {
-    opener.addEventListener('click', e => {
-      e.preventDefault();
-      const yt = opener.getAttribute('data-yt');
-      if (yt) openWith(`https://www.youtube.com/embed/${yt}?autoplay=1&modestbranding=1&rel=0`);
-    });
-  });
-
-  $('.lightbox-backdrop', lb).addEventListener('click', close);
-  closeBtn.addEventListener('click', close);
-  document.addEventListener('keydown', (ev) => { if (ev.key === 'Escape' && lb.getAttribute('aria-hidden') === 'false') close(); });
-})();
-
-// Modo cinema (dá foco nos vídeos)
-(function cinema(){
-  const btn = $('#btnCinema');
-  if (!btn) return;
-  btn.addEventListener('click', () => {
-    const active = document.body.classList.toggle('is-cinema');
-    btn.setAttribute('aria-pressed', String(active));
-    if (active) window.scrollTo({ top: $('#videos').offsetTop - 20, behavior: 'smooth' });
-  });
-})();
+  if (!destino) destino = '#noticias'; // fallback
+  document.querySelector(destino)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+});

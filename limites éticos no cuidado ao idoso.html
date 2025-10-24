@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Limites Éticos no Cuidado à Pessoa Idosa • Vida Saudável 60+</title>
+  <meta name="description" content="Princípios, limites e boas práticas éticas no cuidado à pessoa idosa: autonomia, consentimento, privacidade, segurança, conflitos de interesse e cuidados paliativos." />
+
+  <!-- Fontes e Ícones -->
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
+
+  <!-- CSS do projeto -->
+  <link rel="stylesheet" href="style1.css" />
+</head>
+<body>
+  <!-- Barra de progresso -->
+  <div id="progressBar" aria-hidden="true"></div>
+
+  <!-- ===== HEADER ===== -->
+  <header class="site-header">
+    <div class="container header-grid">
+      <a class="brand" href="index.html" aria-label="Página inicial Vida Saudável 60+">
+        <span class="brand-badge" aria-hidden="true">60+</span>
+        <div class="brand-text">
+          <h1>Vida Saudável</h1>
+          <p>Saúde • Dicas • Direitos</p>
+        </div>
+      </a>
+
+      <button id="menuBtn" class="menu-btn" aria-expanded="false" aria-controls="topNav" aria-label="Abrir menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
+      <nav id="topNav" class="top-nav" aria-label="Navegação principal">
+        <a href="index.html#noticias">Notícias</a>
+        <a href="index.html#videos">Vídeos</a>
+        <a href="index.html#dicas">Dicas</a>
+        <a href="index.html#sobre">Sobre</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-text">
+        <small id="dataHoje" class="hero-date" aria-live="polite"></small>
+        <h2>Limites <span>Éticos</span> no Cuidado à Pessoa Idosa</h2>
+        <p>Respeitar <strong>autonomia</strong>, <strong>dignidade</strong> e <strong>segurança</strong> é a base de um cuidado ético. Este guia reúne princípios e limites práticos para cuidadores, familiares e profissionais.</p>
+
+        <!-- Sumário -->
+        <nav class="toc" aria-label="Sumário desta página">
+          <strong>Sumário</strong>
+          <ul>
+            <li><a href="#principios">1. Princípios éticos essenciais</a></li>
+            <li><a href="#consentimento">2. Consentimento &amp; capacidade de decisão</a></li>
+            <li><a href="#autonomia-seguranca">3. Autonomia × segurança</a></li>
+            <li><a href="#privacidade">4. Privacidade &amp; confidencialidade</a></li>
+            <li><a href="#conflitos">5. Conflitos de interesse &amp; finanças</a></li>
+            <li><a href="#contencoes">6. Contenções físicas/químicas</a></li>
+            <li><a href="#paliativos">7. Finitude &amp; cuidados paliativos</a></li>
+            <li><a href="#violencia">8. Violência, abuso &amp; proteção</a></li>
+            <li><a href="#limites-cuidador">9. Limites do cuidador &amp; autocuidado</a></li>
+            <li><a href="#checklist">Checklist ético rápido</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <aside class="alerta" role="note" aria-label="Aviso importante">
+        <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
+        <div>
+          <h3>Informação, não parecer legal</h3>
+          <p>Conteúdo educativo. Para dúvidas jurídicas, éticas profissionais ou casos complexos, procure sua equipe de saúde, conselho de classe ou assessoria jurídica local.</p>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <main>
+    <!-- 1. Princípios -->
+    <section id="principios" class="section container">
+      <h3 class="section-title"><i class="fa-solid fa-scale-balanced"></i> 1. Princípios éticos essenciais</h3>
+      <div class="callouts">
+        <div class="callout">
+          <h4><i class="fa-solid fa-user-check"></i> Autonomia</h4>
+          <p>Direito de escolher, recusar ou aceitar cuidados, conforme valores e preferências da pessoa idosa.</p>
+        </div>
+        <div class="callout">
+          <h4><i class="fa-solid fa-hand-holding-heart"></i> Beneficência</h4>
+          <p>Agir para o bem-estar, promovendo saúde e qualidade de vida.</p>
+        </div>
+        <div class="callout">
+          <h4><i class="fa-solid fa-ban"></i> Não maleficência</h4>
+          <p>Evitar danos físicos, psicológicos, morais ou sociais (inclui evitar intervenções desnecessárias).</p>
+        </div>
+        <div class="callout">
+          <h4><i class="fa-solid fa-people-group"></i> Justiça</h4>
+          <p>Acesso equitativo a serviços, respeito à diversidade e combate ao idadismo (preconceito por idade).</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Consentimento -->
+    <section id="consentimento" class="section container">
+      <h3 class="section-title"><i class="fa-solid fa-file-signature"></i> 2. Consentimento &amp; capacidade de decisão</h3>
+      <ul class="list">
+        <li><strong>Consentimento informado</strong>: explicar objetivos, riscos, benefícios e alternativas em linguagem simples.</li>
+        <li><strong>Avaliar capacidade</strong> de decisão (entender, reter, ponderar e comunicar escolhas). Capacidade pode variar ao longo do tempo.</li>
+        <li><strong>Decisão compartilhada</strong>: incluir a pessoa idosa nas decisões sempre que possível; envolver família/cuidador quando houver autorização.</li>
+        <li><strong>Representação</strong>: quando a pessoa não puder decidir, seguir documentos válidos (ex.: diretivas antecipadas) e representante legal, conforme normas locais.</li>
+      </ul>
+      <div class="tips">
+        <div class="tip"><i class="fa-solid fa-language" aria-hidden="true"></i><div>Use material visual e repita informações em momentos diferentes.</div></div>
+        <div class="tip"><i class="fa-solid fa-headset" aria-hidden="true"></i><div>Ofereça tempo para perguntas e certifique-se de que houve compreensão.</div></div>
+      </div>
+    </section>
+
+    <!-- 3. Autonomia x Segurança -->
+    <section id="autonomia-seguranca" class="section container">
+      <h3 class="section-title"><i class="fa-solid fa-scale-unbalanced"></i> 3. Autonomia × segurança</h3>
+      <p>Equilibrar liberdade e proteção exige <strong>avaliação individual</strong> de riscos e preferências. Medidas menos restritivas devem ser priorizadas antes de qualquer restrição maior.</p>
+      <div class="compare">
+        <table class="clean table--stack" aria-label="Exemplos práticos de equilíbrio entre autonomia e segurança">
+          <thead>
+            <tr>
+              <th style="width:50%">Situação</th>
+              <th style="width:50%">Conduta ética</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-th="Situação">Desejo de caminhar sozinho, mas risco de queda</td>
+              <td data-th="Conduta">Planejar rotas seguras, uso de bengala/andador, horários com menos movimento e checagem prévia do trajeto</td>
+            </tr>
+            <tr>
+              <td data-th="Situação">Recusa de um cuidado de rotina</td>
+              <td data-th="Conduta">Revisar explicação, entender motivos, propor alternativas e respeitar decisão quando houver capacidade</td>
+            </tr>
+            <tr>
+              <td data-th="Situação">Saídas desacompanhadas com desorientação ocasional</td>
+              <td data-th="Conduta">Identificação pessoal, contato de emergência, tecnologia de localização e educação da vizinhança</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 4. Privacidade -->
+    <section id="privacidade" class="section container">
+      <h3 class="section-title"><i class="fa-solid fa-user-shield"></i> 4. Privacidade &amp; confidencialidade</h3>
+      <ul class="list">
+        <li>Coletar apenas dados necessários e guardar com <strong>sigilo</strong>.</li>
+        <li>Evitar conversas sensíveis em locais públicos; cuidado com <strong>exposição</strong> durante banho/troca.</li>
+        <li>Compartilhar informações de saúde somente com <strong>autorização</strong> ou quando exigido por normas de proteção.</li>
+        <li>Em meios digitais, usar <strong>senhas fortes</strong> e dispositivos bloqueados.</li>
+      </ul>
+    </section>
+
+    <!-- 5. Conflitos de interesse -->
+    <section id="conflitos" class="section container">
+      <h3 class="section-title"><i class="fa-solid fa-hand-holding-dollar"></i> 5. Conflitos de interesse &amp; finanças</h3>
+      <p>Evitar qualquer forma de <strong>exploração financeira</strong> ou benefícios pessoais vinculados ao cuidado.</p>
+      <ul class="list">
+        <li>Nunca condicionar cuidado a presentes, dinheiro ou vantagens.</li>
+        <li>Separar <strong>tarefas financeiras</strong> do cuidado, salvo autorização formal da família/representante.</li>
+        <li>Registrar por escrito acordos de pagamento e reembolsos de despesas.</li>
+      </ul>
+    </section>
+
+    <!-- 6. Contenções -->
+    <section id="contencoes" class="section container">
+      <h3 class="section-title"><i class="fa-solid fa-link-slash"></i> 6. Contenções físicas e químicas</h3>
+      <p>Contenção é medida <strong>excepcional e temporária</strong>. Só considerar quando houver <strong>risco iminente</strong> e após tentar estratégias menos restritivas.</p>
+      <ul class="list">
+        <li>Requer <strong>indicação clínica</strong>, justificativa, monitorização e reavaliações frequentes.</li>
+        <li>Documentar motivo, duração e alternativas tentadas.</li>
+        <li>Envolver família/cuidador e equipe multiprofissional.</li>
+      </ul>
+    </section>
+
+    <!-- 7. Paliativos -->
+    <section id="paliativos" class="section container">
+      <h3 class="section-title"><i class="fa-solid fa-dove"></i> 7. Finitude &amp; cuidados paliativos</h3>
+      <p>Respeitar valores e preferências ao final da vida, priorizando <strong>conforto</strong>, <strong>alívio de sintomas</strong> e <strong>dignidade</strong>. Dialogar sobre <strong>diretivas antecipadas</strong> quando houver.</p>
+      <div class="tips">
+        <div class="tip"><i class="fa-solid fa-comments" aria-hidden="true"></i><div>Conversa franca e compassiva: ouvir o que importa para a pessoa.</div></div>
+        <div class="tip"><i class="fa-solid fa-people-carry-box" aria-hidden="true"></i><div>Integrar equipe multiprofissional e rede de apoio (família, amigos, comunidade).</div></div>
+      </div>
+    </section>
+
+    <!-- 8. Violência e abuso -->
+    <section id="violencia" class="section container">
+      <h3 class="section-title"><i class="fa-solid fa-shield"></i> 8. Violência, abuso &amp; proteção</h3>
+      <p>Fique atento a sinais de <strong>violência física, psicológica, sexual, negligência ou financeira</strong>. Proteger a pessoa idosa é imperativo ético.</p>
+      <ul class="list">
+        <li>Marcas inexplicadas, medo, retraimento, higiene precária ou gastos incomuns são <strong>sinais de alerta</strong>.</li>
+        <li>Registre fatos de forma objetiva e busque a <strong>rede local de proteção</strong> (saúde, assistência social e canais oficiais).</li>
+        <li>Priorize a <strong>segurança imediata</strong> e apoio psicossocial.</li>
+      </ul>
+    </section>
+
+    <!-- 9. Limites do cuidador -->
+    <section id="limites-cuidador" class="section container">
+      <h3 class="section-title"><i class="fa-solid fa-user-nurse"></i> 9. Limites do cuidador &amp; autocuidado</h3>
+      <ul class="list">
+        <li><strong>Não</strong> prescrever, suspender ou ajustar medicamentos por conta própria.</li>
+        <li>Registrar intercorrências e comunicar à equipe de saúde.</li>
+        <li>Respeitar limites físicos e emocionais; organizar <strong>rodízio/pausas</strong> para evitar exaustão.</li>
+        <li>Capacitar-se continuamente (manuseio, prevenção de quedas, primeiros socorros).</li>
+      </ul>
+    </section>
+
+    <!-- Checklist -->
+    <section id="checklist" class="section container">
+      <h3 class="section-title"><i class="fa-solid fa-list-check"></i> Checklist ético rápido</h3>
+      <div class="compare">
+        <table class="clean table--stack" aria-label="Checklist ético: faça e evite">
+          <thead>
+            <tr>
+              <th style="width:50%">Faça</th>
+              <th style="width:50%">Evite</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-th="Faça"><em>Escute</em> preferências e explique opções com linguagem simples</td>
+              <td data-th="Evite">Decidir sem envolver a pessoa idosa</td>
+            </tr>
+            <tr>
+              <td data-th="Faça">Documente consentimentos, recusas e orientações</td>
+              <td data-th="Evite">Realizar procedimentos sem registro</td>
+            </tr>
+            <tr>
+              <td data-th="Faça">Proteja dados e privacidade</td>
+              <td data-th="Evite">Compartilhar informações sem autorização</td>
+            </tr>
+            <tr>
+              <td data-th="Faça">Tentar alternativas antes de qualquer restrição</td>
+              <td data-th="Evite">Usar contenção como rotina</td>
+            </tr>
+            <tr>
+              <td data-th="Faça">Buscar ajuda em situações de violência/abuso</td>
+              <td data-th="Evite">Ignorar sinais de risco</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top:10px;color:#555;">Este material não substitui normas de conselhos profissionais, políticas institucionais ou legislação local.</p>
+    </section>
+  </main>
+
+  <!-- Voltar ao topo -->
+  <button id="toTop" class="to-top" aria-label="Voltar ao topo"><i class="fa-solid fa-arrow-up"></i></button>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <span id="anoAtual"></span> Vida Saudável 60+. Conteúdo educativo.</p>
+    </div>
+  </footer>
+
+  <!-- JS do projeto -->
+  <script src="script.js"></script>
+
+  <!-- JS desta página -->
+  <script>
+    (function(){
+      // Data e ano
+      const d = new Date();
+      document.getElementById('dataHoje').textContent = d.toLocaleDateString('pt-BR',{day:'2-digit',month:'long',year:'numeric'});
+      document.getElementById('anoAtual').textContent = d.getFullYear();
+
+      // Menu mobile
+      const btn = document.getElementById('menuBtn');
+      const nav = document.getElementById('topNav');
+      btn?.addEventListener('click', () => {
+        const open = nav.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+
+      // Barra de progresso + voltar ao topo
+      const bar = document.getElementById('progressBar');
+      const toTop = document.getElementById('toTop');
+      const onScroll = () => {
+        const h = document.documentElement;
+        const scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
+        if(bar) bar.style.width = scrolled + '%';
+        if(toTop){
+          h.scrollTop > 240 ? toTop.classList.add('show') : toTop.classList.remove('show');
+        }
+      };
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+      toTop?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    })();
+  </script>
+</body>
+</html>

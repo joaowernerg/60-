@@ -1,71 +1,59 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>🧠 Jogo da Memória | Vida Saudável 60+</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="memoria.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jogo da Memória • Frutas (10 níveis)</title>
+  <meta name="description" content="Jogo da memória de FRUTAS, responsivo, que ajusta as cartas para caberem 100% na tela em qualquer nível. Perfeito para celular." />
+  <link rel="stylesheet" href="memoria-frutas.css" />
 </head>
-
 <body>
-  <!-- ===== CABEÇALHO ===== -->
-  <header class="header">
-    <h1>🧠 Jogo da Memória</h1>
-    <p>Desafie-se! Complete todos os 10 níveis!</p>
-  </header>
 
-  <!-- ===== CONTEÚDO PRINCIPAL ===== -->
-  <main class="game-container">
-    <div class="controls">
-      <!-- MODO DE JOGO -->
-      <div class="modes">
-        <button id="modoClassico" class="mode-btn active">🍎 Clássico</button>
-        <button id="modoFormas" class="mode-btn">🔷 Formas</button>
-      </div>
-
-      <!-- EXIBIÇÃO DO NÍVEL -->
-      <div class="level-display">
-        <p><strong>Nível:</strong> <span id="nivelTexto">1</span> / 10</p>
-      </div>
-
-      <!-- BOTÕES DE CONTROLE -->
-      <div class="buttons">
-        <button id="startBtn" class="btn">🎮 Iniciar</button>
-        <button id="restartBtn" class="btn">🔁 Reiniciar</button>
-      </div>
-
-      <!-- STATUS -->
-      <div class="status">
-        <p>Tentativas: <span id="tentativas">0</span></p>
-        <p>Tempo: <span id="tempo">0s</span></p>
+<header class="header">
+  <div class="container bar">
+    <div class="brand">
+      <div class="brand-badge">🍓</div>
+      <div>
+        <h1>Jogo da Memória • Frutas</h1>
+        <p>10 níveis • cabe 100% na tela</p>
       </div>
     </div>
+    <button id="btnRestartTop" class="btn" type="button" aria-label="Reiniciar nível">↻ Reiniciar</button>
+  </div>
+</header>
 
-    <!-- ===== GRID DO JOGO ===== -->
-    <div class="grid" id="grid"></div>
-
-    <!-- ===== MENSAGEM DE VITÓRIA ===== -->
-    <div id="winMessage" class="win hidden">
-      <h2>🎉 Parabéns!</h2>
-      <p id="winText"></p>
+<section class="container">
+  <div class="hud">
+    <div class="panel">
+      <div class="stats" role="group" aria-label="Informações da partida">
+        <div class="stat"><span>Nível</span><b id="uiLevel">1/10</b></div>
+        <div class="stat"><span>Tempo</span><b id="uiTime">00:00</b></div>
+        <div class="stat"><span>Movs</span><b id="uiMoves">0</b></div>
+      </div>
+      <div class="controls">
+        <button id="btnPrev" class="btn" type="button" aria-label="Nível anterior">◀ Anterior</button>
+        <button id="btnNext" class="btn primary" type="button" aria-label="Próximo nível">Próximo ▶</button>
+      </div>
     </div>
-  </main>
+  </div>
+</section>
 
-  <!-- ===== RODAPÉ ===== -->
-  <footer>
-    <a href="index.html" class="btn-voltar">⬅️ Voltar ao Início</a>
-  </footer>
+<main class="container board-wrap">
+  <section id="board" class="board" aria-label="Tabuleiro do jogo"></section>
+</main>
 
-  <!-- ===== SCRIPT PRINCIPAL ===== -->
-  <script src="memoria.js"></script>
+<!-- Modal -->
+<div id="modal" class="modal-wrap" aria-hidden="true">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <h3 id="modalTitle">Nível concluído! ✅</h3>
+    <p id="modalStats">Tempo — • Movimentos —</p>
+    <div class="row">
+      <button id="mAgain" class="btn" type="button">Jogar de novo</button>
+      <button id="mNext" class="btn primary" type="button">Próximo nível ▶</button>
+    </div>
+  </div>
+</div>
 
-  <!-- ===== ATUALIZAÇÃO DO NÍVEL VISUAL ===== -->
-  <script>
-    const nivelTexto = document.getElementById('nivelTexto');
-    setInterval(() => {
-      if (window.nivelAtual) nivelTexto.textContent = window.nivelAtual;
-    }, 300);
-  </script>
+<script src="memoria-frutas.js" defer></script>
 </body>
 </html>

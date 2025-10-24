@@ -1,194 +1,290 @@
 <!DOCTYPE html>
-<html lang="pt-BR" data-theme="light">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Vida Saudável 60+ | Início</title>
-  <meta name="description" content="Notícias, vídeos e dicas para cuidar da saúde, do corpo e do coração na melhor idade." />
-  <meta name="theme-color" content="#ff7a00" />
+  <title>Vida Saudável 60+ • Início</title>
+  <meta name="description" content="Notícias, jogos, vídeos e dicas para uma vida saudável na melhor idade." />
 
-  <!-- Social (opcional) -->
-  <meta property="og:title" content="Vida Saudável 60+ | Início" />
-  <meta property="og:description" content="Notícias, vídeos e dicas para cuidar da saúde, do corpo e do coração na melhor idade." />
-  <meta property="og:type" content="website" />
-
-  <!-- ===== FONTES E ÍCONES ===== -->
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Fontes e Ícones -->
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
+
+  <!-- CSS -->
   <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
-  <!-- ======= HEADER ======= -->
-  <header>
-    <div class="container header-flex">
-      <a href="index.html" class="brand" aria-label="Página inicial Vida Saudável 60+">
-        <div class="logo" aria-hidden="true">60+</div>
-        <div>
-          <h1>Vida Saudável 60+</h1>
-          <small>Saúde • Alimentação • Dicas • Jogos</small>
+  <!-- ===== HEADER / NAV ===== -->
+  <header class="site-header">
+    <div class="container header-grid">
+      <a class="brand" href="index.html" aria-label="Página inicial Vida Saudável 60+">
+        <span class="brand-badge" aria-hidden="true">60+</span>
+        <div class="brand-text">
+          <h1>Vida Saudável</h1>
+          <p>Saúde • Alimentação • Dicas • Jogos</p>
         </div>
       </a>
 
-      <button class="menu-btn" id="menuBtn" aria-controls="siteNav" aria-expanded="false" aria-label="Abrir menu">
+      <button id="menuBtn" class="menu-btn" aria-expanded="false" aria-controls="topNav" aria-label="Abrir menu">
         <i class="fa-solid fa-bars"></i>
       </button>
 
-      <nav class="nav" id="siteNav" aria-label="Navegação principal">
-        <a href="#noticias"><i class="fa-solid fa-newspaper"></i> Notícias</a>
-        <a href="#saude"><i class="fa-solid fa-heart-pulse"></i> Saúde</a>
-        <a href="#contato"><i class="fa-solid fa-envelope"></i> Contato</a>
-        <a href="denuncia.html"><i class="fa-solid fa-triangle-exclamation"></i> Denúncia</a>
-        <a href="#jogos" class="dropbtn"><i class="fa-solid fa-gamepad"></i> Jogos</a>
+      <nav id="topNav" class="top-nav" aria-label="Navegação principal">
+        <a href="#noticias">Notícias</a>
+        <a href="#jogos">Jogos</a>
+        <a href="#videos">Vídeos</a>
+        <a href="#dicas">Dicas</a>
+        <a href="#sobre">Sobre</a>
       </nav>
     </div>
   </header>
 
-  <!-- ======= HERO ======= -->
-  <section class="hero container" aria-labelledby="boas-vindas">
-    <h1 id="boas-vindas"><i class="fa-solid fa-leaf"></i> Bem-vindo ao Portal Vida Saudável 60+</h1>
-    <p>Notícias, vídeos e dicas para cuidar da saúde, do corpo e do coração <i class="fa-solid fa-heart"></i></p>
-  </section>
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-text">
+        <small id="dataHoje" class="hero-date" aria-live="polite"></small>
+        <h2>Bem-vindo(a) ao <span>Vida Saudável 60+</span></h2>
+        <p>Conteúdo simples, confiável e feito para o seu dia a dia: leia notícias, jogue para exercitar a mente, assista a vídeos curtos e receba dicas práticas de saúde.</p>
 
-  <!-- ======= NOTÍCIAS ======= -->
-  <section id="noticias" class="container" aria-labelledby="ultimas">
-    <h2 id="ultimas" class="section-title"><i class="fa-solid fa-stethoscope"></i> Últimas Notícias de Saúde</h2>
+        <form id="buscaForm" class="search" role="search" aria-label="Buscar conteúdo">
+          <label for="busca" class="sr-only">Buscar</label>
+          <input id="busca" type="search" placeholder="Busque por 'notícias', 'jogos', 'vídeos' ou 'dicas'..." aria-label="Campo de busca" />
+          <button class="btn" type="submit" aria-label="Buscar">
+            <i class="fa-solid fa-magnifying-glass"></i> Buscar
+          </button>
+        </form>
+      </div>
 
-    <div class="news-grid">
-      <!-- CARD 1 -->
-      <article class="news-card">
-        <a class="thumb" href="coracao.html" aria-label="Ler: Entendendo seu Coração">
-          <img loading="lazy" src="https://www.drhugothome.com.br/images/blog/entenda-seu-coracao2.jpg" alt="Ilustração de um coração saudável">
-        </a>
-        <div class="news-content">
-          <h2>Entendendo seu Coração: Fisiologia, Movimento e Reabilitação</h2>
-          <div class="news-meta">
-            <span><i class="fa-solid fa-user-doctor"></i> Reportagem</span> • <time datetime="2025-10-23">23 out 2025</time>
-          </div>
-          <p>O coração é o motor da vida — entenda como ele funciona e como atividade física e fisioterapia mantêm tudo forte e saudável.</p>
-          <a href="coracao.html" class="read-more"><i class="fa-solid fa-arrow-right"></i> Ler mais</a>
-        </div>
-      </article>
+      <!-- CORRIGIDO: lista de features envolvendo os cards -->
+      <ul class="features">
+        <li class="feature-card">
+          <i class="fa-solid fa-newspaper" aria-hidden="true"></i>
+          <h3>Notícias</h3>
+          <p>Fique por dentro do que importa para sua saúde e bem-estar.</p>
+          <a class="btn btn-light" href="#noticias">Ver notícias</a>
+        </li>
 
-      <!-- CARD 2 -->
-      <article class="news-card">
-        <a class="thumb" href="alimentacao.html" aria-label="Ler: Alimentação e Saúde do Coração">
-          <img loading="lazy" src="https://medworld.com.br/2022/wp-content/uploads/2015/12/alimentos-beneficios-coracao-medworld.jpg" alt="Cesta com frutas coloridas e alimentos naturais">
-        </a>
-        <div class="news-content">
-          <h2>Alimentação e Saúde do Coração</h2>
-          <div class="news-meta">
-            <span><i class="fa-solid fa-apple-whole"></i> Guia</span> • <time datetime="2025-10-20">20 out 2025</time>
-          </div>
-          <p>Como montar pratos equilibrados e reduzir o sal do dia a dia para proteger o coração sem abrir mão do sabor.</p>
-          <a href="alimentacao.html" class="read-more"><i class="fa-solid fa-arrow-right"></i> Ler matéria completa</a>
-        </div>
-      </article>
+        <li class="feature-card">
+          <i class="fa-solid fa-gamepad" aria-hidden="true"></i>
+          <h3>Jogos</h3>
+          <p>Exercite sua memória e atenção com jogos leves e divertidos.</p>
+          <a class="btn btn-light" href="#jogos">Ir aos jogos</a>
+        </li>
 
-  
-      <!-- CARD 4 -->
-      <article class="news-card">
-        <a class="thumb" href="pele.html" aria-label="Ler: Saúde da Pele na Melhor Idade">
-          <img loading="lazy" src="https://www.julianatoma.com.br/wp-content/uploads/2016/04/dicas-para-pele-na-terceira-idade.jpg" alt="Mãos idosas recebendo hidratação">
-        </a>
-        <div class="news-content">
-          <h2>Saúde da Pele na Melhor Idade</h2>
-          <div class="news-meta">
-            <span><i class="fa-solid fa-droplet"></i> Dermatologia</span> • <time datetime="2025-10-23">23 out 2025</time>
-          </div>
-          <p>Fotoproteção, hidratação e banho morno: rotina simples que protege a pele e o conforto no dia a dia.</p>
-          <a href="pele.html" class="read-more"><i class="fa-solid fa-arrow-right"></i> Ler matéria</a>
-        </div>
-      </article>
+        <li class="feature-card">
+          <i class="fa-solid fa-video" aria-hidden="true"></i>
+          <h3>Vídeos</h3>
+          <p>Aprenda com vídeos curtos e objetivos sobre temas do dia a dia.</p>
+          <a class="btn btn-light" href="#videos">Assistir</a>
+        </li>
 
-      <!-- CARD 5 -->
-      <article class="news-card">
-        <a class="thumb" href="inclusao.html" aria-label="Ler: Inclusão digital no envelhecimento ativo">
-          <img loading="lazy" src="c" alt="Pessoa idosa usando smartphone">
-        </a>
-        <div class="news-content">
-          <h2>Inclusão Digital no Envelhecimento Ativo</h2>
-          <div class="news-meta">
-            <span><i class="fa-solid fa-universal-access"></i> Bem-estar</span> • <time datetime="2025-10-23">23 out 2025</time>
-          </div>
-          <p>Aprenda a usar o celular e a internet com segurança, acessibilidade e autonomia — passo a passo.</p>
-          <a href="inclusao.html" class="read-more"><i class="fa-solid fa-arrow-right"></i> Ler matéria</a>
-        </div>
-      </article>
-
-      <!-- CARD 6 -->
-      <article class="news-card">
-        <a class="thumb" href="tecnologias-assistivas.html" aria-label="Ler: Tecnologias Assistivas">
-          <img loading="lazy" src="imagens/assistiva-capa.jpg" alt="Pessoa idosa caminhando com andador">
-        </a>
-        <div class="news-content">
-          <h2>Tecnologias Assistivas na Marcha e Locomoção</h2>
-          <div class="news-meta">
-            <span><i class="fa-solid fa-wheelchair"></i> Mobilidade</span> • <time datetime="2025-10-23">23 out 2025</time>
-          </div>
-          <p>Bengalas, andadores, órteses e soluções “smart” que garantem mais segurança e autonomia.</p>
-          <a href="https://www.reab.me/wp-content/uploads/2019/10/Honda-Walking-Assistant.png" class="read-more"><i class="fa-solid fa-arrow-right"></i> Ler matéria</a>
-        </div>
-      </article>
+        <li class="feature-card">
+          <i class="fa-solid fa-lightbulb" aria-hidden="true"></i>
+          <h3>Dicas</h3>
+          <p>Dicas práticas de alimentação, movimento e autocuidado.</p>
+          <a class="btn btn-light" href="#dicas">Ver dicas</a>
+        </li>
+      </ul>
     </div>
   </section>
 
-  <!-- ======= JOGOS ======= -->
-  <section id="jogos" class="container" aria-labelledby="tit-jogos">
-    <h2 id="tit-jogos" class="section-title"><i class="fa-solid fa-gamepad"></i> Jogos</h2>
-    <div class="games-grid">
-      <article class="game-card">
-        <a href="memoria.html">
-          <img src="https://www.sitededicas.com.br/gifs/imagens-software/jogo-memoria-frutas.jpg" alt="Cartas do jogo da memória">
-          <h3><i class="fa-solid fa-brain"></i> Jogo da Memória</h3>
-          <p>Combine as cartas e exercite sua mente!</p>
-        </a>
-      </article>
-    </div>
-  </section>
+  <main>
+    <!-- ===== NOTÍCIAS ===== -->
+    <section id="noticias" class="section container">
+      <div class="section-head">
+        <h3 class="section-title"><i class="fa-solid fa-newspaper"></i> Notícias</h3>
+        <a class="link-all" href="Coração.html">Ver todas</a>
+      </div>
 
-  <!-- ======= SAÚDE ======= -->
-  <section id="saude" class="container" aria-labelledby="tit-saude">
-    <h2 id="tit-saude" class="section-title"><i class="fa-solid fa-heart-pulse"></i> Saúde</h2>
-    <p class="muted">Em breve: conteúdo sobre atividade física, reabilitação e prevenção para a melhor idade.</p>
-  </section>
+      <div class="news-grid">
+        <article class="card">
+          <!-- CORRIGIDO: imagem também leva para Coração.html -->
+          <a class="thumb" href="Coração.html">
+            <img src="https://clinicacopa.com.br/storage/2023/07/Cuidando-do-coracao-Dicas-para-manter-a-saude-cardiovascular-em-dia-3.jpg" alt="Profissional de saúde medindo a pressão arterial" />
+          </a>
+          <div class="card-body">
+            <h4><a href="Coração.html">Cuidando do Coração: Energia para a Vida</a></h4>
+            <p>O coração é o motor da vida, responsável por levar sangue e energia para todo o corpo. Ele funciona como uma bomba.</p>
+            <a class="btn btn-ghost" href="Coração.html">Ler matéria</a>
+          </div>
+        </article>
 
-  <!-- ======= CONTATO ======= -->
-  <section id="contato" class="container" aria-labelledby="tit-contato">
-    <h2 id="tit-contato" class="section-title"><i class="fa-solid fa-envelope"></i> Contato</h2>
-    <p class="muted">Fale com a redação: <a href="mailto:contato@vidas60.com">contato@vidas60.com</a></p>
-  </section>
+        <article class="card">
+          <a class="thumb" href="Coração Forte.html">
+              <img src="https://static.vecteezy.com/ti/fotos-gratis/t1/6684210-selecao-de-alimentos-saudaveis-comer-limpo-para-vida-coracao-colesterol-dieta-saude-conceito-salada-fresca-frutas-e-vegetais-misturados-varios-feijoes-nozes-grao-no-coracao-prato-para-comida-saudavel-cozinha-vegana-gratis-foto.JPG" alt="Pessoa fazendo alongamento leve" />
+          </a>
+          <div class="card-body">
+            <h4><a href="Coração Forte.html">Coração Forte Começa no Prato</a></h4>
+              <p>Comer bem protege o coração e ajuda a manter a pressão e o colesterol saudáveis.Depois dos 60 anos, o corpo precisa de atenção especial: menos sal, mais proteínas,frutas, verduras, fibras, cálcio e vitamina D. Prefira alimentos que dão muitos nutrientes em pequenas porções..</p>
+            <a class="btn btn-ghost" href="Coração Forte.html">Ler matéria</a>
+          </div>
+        </article>
 
-  <!-- ======= FOOTER ======= -->
-  <footer>
+        <article class="card">
+          <a class="thumb" href="Cuidando do Coração.html">
+            <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=1200&auto=format&fit=crop" alt="Mesa com alimentos naturais coloridos" />
+          </a>
+          <div class="card-body">
+            <h4><a href="Cuidando do Coração.html"></a>Cuidando do Coração na Melhor Idade: Dicas Práticas e Seguras</a></h4>
+            <p>Montar refeições com cores variadas é um jeito fácil de garantir nutrientes.</p>
+            <a class="btn btn-ghost" href="Cuidando do Coração.html"></a>Ler matéria</a>
+          </div>
+        </article>
+
+         <article class="card">
+          <a class="thumb" href="saúde da pele,.html">
+            <img src="https://clinicaportal.com.br/wp-content/uploads/2022/02/cuidados-fundamentais-com-a-pele-do-idoso.jpg" alt="Mesa com alimentos naturais coloridos" />
+          </a>
+          <div class="card-body">
+            <h4><a href="saúde da pele,.html"></a>sobre saúde da pele.</a></h4>
+            <p>Quando se trata sobre saúde da pele, poucas pessoas dizem saber como cuidar da pele de maneira adequada, sendo assim, quando há pouco cuidado com a saúde dermatológica, pode-se dizer que a pele envelhece mal, devido à falta de tratamento, cuidados necessários e importantes a pele.</p>
+            <a class="btn btn-ghost" href="saúde da pele,.html"></a>Ler matéria</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <a class="thumb" href="Inclusão digital.html">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmdj9f6ubOI4KMQ915HmLcREDOiv5u6e-VvaO3YGPH5YhwrhPIm0odGKOhT-yEns__02o&usqp=CAU" alt="Mesa com alimentos naturais coloridos" />
+          </a>
+          <div class="card-body">
+            <h4><a href="Inclusão digital.html"></a>Inclusão digital no envelhecimento ativo.</a></h4>
+            <p> O aumento da expectativa de vida e o desejo por longevidade com qualidade de vida é um ideal para todos.</p>
+            <a class="btn btn-ghost" href="Inclusão digital.html"></a>Ler matéria</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <a class="thumb" href=" Prevenção de Quedas e Lesões.html">
+            <img src="https://www.saude.ce.gov.br/wp-content/uploads/sites/9/2023/08/queda-idosos.png" alt="Mesa com alimentos naturais coloridos" />
+          </a>
+          <div class="card-body">
+            <h4><a href="Prevenção de Quedas e Lesões.html"></a>Prevenção de Quedas e Lesões e oluções Acessíveis e Inovadoras (Tecnologias Assistivas de Baixo Custo).</a></h4>
+            <p> As quedas são um grande problema de saúde pública e podem levar a graves limitações físicas e psicológicas. A Tecnologia Assistiva e as ações de reabilitação são estratégias essenciais para prevenir lesões involuntárias.As quedas têm causas multifatoriais, e a reabilitação foca em combater esses fatores por meio de intervenções para:</p>
+            <a class="btn btn-ghost" href="Prevenção de Quedas e Lesões.html"></a>Ler matéria</a>
+          </div>
+        </article>
+       
+    
+        </article>
+
+             <article class="card">
+          <a class="thumb" href="  Políticas de envelhecimento ativo no SUS.html">
+            <img src="https://www.saude.ce.gov.br/wp-content/uploads/sites/9/2023/08/queda-idosos.png" alt="Mesa com alimentos naturais coloridos" />
+          </a>
+          <div class="card-body">
+            <h4><a href=" Políticas de envelhecimento ativo no SUS.html"></a>Políticas de envelhecimento ativo no SUS </a></h4>
+            <p> O envelhecimento ativo é um conceito estratégico nas políticas de saúde em nível mundial. A Organização Mundial de Saúde (OMS)</p>
+            <a class="btn btn-ghost" href=" Políticas de envelhecimento ativo no SUS.html"></a>Ler matéria</a>
+          </div>
+        </article> 
+
+
+        </article>
+
+             <article class="card">
+          <a class="thumb" href="limites éticos no cuidado ao idoso.html">
+            <img src="https://cptstatic.s3.amazonaws.com/imagens/enviadas/materias/materia31524/idosos-precisam-de-cuidados-e-cuidadores-precisam-ter-etica-cpt.jpg" alt="Mesa com alimentos naturais coloridos" />
+          </a>
+          <div class="card-body">
+            <h4><a href="limites éticos no cuidado ao idoso.html"></a>limites éticos no cuidado ao idoso </a></h4>
+            <p> O envelhecimento ativo é um conceito estratégico nas políticas de saúde em nível mundial. A Organização Mundial de Saúde (OMS)</p>
+            <a class="btn btn-ghost" href="limites éticos no cuidado ao idoso.html"></a>Ler matéria</a>
+          </div>
+        </article> 
+
+
+
+
+
+      </div>
+    </section>
+
+    <!-- ===== JOGOS ===== -->
+    <section id="jogos" class="section container">
+      <div class="section-head">
+        <h3 class="section-title"><i class="fa-solid fa-gamepad"></i> Jogos</h3>
+        <a class="link-all" href="jogos.html">Ver todos</a>
+      </div>
+
+      <div class="apps-grid">
+        <article class="app-card">
+          <div class="app-icon" aria-hidden="true">🧠</div>
+          <div class="app-body">
+            <h4>Jogo da Memória</h4>
+            <p>Treine o foco e a memória com níveis do fácil ao difícil.</p>
+            <a class="btn" href="memoria.html">Jogar</a>
+          </div>
+        </article>
+
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== VÍDEOS ===== -->
+    <section id="videos" class="section container">
+      <div class="section-head">
+        <h3 class="section-title"><i class="fa-solid fa-video"></i> Vídeos</h3>
+        <a class="link-all" href="videos.html">Ver todos</a>
+      </div>
+
+      <div class="video-grid">
+        <article class="card">
+          <a class="thumb" href="video1.html" aria-label="Assistir vídeo: Coração motor da vida">
+            <img src="" alt="Representação do coração em ilustração" />
+            <span class="chip"><i class="fa-solid fa-play"></i> 2:10</span>
+          </a>
+          <div class="card-body">
+            <h4><a href="">Coração: motor da vida</a></h4>
+           <p>Comer bem protege o coração e ajuda a manter a pressão e o colesterol saudáveis.Depois dos 60 anos, o corpo precisa de atenção especial: menos sal, mais proteínas,frutas, verduras, fibras, cálcio e vitamina D. Prefira alimentos que dão muitos nutrientes em pequenas porções..</p>
+            <a class="btn btn-ghost" href="video1.html">Assistir</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <a class="thumb" href="Coração Forte.html" aria-label="Assistir vídeo: Alongamento seguro">
+            <img src="https://static.vecteezy.com/ti/fotos-gratis/t1/6684210-selecao-de-alimentos-saudaveis-comer-limpo-para-vida-coracao-colesterol-dieta-saude-conceito-salada-fresca-frutas-e-vegetais-misturados-varios-feijoes-nozes-grao-no-coracao-prato-para-comida-saudavel-cozinha-vegana-gratis-foto.JPG" alt="Pessoa fazendo alongamento leve" />
+            <span class="chip"><i class="fa-solid fa-play"></i> 1:35</span>
+          </a>
+          <div class="card-body">
+            <h4><a href="Coração Forte.html">Coração Forte Começa no Prato</a></h4>
+            <p>Comer bem protege o coração e ajuda a manter a pressão e o colesterol saudáveis.Depois dos 60 anos, o corpo precisa de atenção especial: menos sal, mais proteínas,frutas, verduras, fibras, cálcio e vitamina D. Prefira alimentos que dão muitos nutrientes em pequenas porções..</p>
+            <a class="btn btn-ghost" href="Coração Forte.html">Assistir</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== DICAS ===== -->
+    <section id="dicas" class="section container">
+      <div class="section-head">
+        <h3 class="section-title"><i class="fa-solid fa-lightbulb"></i> Dicas rápidas</h3>
+        <a class="link-all" href="dicas.html">Ver todas</a>
+      </div>
+
+      <ul class="tips">
+        <li><i class="fa-solid fa-droplet"></i> Beba água ao longo do dia (deixe uma garrafinha por perto).</li>
+        <li><i class="fa-solid fa-shoe-prints"></i> Caminhe 10–20 min por dia; aumente aos poucos conforme se sentir bem.</li>
+        <li><i class="fa-solid fa-apple-whole"></i> Monte pratos coloridos com frutas, verduras e legumes.</li>
+        <li><i class="fa-solid fa-bed"></i> Tente manter horários regulares para dormir e acordar.</li>
+      </ul>
+    </section>
+
+    <!-- ===== SOBRE ===== -->
+    <section id="sobre" class="section container">
+      <h3 class="section-title"><i class="fa-solid fa-circle-info"></i> Sobre o projeto</h3>
+      <p>O <strong>Vida Saudável 60+</strong> é um projeto educacional com conteúdo simples e acessível para quem quer viver melhor. Aqui você encontra notícias, jogos para o cérebro, vídeos curtos e dicas fáceis de aplicar.</p>
+    </section>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
     <div class="container">
-      © <span id="year"></span> Vida Saudável 60+ — Promovendo saúde e bem-estar
+      <p>&copy; <span id="anoAtual"></span> Vida Saudável 60+. Todos os direitos reservados.</p>
     </div>
   </footer>
 
-  <script src="script.js" defer></script>
-
-  <!-- JS mínimo para menu mobile e ano -->
-  <script>
-    // Ano
-    document.getElementById("year").textContent = new Date().getFullYear();
-
-    // Menu mobile
-    const menuBtn = document.getElementById('menuBtn');
-    const siteNav = document.getElementById('siteNav');
-    menuBtn?.addEventListener('click', () => {
-      const isOpen = siteNav.classList.toggle('open');
-      menuBtn.setAttribute('aria-expanded', String(isOpen));
-    });
-    // Fechar menu ao clicar em um link (no mobile)
-    siteNav?.addEventListener('click', (e) => {
-      if (e.target.closest('a') && siteNav.classList.contains('open')) {
-        siteNav.classList.remove('open');
-        menuBtn.setAttribute('aria-expanded', 'false');
-      }
-    });
-    
-  </script>
+  <!-- JS -->
+  <script src="script.js"></script>
 </body>
 </html>

@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Alimentação e Saúde do Coração • Vida Saudável 60+</title>
+  <meta name="description" content="Como comer bem para proteger o coração: menos sal, mais alimentos naturais, substituições simples, vídeos e referências científicas." />
+
+  <!-- Fontes e ícones -->
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
+
+  <!-- CSS base do projeto -->
+  <link rel="stylesheet" href="style1.css" />
+
+  <!-- CSS pontual (tabela de substituições) -->
+  <style>
+    .compare {
+      background:#fff; border:1px solid var(--border); border-radius:16px;
+      box-shadow:var(--shadow); padding:14px; overflow:auto;
+    }
+    .compare table{ width:100%; border-collapse:collapse; min-width:680px }
+    .compare th, .compare td{
+      border:1px solid var(--border); padding:10px; vertical-align:top; text-align:left;
+    }
+    .compare th{ background:#fffdf7; font-weight:700 }
+    .badge{
+      display:inline-block; font-size:12px; padding:4px 8px; border:1px solid var(--border);
+      border-radius:999px; background:#fff; margin-left:8px
+    }
+  </style>
+</head>
+<body>
+  <!-- Barra de progresso -->
+  <div id="progressBar"></div>
+
+  <!-- Cabeçalho -->
+  <header class="site-header">
+    <div class="container header-flex">
+      <!-- volta para o index na seção de notícias -->
+      <a class="brand" href="index.html#noticias" aria-label="Página inicial Vida Saudável 60+">
+        <span class="brand-badge" aria-hidden="true">60+</span>
+        <div class="brand-text">
+          <h1>Vida Saudável</h1>
+          <p>Saúde • Movimento • Longevidade</p>
+        </div>
+      </a>
+
+      <button id="menuBtn" class="menu-btn" aria-expanded="false" aria-controls="topNav" aria-label="Abrir menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
+      <nav id="topNav" class="top-nav" aria-label="Navegação principal">
+        <a href="#inicio">Início</a>
+        <a href="#bases">Bases da alimentação</a>
+        <a href="#temperos">Temperos & sódio</a>
+        <a href="#substituicoes">Substituições</a>
+        <a href="#videos">Vídeos</a>
+        <a href="#referencias">Referências</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Botão voltar -->
+  <section class="section container" style="padding-top:20px; padding-bottom:0;">
+    <a class="btn btn-light" href="index.html#noticias">← Voltar para a página inicial</a>
+  </section>
+
+  <!-- Hero -->
+  <section id="inicio" class="hero">
+    <div class="container hero-grid">
+      <div class="hero-text">
+        <small id="dataHoje" class="hero-date" aria-live="polite"></small>
+        <h2>Alimentação e <span>Saúde do Coração</span></h2>
+        <p><strong>Coração forte começa no prato</strong>. Comer bem protege o coração e ajuda a manter a pressão e o colesterol saudáveis.</p>
+
+        <nav class="toc" aria-label="Sumário desta página">
+          <strong>Sumário</strong>
+          <ul>
+            <li><a href="#bases">O que comer depois dos 60</a></li>
+            <li><a href="#temperos">Reduzir sal sem perder sabor</a></li>
+            <li><a href="#substituicoes">O que evitar × o que escolher</a></li>
+            <li><a href="#videos">Vídeos e recursos</a></li>
+            <li><a href="#referencias">Referências bibliográficas</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <aside class="alerta">
+        <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
+        <div>
+          <h3>Atenção</h3>
+          <p>Este conteúdo é educativo e <strong>não substitui</strong> avaliação individual. Se usa <strong>anticoagulantes</strong> ou outros medicamentos para o coração, converse com seu médico ou nutricionista sobre sua alimentação.</p>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <main>
+    <!-- Bases da alimentação -->
+    <section id="bases" class="section container">
+      <h3 class="section-title"><i class="fa-solid fa-bowl-food"></i> O que comer depois dos 60</h3>
+      <p>Depois dos 60 anos, o corpo precisa de atenção especial: <strong>menos sal</strong>, <strong>mais proteínas</strong>, <strong>frutas</strong>, <strong>verduras</strong>, <strong>fibras</strong>, <strong>cálcio</strong> e <strong>vitamina D</strong>. Prefira alimentos que oferecem muitos nutrientes em porções menores.</p>
+
+      <div class="callouts">
+        <div class="callout">
+          <h4>Base do prato</h4>
+          <ul>
+            <li>Frutas, verduras e legumes variados (fontes de fibras, potássio e vitaminas).</li>
+            <li>Grãos integrais (arroz integral, aveia), feijões, lentilha e grão-de-bico.</li>
+            <li>Nozes, castanhas e sementes (se acessíveis).</li>
+            <li>Leite e iogurte com pouca gordura para cálcio e vitamina D.</li>
+            <li>Carnes magras, aves, ovos e peixes (proteína de qualidade).</li>
+          </ul>
+          <p class="badge">Potássio ajuda a controlar a pressão</p>
+        </div>
+
+        <div class="callout info">
+          <h4>Evite</h4>
+          <ul>
+            <li>Carne vermelha com frequência e <strong>ultraprocessados</strong> (bolos, salgadinhos, refrigerantes, “prontos”).</li>
+            <li>Excesso de gordura saturada e de sal.</li>
+          </ul>
+          <p>Quanto mais natural e caseiro, melhor para o coração.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Temperos e sódio -->
+    <section id="temperos" class="section container">
+      <h3 class="section-title"><i class="fa-solid fa-kitchen-set"></i> Reduzir sal sem perder sabor</h3>
+      <p><strong>Reduzir o sal é importante</strong>, mas a comida não precisa ficar sem gosto. Use:</p>
+      <div class="tips">
+        <div class="tip"><i class="fa-solid fa-seedling"></i><div>Ervas frescas: cheiro-verde, manjericão, alecrim, orégano.</div></div>
+        <div class="tip"><i class="fa-solid fa-fire-burner"></i><div>Alho e cebola refogados, suco de limão ou vinagre no final.</div></div>
+        <div class="tip"><i class="fa-solid fa-pepper-hot"></i><div>Pimentas e especiarias: cúrcuma (açafrão), cominho, páprica.</div></div>
+        <div class="tip"><i class="fa-solid fa-carrot"></i><div>Alimentos ricos em potássio (tomate e vegetais) para a pressão.</div></div>
+      </div>
+      <p class="badge">Se usa anticoagulante, confirme interações de alimentos com seu profissional.</p>
+    </section>
+
+    <!-- Substituições -->
+    <section id="substituicoes" class="section container">
+      <h3 class="section-title"><i class="fa-solid fa-right-left"></i> O que evitar × O que escolher</h3>
+      <div class="compare" role="region" aria-label="Substituições simples e acessíveis">
+        <table>
+          <thead>
+            <tr>
+              <th style="width:50%">Evite (ultraprocessados)</th>
+              <th style="width:50%">Escolha (substituição simples e acessível)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Refrigerantes e sucos industrializados com açúcar</td>
+              <td>Água, chás naturais, sucos naturais (com moderação)</td>
+            </tr>
+            <tr>
+              <td>Carnes processadas (salsicha, presunto etc.)</td>
+              <td>Peixes, ovos, aves e cortes magros de carne <em>não</em> processada</td>
+            </tr>
+            <tr>
+              <td>Salgadinhos e snacks industrializados (ricos em sal e gordura)</td>
+              <td>Frutas frescas; nozes/castanhas/sementes (se acessíveis); pipoca caseira com pouco sal ou azeite</td>
+            </tr>
+            <tr>
+              <td>Doces e guloseimas com açúcares adicionados</td>
+              <td>Frutas in natura; iogurte natural com frutas</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Vídeos -->
+    <section id="videos" class="section container">
+      <div class="section-head">
+        <h3 class="section-title"><i class="fa-solid fa-video"></i> Vídeos e recursos</h3>
+      </div>
+
+      <div class="video-grid">
+        <!-- Canva -->
+        <article class="card">
+          <a class="thumb canva" href="https://www.canva.com/design/DAG2PUVo4jg/xXjIW7DoUTJrGjOD4nYKfg/edit?utm_content=DAG2PUVo4jg&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank" rel="noopener" aria-label="Abrir vídeo do Canva">
+            <span class="chip"><i class="fa-solid fa-up-right-from-square"></i> Abrir no Canva</span>
+          </a>
+          <div class="card-body">
+            <h4>Vídeo (Canva)</h4>
+            <p>Alimentação e coração — editar/visualizar no Canva.</p>
+          </div>
+        </article>
+
+        <!-- Drauzio: O que é ultraprocessado -->
+        <article class="card">
+          <div class="thumb">
+            <iframe title="O que é um alimento ultraprocessado? - Drauzio Varella" src="https://www.youtube.com/embed/dNdYq2pjwtA" loading="lazy" allowfullscreen></iframe>
+          </div>
+          <div class="card-body">
+            <h4>O que é ultraprocessado?</h4>
+            <p>Entenda por que fazem mal ao coração.</p>
+            <a class="btn btn-ghost" href="https://www.youtube.com/watch?v=dNdYq2pjwtA" target="_blank" rel="noopener">Abrir no YouTube</a>
+          </div>
+        </article>
+
+        <!-- 5 dicas - Ministério da Saúde -->
+        <article class="card">
+          <div class="thumb">
+            <iframe title="5 dicas para se alimentar melhor - Ministério da Saúde" src="https://www.youtube.com/embed/x5EwVBmVk8o" loading="lazy" allowfullscreen></iframe>
+          </div>
+          <div class="card-body">
+            <h4>5 dicas para se alimentar melhor</h4>
+            <p>Orientações simples do Ministério da Saúde.</p>
+            <a class="btn btn-ghost" href="https://www.youtube.com/watch?v=x5EwVBmVk8o" target="_blank" rel="noopener">Abrir no YouTube</a>
+          </div>
+        </article>
+
+        <!-- Vídeo extra (5gyTL7vqwMA) -->
+        <article class="card">
+          <div class="thumb">
+            <iframe title="Vídeo complementar sobre alimentação" src="https://www.youtube.com/embed/5gyTL7vqwMA" loading="lazy" allowfullscreen></iframe>
+          </div>
+          <div class="card-body">
+            <h4>Vídeo complementar</h4>
+            <p>Conteúdo extra de apoio.</p>
+            <a class="btn btn-ghost" href="https://www.youtube.com/watch?v=5gyTL7vqwMA" target="_blank" rel="noopener">Abrir no YouTube</a>
+          </div>
+        </article>
+
+        <!-- Dra. Lívia (parte 1) - placeholder -->
+        <article class="card">
+          <div class="thumb placeholder"><span>Vídeo Dra. Lívia — parte 1</span></div>
+          <div class="card-body">
+            <h4>Dra. Lívia (parte 1)</h4>
+            <p><em>Adicione o link quando disponível.</em></p>
+            <button class="btn btn-light" data-addlink>Inserir link</button>
+          </div>
+        </article>
+
+        <!-- Dra. Lívia (parte 2) - placeholder -->
+        <article class="card">
+          <div class="thumb placeholder"><span>Dra. Lívia — OMS e sódio</span></div>
+          <div class="card-body">
+            <h4>Dra. Lívia (parte 2) — Recomendação OMS (sódio)</h4>
+            <p><em>Adicione o link quando disponível.</em></p>
+            <button class="btn btn-light" data-addlink>Inserir link</button>
+          </div>
+        </article>
+
+        <!-- PAHO TV - placeholder -->
+        <article class="card">
+          <div class="thumb placeholder"><span>PAHO TV — Guia Alimentar</span></div>
+          <div class="card-body">
+            <h4>Guia Alimentar — PAHO TV</h4>
+            <p><em>Adicione o link quando disponível.</em></p>
+            <button class="btn btn-light" data-addlink>Inserir link</button>
+          </div>
+        </article>
+
+        <!-- IONCM - placeholder -->
+        <article class="card">
+          <div class="thumb placeholder"><span>IONCM — Vídeo em edição</span></div>
+          <div class="card-body">
+            <h4>Vídeo com Nutricionista do IONCM</h4>
+            <p><em>Conteúdo em produção — adicione o link quando sair.</em></p>
+            <button class="btn btn-light" data-addlink>Inserir link</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Imagem ilustrativa -->
+    <section class="section container">
+      <h3 class="section-title"><i class="fa-solid fa-image"></i> Imagem</h3>
+      <figure class="figure">
+        <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=1200&auto=format&fit=crop" alt="Prato colorido com alimentos naturais variados" />
+        <figcaption>
+          Prefira pratos coloridos, com alimentos naturais e integrais. Pequenas trocas diárias fazem grande diferença para a saúde do coração.
+        </figcaption>
+      </figure>
+    </section>
+
+    <!-- Referências -->
+    <section id="referencias" class="section container">
+      <h3 class="section-title"><i class="fa-solid fa-book"></i> Referências bibliográficas</h3>
+      <ol class="refs">
+        <li>Casas R, et al. Long-Term Immunomodulatory Effects of a Mediterranean Diet. <em>J Nutr</em>. 2016;146(9):1684-1693. DOI: <a class="doi" href="https://doi.org/10.3945/jn.116.233541" target="_blank" rel="noopener">10.3945/jn.116.233541</a></li>
+        <li>Dibben RF, et al. Exercise-based cardiac rehabilitation for coronary heart disease. <em>Cochrane Database Syst Rev</em>. 2021;(11):CD001800. DOI: <a class="doi" href="https://doi.org/10.1002/14651858.CD001800.pub4" target="_blank" rel="noopener">10.1002/14651858.CD001800.pub4</a></li>
+        <li>Furbatto M, et al. Mediterranean Diet in Older Adults: Cardiovascular Outcomes and Mortality. <em>Nutrients</em>. 2024;16(22):3947. DOI: <a class="doi" href="https://doi.org/10.3390/nu16223947" target="_blank" rel="noopener">10.3390/nu16223947</a></li>
+        <li>Gardner CD, et al. Popular dietary patterns & AHA 2021 guidance. <em>Circulation</em>. 2023;147(22):1715-1730. DOI: <a class="doi" href="https://doi.org/10.1161/CIR.0000000000001146" target="_blank" rel="noopener">10.1161/CIR.0000000000001146</a></li>
+        <li>Zhang B, et al. Aerobic exercise in older hypertensive patients. <em>Int J Gen Med</em>. 2025;18:2823-2838. DOI: <a class="doi" href="https://doi.org/10.2147/IJGM.S516371" target="_blank" rel="noopener">10.2147/IJGM.S516371</a></li>
+        <li>Jarai D; Koller A. Walnut consumption & endothelial function. <em>Life</em>. 2024;14:1426. DOI: <a class="doi" href="https://doi.org/10.3390/life14111426" target="_blank" rel="noopener">10.3390/life14111426</a></li>
+        <li>Jennings A, et al. Mediterranean-style diet improves BP and arterial stiffness. <em>Hypertension</em>. 2019;73(3):578-586. DOI: <a class="doi" href="https://doi.org/10.1161/HYPERTENSIONAHA.118.12259" target="_blank" rel="noopener">10.1161/HYPERTENSIONAHA.118.12259</a></li>
+        <li>Kazeminia M, et al. Effect of exercise on BP in older adults with hypertension. <em>Int J Hypertens</em>. 2020;2020:2786120. DOI: <a class="doi" href="https://doi.org/10.1155/2020/2786120" target="_blank" rel="noopener">10.1155/2020/2786120</a></li>
+        <li>Low JHM, et al. Impact of intensity of dietary counselling. <em>Nutrients</em>. 2021;13(9):2936. DOI: <a class="doi" href="https://doi.org/10.3390/nu13092936" target="_blank" rel="noopener">10.3390/nu13092936</a></li>
+        <li>Na M, et al. DASH-style diet & 24-h ambulatory BP in elderly Chinese. <em>J Nutr</em>. 2022;152:1755-1762. DOI: <a class="doi" href="https://doi.org/10.1093/jn/nxac086" target="_blank" rel="noopener">10.1093/jn/nxac086</a></li>
+        <li>Rukskulpiwat S, et al. Medication adherence in older adults with hypertension. <em>Patient Prefer Adherence</em>. 2024;18:957-967. DOI: <a class="doi" href="https://doi.org/10.2147/PPA.S459678" target="_blank" rel="noopener">10.2147/PPA.S459678</a></li>
+        <li>Schmidt-Trucksäss A, et al. Lifestyle determinants of ASCVD health. <em>Atherosclerosis</em>. 2024;395:117577. DOI: <a class="doi" href="https://doi.org/10.1016/j.atherosclerosis.2024.117577" target="_blank" rel="noopener">10.1016/j.atherosclerosis.2024.117577</a></li>
+        <li>Yoshida H, et al. Association between salt intake and BP among older adults. <em>Hypertens Res</em>. 2025;48:1399-1408. DOI: <a class="doi" href="https://www.nature.com/articles/s41440-024-02066-y" target="_blank" rel="noopener">10.1038/s41440-024-02066-y</a></li>
+      </ol>
+    </section>
+  </main>
+
+  <!-- Voltar ao topo -->
+  <button id="toTop" class="to-top" aria-label="Voltar ao topo"><i class="fa-solid fa-arrow-up"></i></button>
+
+  <!-- Rodapé -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <span id="anoAtual"></span> Vida Saudável 60+. Conteúdo educativo.</p>
+    </div>
+  </footer>
+
+  <!-- JS base -->
+  <script src="script1.js"></script>
+</body>
+</html>
