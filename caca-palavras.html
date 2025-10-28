@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Caça-Palavras • Vida Saudável 60+</title>
+  <meta name="description" content="Jogo de caça-palavras acessível e responsivo." />
+  <link rel="stylesheet" href="caca.css" />
+</head>
+<body>
+  <header class="cp-header">
+    <a class="back" href="index.html" aria-label="Voltar">← Voltar</a>
+    <h1>Caça-Palavras</h1>
+  </header>
+
+  <main class="cp-wrap">
+    <section class="cp-panel">
+      <div class="cp-top">
+        <div>
+          <h2 class="cp-title">Tema: Hábitos Saudáveis</h2>
+          <p class="cp-sub">Selecione as letras arrastando (mouse ou dedo). Vale horizontal, vertical e diagonal — normal ou ao contrário.</p>
+        </div>
+        <div class="cp-controls">
+          <button id="btn-novo" class="btn">Novo Jogo</button>
+          <button id="btn-dica" class="btn btn-ghost">Dica</button>
+        </div>
+      </div>
+
+      <div class="cp-game">
+        <div id="grid" class="grid" role="grid" aria-label="Grade de letras do caça-palavras"></div>
+
+        <aside class="cp-aside">
+          <h3>Palavras</h3>
+          <ul id="lista" class="lista" aria-live="polite"></ul>
+
+          <div class="cp-stats">
+            <div><strong>Encontradas:</strong> <span id="found">0</span>/<span id="total">0</span></div>
+            <div><strong>Tempo:</strong> <span id="tempo">00:00</span></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <dialog id="win">
+    <h2>Parabéns! 🎉</h2>
+    <p>Você encontrou todas as palavras.</p>
+    <form method="dialog">
+      <button class="btn">Jogar novamente</button>
+    </form>
+  </dialog>
+
+  <script src="caca.js"></script>
+</body>
+</html>
