@@ -92,6 +92,36 @@
     .refs{ display:grid; gap:10px; background:#fff; border:1px solid var(--border); border-radius:16px; padding:14px; box-shadow:var(--shadow) }
     .refs li{ margin-left:20px } .doi{ word-break:break-all }
 
+    /* ========================= VÍDEO (PADRÃO DO PROJETO) ========================= */
+    .video-wrap{
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #000;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+    .video-wrap iframe{
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+    .video-caption{ padding: 12px; color: #444; font-size: 15px }
+    .video-actions{ margin-top: 10px }
+    .video-actions a{ text-decoration: underline; font-weight: 500 }
+
+    /* ======= GRADE DE 2 VÍDEOS ======= */
+    .video-grid{
+      display: grid;
+      gap: 16px;
+    }
+    @media (min-width: 800px){
+      .video-grid{ grid-template-columns: 1fr 1fr; }
+    }
+
     /* ========================= TO TOP / FOOTER ========================= */
     .to-top{ position:fixed; right:16px; bottom:16px; z-index:55; width:44px; height:44px; border-radius:12px; display:none; align-items:center; justify-content:center; border:1px solid var(--border); background:#fff; box-shadow:var(--shadow); cursor:pointer }
     .to-top.show{ display:flex }
@@ -143,7 +173,7 @@
             <li><a href="#locomocao">Locomoção, quedas e autonomia</a></li>
             <li><a href="#ta">Tecnologia Assistiva (TA) na mobilidade</a></li>
             <li><a href="#tabela">Riscos comuns × O que ajuda</a></li>
-            <li><a href="#video">Vídeo explicativo</a></li>
+            <li><a href="#video">Vídeos explicativos</a></li>
             <li><a href="#referencias">Referências</a></li>
           </ul>
         </nav>
@@ -242,12 +272,48 @@
       </div>
     </section>
 
-    <!-- Vídeo -->
-    <section id="video" class="section container">
-      <h3 class="section-title"><i class="fa-solid fa-video"></i> Vídeo explicativo</h3>
-      <div class="figure" role="group" aria-label="Vídeo explicando inclusão digital e envelhecimento ativo">
-        <iframe title="Inclusão digital e envelhecimento ativo" src="https://www.youtube.com/embed/cQ6jaLPFKbw" loading="lazy" style="width:100%; aspect-ratio:16/9; border:0;" allowfullscreen></iframe>
-        <figcaption style="padding:12px">Como a inclusão digital pode apoiar o autocuidado e a autonomia no envelhecimento.</figcaption>
+    <!-- VÍDEOS (2 em grade, padrão do projeto) -->
+    <section id="video" class="section container" aria-labelledby="titulo-video">
+      <h3 id="titulo-video" class="section-title">
+        <i class="fa-solid fa-video" aria-hidden="true"></i> Vídeos explicativos
+      </h3>
+
+      <div class="video-grid" role="list" aria-label="Lista de vídeos sobre inclusão digital e envelhecimento ativo">
+        <!-- Vídeo 1: jjG1j-Wn6ZE -->
+        <article role="listitem" class="figure" aria-labelledby="vid1-title">
+          <h4 id="vid1-title" class="sr-only">Inclusão digital e envelhecimento ativo — Vídeo 1</h4>
+          <div class="video-wrap" role="region" aria-label="Player do YouTube: Inclusão digital e envelhecimento ativo (Vídeo 1)">
+            <iframe
+              title="Inclusão digital e envelhecimento ativo — Vídeo 1"
+              src="https://www.youtube-nocookie.com/embed/jjG1j-Wn6ZE?rel=0&modestbranding=1"
+              loading="lazy"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen></iframe>
+          </div>
+          <figcaption class="video-caption">
+            Inclusão digital apoiando autocuidado e autonomia (Vídeo 1).
+            <br><a class="video-actions" href="https://youtu.be/jjG1j-Wn6ZE" target="_blank" rel="noopener">Abrir no YouTube</a>
+          </figcaption>
+        </article>
+
+        <!-- Vídeo 2: cQ6jaLPFKbw -->
+        <article role="listitem" class="figure" aria-labelledby="vid2-title">
+          <h4 id="vid2-title" class="sr-only">Inclusão digital e envelhecimento ativo — Vídeo 2</h4>
+          <div class="video-wrap" role="region" aria-label="Player do YouTube: Inclusão digital e envelhecimento ativo (Vídeo 2)">
+            <iframe
+              title="Inclusão digital e envelhecimento ativo — Vídeo 2"
+              src="https://www.youtube-nocookie.com/embed/cQ6jaLPFKbw?rel=0&modestbranding=1"
+              loading="lazy"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen></iframe>
+          </div>
+          <figcaption class="video-caption">
+            Inclusão digital apoiando autocuidado e autonomia (Vídeo 2).
+            <br><a class="video-actions" href="https://youtu.be/cQ6jaLPFKbw" target="_blank" rel="noopener">Abrir no YouTube</a>
+          </figcaption>
+        </article>
       </div>
     </section>
 
@@ -264,7 +330,12 @@
     <section id="referencias" class="section container">
       <h3 class="section-title"><i class="fa-solid fa-book"></i> Referências</h3>
       <ol class="refs">
-        <li>Vídeo: Inclusão digital e envelhecimento ativo — <a class="doi" href="https://youtu.be/cQ6jaLPFKbw" target="_blank" rel="noopener">https://youtu.be/cQ6jaLPFKbw</a></li>
+        <li>Vídeo 1 — Inclusão digital e envelhecimento ativo:
+          <a class="doi" href="https://youtu.be/jjG1j-Wn6ZE" target="_blank" rel="noopener">https://youtu.be/jjG1j-Wn6ZE</a>
+        </li>
+        <li>Vídeo 2 — Inclusão digital e envelhecimento ativo:
+          <a class="doi" href="https://youtu.be/cQ6jaLPFKbw" target="_blank" rel="noopener">https://youtu.be/cQ6jaLPFKbw</a>
+        </li>
       </ol>
     </section>
   </main>
