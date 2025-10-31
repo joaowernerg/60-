@@ -15,16 +15,16 @@
 
   <!-- CSS pontual (tabela de substituições) -->
   <style>
-    .compare {
+    compare {
       background:#fff; border:1px solid var(--border); border-radius:16px;
       box-shadow:var(--shadow); padding:14px; overflow:auto;
     }
-    .compare table{ width:100%; border-collapse:collapse; min-width:680px }
-    .compare th, .compare td{
+    compare table{ width:100%; border-collapse:collapse; min-width:680px }
+    compare th, .compare td{
       border:1px solid var(--border); padding:10px; vertical-align:top; text-align:left;
     }
-    .compare th{ background:#fffdf7; font-weight:700 }
-    .badge{
+    compare th{ background:#fffdf7; font-weight:700 }
+    badge{
       display:inline-block; font-size:12px; padding:4px 8px; border:1px solid var(--border);
       border-radius:999px; background:#fff; margin-left:8px
     }
@@ -207,28 +207,35 @@
           </div>
         </article>
 
-        <!-- Dra. Lívia (parte 1) - YouTube embed -->
-<article class="card">
+     <!-- Vídeo: Dra. Lívia - Parte 1 -->
+<article class="card" aria-label="Vídeo Dra. Lívia sobre saúde do coração e alimentação (Parte 1)">
   <div class="video-wrap">
     <iframe
-      title="Dra. Lívia (parte 1) Dr. Lívia, nutricionista fala sobre a saude do coração e alimentação "
-      src="https://youtu.be/yOioEby56YU?si=iOnFSM5XQmK01NjP"
+      title="Dra. Lívia - Parte 1: Saúde do coração e alimentação"
+      src="https://www.youtube.com/embed/yOioEby56YU"
       loading="lazy"
+      frameborder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
       allowfullscreen>
     </iframe>
   </div>
 
   <div class="card-body">
-    <h4>Dra. Lívia fala  sobre a saude do coração e alimentação parte 1</h4>
-    <p>Fisiologia do coração e exercícios — introdução.</p>
+    <h4>Dra. Lívia fala sobre a saúde do coração e a alimentação (Parte 1)</h4>
+    <p>Fisiologia do coração e exercícios — introdução ao tema e orientações iniciais sobre alimentação saudável.</p>
+
     <div class="actions-row">
-      <a class="btn btn-ghost" href="https://youtu.be/yOioEby56YU?si=iOnFSM5XQmK01NjP" target="_blank" rel="noopener">
-        Abrir no YouTube
+      <a class="btn btn-ghost"
+         href="https://youtu.be/yOioEby56YU?si=iOnFSM5XQmK01NjP"
+         target="_blank"
+         rel="noopener noreferrer"
+         aria-label="Abrir vídeo da Dra. Lívia no YouTube">
+        <i class="fa-brands fa-youtube"></i> Abrir no YouTube
       </a>
     </div>
   </div>
 </article>
+
 
 <!-- Dra. Lívia (parte 2) - YouTube embed -->
     
