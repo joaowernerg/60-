@@ -3,389 +3,362 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Como a tecnologia, a inclusão digital e a cidadania fortalecem a autonomia, a participação social e a qualidade de vida das pessoas idosas." />
+  <meta name="author" content="Projeto Vida Saudável 60+" />
   <title>Inclusão Digital no Envelhecimento Ativo • Vida Saudável 60+</title>
-  <meta name="description" content="Como a tecnologia e a inclusão digital apoiam o envelhecimento ativo: saúde, autonomia, mente ativa, mobilidade, prevenção de quedas e tecnologia assistiva." />
 
   <!-- Fontes e Ícones -->
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
 
   <style>
-    /* =========================
-       VARIÁVEIS & BASE GLOBAL
-       ========================= */
     :root{
-      --bg:#fffaf3; --card:#ffffff; --text:#232323; --muted:#666;
+      --bg:#fffaf3; --card:#fff; --text:#232323; --muted:#555;
       --brand:#ff7a00; --brand-2:#ffd633; --border:#efe3cf;
-      --shadow:0 12px 24px rgba(0,0,0,.08); --radius:18px;
-      --space:clamp(14px,2.2vw,22px); --container:1100px;
+      --shadow:0 10px 22px rgba(0,0,0,.08);
+      --radius:18px; --container:1100px;
     }
-    *{ box-sizing:border-box; margin:0; padding:0 }
-    html{ scroll-behavior:smooth }
-    body{ font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,sans-serif; background:var(--bg); color:var(--text); line-height:1.75; overflow-x:hidden }
-    img{ display:block; max-width:100%; height:auto }
-    a{ color:var(--brand); text-decoration:none } a:hover{ color:#b85d00 }
-    .container{ width:min(var(--container),92%); margin-inline:auto }
-    .section{ padding:clamp(28px,5vw,64px) 0 }
-    .section-title{ display:flex; gap:10px; align-items:center; font:700 clamp(20px,3vw,28px) 'Merriweather',serif; margin-bottom:14px }
-    .section-head{ display:flex; justify-content:space-between; align-items:center; margin-bottom:12px }
-    .sr-only{ position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0 }
-    :focus-visible{ outline:3px solid #4c9fff; outline-offset:2px }
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,sans-serif;background:var(--bg);color:var(--text);line-height:1.8}
+    a{text-decoration:none;color:var(--brand)} a:hover{color:#b85d00}
+    img{max-width:100%;display:block;border-radius:14px}
+    .container{width:min(var(--container),92%);margin:auto}
+    .section{padding:clamp(28px,5vw,64px) 0}
+    .section-title{font:700 clamp(22px,3vw,30px) 'Merriweather',serif;display:flex;align-items:center;gap:10px;margin-bottom:14px;color:#222}
+    .muted{color:var(--muted)}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 
-    /* ========================= HEADER / NAV ========================= */
-    .site-header{ position:sticky; top:0; z-index:50; background:rgba(255,255,255,.85); backdrop-filter:blur(10px); border-bottom:1px solid var(--border) }
-    .header-grid{ display:grid; grid-template-columns:1fr 44px; align-items:center; gap:12px; min-height:68px }
-    @media (min-width:900px){ .header-grid{ grid-template-columns:auto 1fr } }
-    .brand{ display:flex; gap:12px; align-items:center }
-    .brand-badge{ width:44px; height:44px; border-radius:50%; display:grid; place-items:center; background:linear-gradient(135deg,var(--brand),var(--brand-2)); color:#1a1a1a; font-weight:800 }
-    .brand-text h1{ font:700 20px 'Merriweather',serif; line-height:1 }
-    .brand-text p{ font-size:12px; color:var(--muted) }
-    .menu-btn{ display:grid; place-items:center; width:42px; height:42px; border-radius:12px; border:1px solid var(--border); background:#fff; box-shadow:var(--shadow); cursor:pointer }
-    .top-nav{ grid-column:1/-1; display:none; flex-wrap:wrap; gap:8px; padding:8px 0 }
-    .top-nav a{ padding:10px 12px; border-radius:12px } .top-nav a:hover{ background:#fff; box-shadow:var(--shadow) }
-    .top-nav.open{ display:flex } @media (min-width:900px){ .menu-btn{ display:none } .top-nav{ display:flex; grid-column:auto; justify-content:end } }
-
-    /* ========================= PROGRESS BAR ========================= */
-    #progressBar{ position:fixed; top:0; left:0; height:4px; width:0; background:linear-gradient(90deg,var(--brand),var(--brand-2)); z-index:9999 }
-
-    /* ========================= HERO ========================= */
+    /* HERO */
     .hero{
       background:
         radial-gradient(1200px 420px at 10% -10%, #fff1dc 0%, rgba(255,255,255,0) 60%),
         radial-gradient(1200px 420px at 90% -10%, #ffeaa6 0%, rgba(255,255,255,0) 60%);
-      padding:clamp(28px,6vw,72px) 0;
+      padding:70px 0 36px;text-align:center;
     }
-    .hero-grid{ display:grid; gap:20px; align-items:start }
-    .hero-text h2{ font:700 clamp(24px,4vw,38px) 'Merriweather',serif }
-    .hero-text h2 span{ background:linear-gradient(135deg,var(--brand),var(--brand-2)); -webkit-background-clip:text; background-clip:text; color:transparent }
-    .hero-text p{ color:#3c3c3c; margin-top:8px; max-width:65ch }
-    .hero-date{ display:inline-block; margin-bottom:8px; color:var(--muted) }
-    .toc{ margin-top:12px; background:#fff; border:1px solid var(--border); border-radius:16px; padding:12px; box-shadow:var(--shadow) }
-    .toc strong{ display:block; margin-bottom:8px } .toc ul{ display:grid; gap:8px }
-
-    /* ========================= COMPONENTES ========================= */
-    .alerta{ display:flex; gap:12px; background:#fff; border:1px solid var(--border); border-radius:16px; padding:14px; box-shadow:var(--shadow) }
-    .alerta i{ font-size:20px } .alerta h3{ font-weight:700; margin-bottom:4px }
-    .list{ margin:10px 0 14px 18px }
-    .tips{ display:grid; gap:12px; margin-top:8px }
-    .tip{ display:flex; gap:10px; background:#fff; border:1px solid var(--border); border-radius:16px; padding:12px; box-shadow:var(--shadow) }
-    .tip i{ margin-top:4px }
-
-    .figure{ background:#fff; border:1px solid var(--border); border-radius:16px; overflow:hidden; box-shadow:var(--shadow) }
-    .figure figcaption{ padding:12px; color:#444; font-size:15px }
-
-    .compare{ background:#fff; border:1px solid var(--border); border-radius:16px; box-shadow:var(--shadow); padding:14px; overflow:auto }
-    table.clean{ width:100%; border-collapse:collapse; min-width:680px; font-size:15px }
-    .clean th,.clean td{ border:1px solid var(--border); padding:10px 12px; text-align:left; vertical-align:top }
-    .clean thead th{ background:#fffdf7; font-weight:700 }
-    .clean tbody tr:nth-child(even){ background:#fffdfc } .clean tbody tr:hover{ background:#fff7e6 }
-    @media (max-width:680px){
-      .clean.table--stack{ border:0; min-width:0 }
-      .clean.table--stack thead{ display:none }
-      .clean.table--stack tbody,.clean.table--stack tr,.clean.table--stack td{ display:block; width:100% }
-      .clean.table--stack tr{ border:1px solid var(--border); border-radius:12px; overflow:hidden; margin-bottom:10px; background:#fff }
-      .clean.table--stack td{ border:0; border-bottom:1px solid var(--border); padding:10px 12px; display:grid; grid-template-columns:12ch 1fr; gap:8px }
-      .clean.table--stack td:last-child{ border-bottom:0 }
-      .clean.table--stack td::before{ content:attr(data-th) " "; font-weight:700; color:#444 }
+    .hero h1{font:700 clamp(26px,4vw,40px) 'Merriweather',serif;color:#222}
+    .hero p{max-width:780px;margin:10px auto 18px;font-size:18px;color:#333}
+    .pill{
+      display:inline-flex;gap:8px;align-items:center;
+      background:#fff;border:1px solid var(--border);padding:8px 12px;border-radius:999px;font-size:14px;color:#444;
+      box-shadow:var(--shadow)
     }
-
-    .refs{ display:grid; gap:10px; background:#fff; border:1px solid var(--border); border-radius:16px; padding:14px; box-shadow:var(--shadow) }
-    .refs li{ margin-left:20px } .doi{ word-break:break-all }
-
-    /* ========================= VÍDEO (PADRÃO DO PROJETO) ========================= */
-    .video-wrap{
-      position: relative;
-      width: 100%;
-      aspect-ratio: 16 / 9;
-      background: #000;
-      border-radius: 14px;
-      overflow: hidden;
-      box-shadow: var(--shadow);
+    .back-btn{
+      display:inline-block;margin-top:12px;background:linear-gradient(135deg,var(--brand),var(--brand-2));
+      color:#222;padding:10px 20px;border-radius:12px;font-weight:600;box-shadow:var(--shadow);transition:.3s;
     }
-    .video-wrap iframe{
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      border: 0;
-    }
-    .video-caption{ padding: 12px; color: #444; font-size: 15px }
-    .video-actions{ margin-top: 10px }
-    .video-actions a{ text-decoration: underline; font-weight: 500 }
+    .back-btn:hover{transform:translateY(-2px);background:linear-gradient(135deg,#ff9517,#ffec64)}
 
-    /* ======= GRADE DE 2 VÍDEOS ======= */
-    .video-grid{
-      display: grid;
-      gap: 16px;
-    }
-    @media (min-width: 800px){
-      .video-grid{ grid-template-columns: 1fr 1fr; }
-    }
+    /* SUMÁRIO */
+    .toc{margin-top:16px;background:#fff;border:1px solid var(--border);border-radius:16px;padding:14px;box-shadow:var(--shadow);text-align:left}
+    .toc strong{display:block;margin-bottom:8px}
+    .toc ul{display:grid;gap:8px}
+    .toc a{display:inline-flex;gap:8px;align-items:center}
 
-    /* ========================= TO TOP / FOOTER ========================= */
-    .to-top{ position:fixed; right:16px; bottom:16px; z-index:55; width:44px; height:44px; border-radius:12px; display:none; align-items:center; justify-content:center; border:1px solid var(--border); background:#fff; box-shadow:var(--shadow); cursor:pointer }
-    .to-top.show{ display:flex }
-    .site-footer{ margin-top:20px; padding:24px 0; border-top:1px solid var(--border); text-align:center; color:var(--muted); background:#fff }
+    /* COMPONENTES */
+    .grid{display:grid;gap:16px}
+    @media (min-width:900px){ .grid-2{grid-template-columns:1fr 1fr} .grid-3{grid-template-columns:repeat(3,1fr)} }
+    .card{background:#fff;border:1px solid var(--border);border-radius:16px;box-shadow:var(--shadow);overflow:hidden}
+    .card-body{padding:14px}
+    .kpis{display:grid;gap:12px;margin:12px 0}
+    @media (min-width:760px){ .kpis{grid-template-columns:repeat(3,1fr)} }
+    .kpi{background:#fff;border:1px solid var(--border);border-radius:14px;padding:12px;box-shadow:var(--shadow)}
+    .kpi h4{font-size:15px;margin-bottom:6px}
+    .badge{display:inline-block;border:1px dashed var(--border);padding:8px 12px;border-radius:999px;background:#fff}
+    .highlight{background:#fff9e6;border-left:6px solid var(--brand);padding:14px 18px;border-radius:12px;margin:14px 0}
+    .list{margin:10px 0 12px 22px}
+    .list li{margin-bottom:8px}
+    .clean{width:100%;border-collapse:collapse}
+    .clean th,.clean td{border:1px solid var(--border);padding:10px 12px;text-align:left;vertical-align:top;background:#fff}
+    .clean thead th{background:#fffdf7}
+    .table-wrap{overflow:auto;border-radius:16px;border:1px solid var(--border);box-shadow:var(--shadow)}
+    .checklist li{list-style:none;margin:8px 0;padding-left:28px;position:relative}
+    .checklist li::before{content:"\f14a";font-family:"Font Awesome 6 Free";font-weight:900;position:absolute;left:0;color:var(--brand)}
+
+    /* VÍDEO */
+    .video-wrap{position:relative;width:100%;aspect-ratio:16/9;border-radius:16px;overflow:hidden;box-shadow:var(--shadow);margin-top:12px}
+    iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+
+    /* ALERTA / FOOTER / TO-TOP */
+    .alerta{display:flex;gap:12px;align-items:flex-start;background:#fff;border:1px solid var(--border);border-radius:16px;padding:14px;box-shadow:var(--shadow);margin-top:20px}
+    .alerta i{font-size:22px;color:var(--brand)}
+    .site-footer{background:#fff;margin-top:40px;padding:24px 0;text-align:center;border-top:1px solid var(--border);color:#666;font-size:15px}
+    .to-top{position:fixed;right:16px;bottom:16px;z-index:50;width:44px;height:44px;display:none;align-items:center;justify-content:center;background:#fff;border:1px solid var(--border);border-radius:12px;box-shadow:var(--shadow);cursor:pointer}
+    .to-top.show{display:flex}
+
+    /* ANIMAÇÃO */
+    [data-animate]{opacity:0;transform:translateY(30px);transition:all .6s ease-out}
+    [data-animate].visible{opacity:1;transform:none}
+
+    /* RESPONSIVO */
+    @media (max-width:600px){
+      .hero h1{font-size:26px}
+      .hero p{font-size:16px}
+      .alerta{flex-direction:column}
+    }
   </style>
 </head>
 <body>
-  <!-- Barra de progresso -->
-  <div id="progressBar" aria-hidden="true"></div>
 
-  <!-- ===== HEADER ===== -->
-  <header class="site-header">
-    <div class="container header-grid">
-      <a class="brand" href="index.html" aria-label="Página inicial Vida Saudável 60+">
-        <span class="brand-badge" aria-hidden="true">60+</span>
-        <div class="brand-text">
-          <h1>Vida Saudável</h1>
-          <p>Saúde • Dicas • Jogos</p>
-        </div>
-      </a>
-
-      <button id="menuBtn" class="menu-btn" aria-expanded="false" aria-controls="topNav" aria-label="Abrir menu">
-        <i class="fa-solid fa-bars"></i>
-      </button>
-
-      <nav id="topNav" class="top-nav" aria-label="Navegação principal">
-        <a href="index.html#noticias">Notícias</a>
-        <a href="index.html#jogos">Jogos</a>
-        <a href="index.html#videos">Vídeos</a>
-        <a href="index.html#dicas">Dicas</a>
-        <a href="index.html#sobre">Sobre</a>
-      </nav>
-    </div>
-  </header>
-
-  <!-- ===== HERO ===== -->
+  <!-- HERO -->
   <section class="hero">
-    <div class="container hero-grid">
-      <div class="hero-text">
-        <small id="dataHoje" class="hero-date" aria-live="polite"></small>
-        <h2>Inclusão Digital no <span>Envelhecimento Ativo</span></h2>
-        <p>Viver mais e melhor: como a tecnologia e a inclusão digital fortalecem sua <strong>autonomia</strong>, <strong>saúde</strong>, <strong>participação social</strong> e <strong>segurança</strong>.</p>
+    <div class="container">
+      <span class="pill"><i class="fa-solid fa-wifi"></i> Inclusão Digital • Autonomia • Cidadania</span>
+      <h1>Inclusão Digital no Envelhecimento Ativo</h1>
+      <p>Como a tecnologia, os direitos digitais e a cidadania transformam o envelhecer em uma jornada de <strong>autonomia</strong>, <strong>participação</strong> e <strong>qualidade de vida</strong>.</p>
+      <a href="index.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Voltar para a página inicial</a>
 
-        <nav class="toc" aria-label="Sumário desta página">
-          <strong>Sumário</strong>
-          <ul>
-            <li><a href="#conceito">O que é Envelhecimento Ativo</a></li>
-            <li><a href="#inclusao-digital">Inclusão digital na sua saúde</a></li>
-            <li><a href="#locomocao">Locomoção, quedas e autonomia</a></li>
-            <li><a href="#ta">Tecnologia Assistiva (TA) na mobilidade</a></li>
-            <li><a href="#tabela">Riscos comuns × O que ajuda</a></li>
-            <li><a href="#video">Vídeos explicativos</a></li>
-            <li><a href="#referencias">Referências</a></li>
-          </ul>
-        </nav>
-      </div>
-
-      <aside class="alerta" role="note" aria-label="Aviso importante">
-        <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
-        <div>
-          <h3>Informação, não diagnóstico</h3>
-          <p>Conteúdo educativo. Para quedas, dor, tontura, fraqueza ou dúvidas sobre dispositivos, procure avaliação profissional.</p>
-        </div>
-      </aside>
+      <nav class="toc" aria-label="Sumário">
+        <strong>Sumário</strong>
+        <ul>
+          <li><a href="#conceito"><i class="fa-solid fa-seedling"></i> Envelhecimento ativo e tecnologia</a></li>
+          <li><a href="#inclusao"><i class="fa-solid fa-notes-medical"></i> Inclusão digital na saúde</a></li>
+          <li><a href="#ta"><i class="fa-solid fa-person-cane"></i> Tecnologia assistiva e mobilidade</a></li>
+          <li><a href="#estatuto"><i class="fa-solid fa-scale-balanced"></i> Estatuto e autonomia</a></li>
+          <li><a href="#cidadania"><i class="fa-solid fa-users"></i> Cidadania e participação</a></li>
+          <li><a href="#seguranca"><i class="fa-solid fa-shield-halved"></i> Segurança e golpes</a></li>
+          <li><a href="#video"><i class="fa-solid fa-video"></i> Vídeo</a></li>
+        </ul>
+      </nav>
     </div>
   </section>
 
-  <main>
-    <!-- Conceito -->
-    <section id="conceito" class="section container">
-      <h3 class="section-title"><i class="fa-solid fa-seedling"></i> O que é Envelhecimento Ativo</h3>
-      <p>O aumento da expectativa de vida e o desejo por longevidade com qualidade de vida é um ideal para todos. O <strong>Envelhecimento Ativo</strong> otimiza oportunidades para <strong>saúde, participação e segurança</strong>, elevando a qualidade de vida ao longo dos anos.</p>
-      <p>Envelhecer ativamente não se restringe a ser fisicamente ativo ou estar na força de trabalho. Significa <strong>continuar engajado na vida</strong> — com determinantes comportamentais, sociais, econômicos e pessoais.</p>
-      <ul class="list">
-        <li><strong>Participação Social</strong>: diálogo, amizade e convívio para evitar isolamento.</li>
-        <li><strong>Saúde Física e Mental</strong>: caminhar, se exercitar e manter alimentação saudável.</li>
-        <li><strong>Mente Ativa</strong>: atividades prazerosas, treino de memória e aprendizado.</li>
-        <li><strong>Autonomia</strong>: independência funcional nas atividades diárias.</li>
-      </ul>
-    </section>
+  <main class="container">
 
-    <!-- Inclusão digital -->
-    <section id="inclusao-digital" class="section container">
-      <h3 class="section-title"><i class="fa-solid fa-wifi"></i> Inclusão digital na sua saúde</h3>
-      <p>Em um mundo altamente digital, o acesso à informação é um princípio ético importante. A tecnologia amplia seus recursos para compreender e <strong>atuar no autocuidado</strong>, essencial na monitoração de doenças crônicas.</p>
-      <div class="tips">
-        <div class="tip"><i class="fa-solid fa-notes-medical" aria-hidden="true"></i><div><strong>Acompanhe sua saúde</strong>: apps de pressão, glicemia, medicação e consultas ajudam a organizar o cuidado.</div></div>
-        <div class="tip"><i class="fa-solid fa-id-card" aria-hidden="true"></i><div><strong>Registro</strong>: plataformas públicas e a <em>Caderneta de Saúde da Pessoa Idosa</em> apoiam o monitoramento do envelhecimento ativo.</div></div>
+    <!-- 1. ENVELHECIMENTO ATIVO -->
+    <section id="conceito" class="section" data-animate>
+      <h2 class="section-title"><i class="fa-solid fa-seedling"></i> Envelhecimento ativo com apoio da tecnologia</h2>
+      <p>O <strong>Envelhecimento Ativo</strong> otimiza oportunidades de <strong>saúde</strong>, <strong>participação</strong> e <strong>segurança</strong>. Não é apenas estar fisicamente ativo ou trabalhar: é manter o <strong>engajamento contínuo na vida</strong> — com determinantes comportamentais, sociais, econômicos e pessoais.</p>
+      <div class="kpis">
+        <div class="kpi">
+          <h4>Participação Social</h4>
+          <p>Amizades, conversas e convivência reduzem isolamento e risco de depressão.</p>
+        </div>
+        <div class="kpi">
+          <h4>Saúde Física e Mental</h4>
+          <p>Atividade física regular, caminhada e alimentação saudável melhoram o bem-estar.</p>
+        </div>
+        <div class="kpi">
+          <h4>Mente Ativa & Autonomia</h4>
+          <p>Leitura, jogos, cursos online e decisões próprias preservam independência.</p>
+        </div>
       </div>
+      <p class="badge"><i class="fa-solid fa-circle-info"></i> A tecnologia torna tudo isso mais acessível: informação de qualidade, conexão com pessoas e serviços, e suporte ao autocuidado.</p>
     </section>
 
-    <!-- Locomoção e quedas -->
-    <section id="locomocao" class="section container">
-      <h3 class="section-title"><i class="fa-solid fa-person-cane"></i> Locomoção, quedas e autonomia</h3>
-      <p>As quedas representam um grande problema de saúde pública. <strong>Mais de um terço</strong> das pessoas idosas sofre pelo menos uma queda por ano. Podem causar ferimentos, incapacidade e <em>medo de cair</em>, reduzindo a mobilidade e a participação social.</p>
-      <p>As causas são <strong>multifatoriais</strong> e incluem alterações no padrão da marcha, visão, equilíbrio, uso de certos medicamentos, ambiente doméstico inseguro e <strong>falta de tecnologia assistiva</strong> adequada.</p>
+    <!-- 2. INCLUSÃO DIGITAL NA SAÚDE -->
+    <section id="inclusao" class="section" data-animate>
+      <h2 class="section-title"><i class="fa-solid fa-notes-medical"></i> Inclusão digital na saúde</h2>
+      <p>Em um mundo digital, o acesso à informação é um <strong>princípio ético</strong>. A tecnologia facilita o <strong>autocuidado</strong>, essencial na monitoração de doenças crônicas.</p>
+
+      <div class="grid grid-2">
+        <article class="card">
+          <div class="card-body">
+            <h3><i class="fa-solid fa-mobile-screen-button"></i> Acompanhe sua saúde</h3>
+            <ul class="list checklist">
+              <li>Apps de <strong>pressão</strong>, <strong>glicemia</strong>, controle de <strong>medicação</strong> e agenda de consultas;</li>
+              <li><strong>Teleconsulta</strong> e <strong>telemonitoramento</strong> com equipe de saúde;</li>
+              <li>Uso responsável de <strong>wearables</strong> (relógios/sensores) com compartilhamento seguro dos dados.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-body">
+            <h3><i class="fa-solid fa-id-card-clip"></i> Registre suas informações</h3>
+            <p>Plataformas públicas e a <em>Caderneta de Saúde da Pessoa Idosa</em> ajudam a organizar histórico, exames e vacinas. O registro digital:</p>
+            <ul class="list checklist">
+              <li>Facilita decisões clínicas;</li>
+              <li>Melhora a continuidade do cuidado;</li>
+              <li>Favorece metas e lembretes de saúde.</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+
+      <div class="highlight"><strong>Dica:</strong> Peça ajuda para configurar apps de saúde, notificações de remédio e contatos de emergência no celular.</div>
     </section>
 
-    <!-- Tecnologia Assistiva -->
-    <section id="ta" class="section container">
-      <h3 class="section-title"><i class="fa-solid fa-robot"></i> Tecnologia Assistiva (TA) na mobilidade</h3>
-      <p>A TA reúne recursos e estratégias de reabilitação para aumentar, manter ou melhorar a <strong>capacidade funcional</strong>, garantindo uma vida mais independente.</p>
-      <ul class="list">
-        <li><strong>Recuperar e manter a autonomia</strong>: marcha mais segura, subir/descer escadas, deslocar-se dentro e fora de casa.</li>
-        <li><strong>Permanecer no lar</strong>: adaptações e dispositivos corretos ajudam a seguir no ambiente habitual com segurança.</li>
-        <li><strong>Melhorar desempenho</strong>: profissionais identificam barreiras e facilitadores, monitorando metas funcionais.</li>
-      </ul>
-    </section>
+    <!-- 3. TECNOLOGIA ASSISTIVA & MOBILIDADE -->
+    <section id="ta" class="section" data-animate>
+      <h2 class="section-title"><i class="fa-solid fa-person-cane"></i> Tecnologia assistiva e mobilidade</h2>
+      <p>As quedas são um grande problema de saúde pública: <strong>mais de um terço</strong> das pessoas idosas cai pelo menos uma vez ao ano. As causas são <strong>multifatoriais</strong> (marcha, visão, equilíbrio, medicamentos e ambiente).</p>
 
-    <!-- Tabela de riscos e soluções -->
-    <section id="tabela" class="section container">
-      <h3 class="section-title"><i class="fa-solid fa-table-list"></i> Riscos comuns × O que ajuda</h3>
-      <div class="compare">
-        <table class="clean table--stack" aria-label="Riscos de quedas e medidas de prevenção">
+      <div class="table-wrap" aria-label="Prevenção de quedas">
+        <table class="clean">
           <thead>
-            <tr>
-              <th style="width:50%">Risco/Barreira</th>
-              <th style="width:50%">O que ajuda</th>
-            </tr>
+            <tr><th style="width:50%">Risco/Barreira</th><th>O que ajuda</th></tr>
           </thead>
           <tbody>
-            <tr>
-              <td data-th="Risco">Tapetes soltos e pouca iluminação</td>
-              <td data-th="Ajuda">Fita antiderrapante, retirar tapetes; luz noturna e corrimãos</td>
-            </tr>
-            <tr>
-              <td data-th="Risco">Calçados escorregadios</td>
-              <td data-th="Ajuda">Sola antiderrapante, salto baixo e firme</td>
-            </tr>
-            <tr>
-              <td data-th="Risco">Vertigem/sedação por remédios</td>
-              <td data-th="Ajuda">Revisar medicação com médico; levantar-se devagar</td>
-            </tr>
-            <tr>
-              <td data-th="Risco">Marcha instável sem apoio</td>
-              <td data-th="Ajuda">Avaliação para <strong>bengala/andador</strong> e treino com fisioterapeuta</td>
-            </tr>
-            <tr>
-              <td data-th="Risco">Banheiro escorregadio</td>
-              <td data-th="Ajuda">Barras de apoio, banco de banho e tapete antiderrapante</td>
-            </tr>
-            <tr>
-              <td data-th="Risco">Falta de organização da rotina</td>
-              <td data-th="Ajuda">Apps/lembretes, rotas sem obstáculos e pausas programadas</td>
-            </tr>
+            <tr><td>Tapetes soltos e pouca iluminação</td><td>Fita antiderrapante, retirar tapetes; luz noturna e corrimãos</td></tr>
+            <tr><td>Calçados escorregadios</td><td>Sola antiderrapante e salto baixo</td></tr>
+            <tr><td>Vertigem por remédios</td><td>Revisar medicação com médico; levantar-se devagar</td></tr>
+            <tr><td>Marcha instável sem apoio</td><td>Avaliação para <strong>bengala/andador</strong> e treino com fisioterapeuta</td></tr>
+            <tr><td>Banheiro escorregadio</td><td>Barras de apoio, banco de banho e piso antiderrapante</td></tr>
+            <tr><td>Rotina desorganizada</td><td>Apps/lembretes, rotas sem obstáculos e pausas programadas</td></tr>
           </tbody>
         </table>
       </div>
+
+      <div class="grid grid-2" style="margin-top:14px">
+        <div>
+          <ul class="list">
+            <li><strong>Capacidade funcional:</strong> TA aumenta, mantém ou melhora a habilidade para ABVD/AIVD;</li>
+            <li><strong>Permanência no lar:</strong> adaptações e dispositivos certos mantêm segurança no ambiente habitual;</li>
+            <li><strong>Desempenho:</strong> profissionais identificam barreiras e monitoram metas de reabilitação.</li>
+          </ul>
+          <div class="highlight"><strong>Baixo custo:</strong> Oficinas comunitárias ensinam cuidadores a criar adaptações com <em>PVC, EVA e papelão</em>, ampliando o acesso em territórios vulneráveis.</div>
+        </div>
+        <figure>
+          <img src="https://doctorshoes.com.br/blog/wp-content/uploads/2018/02/174539-riscos-e-beneficios-da-inclusao-digital-para-idosos-e1519738128235.jpg" alt="Pessoa idosa usando tablet com apoio da família">
+          <figcaption>A tecnologia aproxima, informa e apoia a autonomia — não substitui o acompanhamento profissional.</figcaption>
+        </figure>
+      </div>
     </section>
 
-    <!-- VÍDEOS (2 em grade, padrão do projeto) -->
-    <section id="video" class="section container" aria-labelledby="titulo-video">
-      <h3 id="titulo-video" class="section-title">
-        <i class="fa-solid fa-video" aria-hidden="true"></i> Vídeos explicativos
-      </h3>
+    <!-- 4. ESTATUTO & AUTONOMIA -->
+    <section id="estatuto" class="section" data-animate>
+      <h2 class="section-title"><i class="fa-solid fa-scale-balanced"></i> Estatuto da Pessoa Idosa e promoção da autonomia</h2>
+      <p>O <strong>Estatuto da Pessoa Idosa</strong> (Lei nº 10.741/2003, alterada pela Lei nº 14.423/2022) garante direitos a quem tem 60+ anos: <strong>saúde</strong>, <strong>dignidade</strong>, <strong>liberdade</strong> e <strong>respeito</strong>. Família, comunidade, sociedade e Poder Público devem assegurar tais direitos com <strong>prioridade absoluta</strong>.</p>
 
-      <div class="video-grid" role="list" aria-label="Lista de vídeos sobre inclusão digital e envelhecimento ativo">
-        <!-- Vídeo 1: jjG1j-Wn6ZE -->
-        <article role="listitem" class="figure" aria-labelledby="vid1-title">
-          <h4 id="vid1-title" class="sr-only">Inclusão digital e envelhecimento ativo — Vídeo 1</h4>
-          <div class="video-wrap" role="region" aria-label="Player do YouTube: Inclusão digital e envelhecimento ativo (Vídeo 1)">
-            <iframe
-              title="Inclusão digital e envelhecimento ativo — Vídeo 1"
-              src="https://www.youtube-nocookie.com/embed/jjG1j-Wn6ZE?rel=0&modestbranding=1"
-              loading="lazy"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen></iframe>
+      <div class="grid grid-3">
+        <article class="card">
+          <div class="card-body">
+            <h3><i class="fa-solid fa-heart-pulse"></i> Saúde e bem-estar</h3>
+            <p>Atendimento prioritário, acesso a serviços públicos de qualidade e prevenção da violência institucional.</p>
           </div>
-          <figcaption class="video-caption">
-            Inclusão digital apoiando autocuidado e autonomia (Vídeo 1).
-            <br><a class="video-actions" href="https://youtu.be/jjG1j-Wn6ZE" target="_blank" rel="noopener">Abrir no YouTube</a>
-          </figcaption>
+        </article>
+        <article class="card">
+          <div class="card-body">
+            <h3><i class="fa-solid fa-user-lock"></i> Autonomia</h3>
+            <p>Direito à autodeterminação e a participar de decisões pessoais e sociais que impactam a vida do idoso.</p>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card-body">
+            <h3><i class="fa-solid fa-shield"></i> Proteção</h3>
+            <p>Combate à negligência, discriminação, violência e opressão com responsabilização legal.</p>
+          </div>
+        </article>
+      </div>
+
+      <div class="highlight">
+        <strong>Curatela (tutela legal):</strong> medida judicial <em>excepcional</em>, quando o idoso não pode gerir a própria vida e bens. Restringe direitos civis e <strong>qualquer abuso é punido por lei</strong>. O princípio é preservar ao máximo a <strong>autonomia</strong>.
+      </div>
+    </section>
+
+    <!-- 5. CIDADANIA & PARTICIPAÇÃO -->
+    <section id="cidadania" class="section" data-animate>
+      <h2 class="section-title"><i class="fa-solid fa-users"></i> Participação social e cidadania digital</h2>
+      <p><strong>Autodeterminação</strong> e <strong>dignidade</strong> fundamentam o protagonismo no envelhecimento ativo. O paternalismo (decidir “o que é melhor” sem consultar o idoso) fere princípios éticos, <strong>aumenta dependência</strong> e reduz autoestima.</p>
+
+      <div class="grid grid-2">
+        <article class="card">
+          <div class="card-body">
+            <h3><i class="fa-solid fa-handshake-angle"></i> Estratégias de inclusão</h3>
+            <ul class="list checklist">
+              <li>Lazer, cultura e atividades lúdicas para bem-estar;</li>
+              <li>Valorização da história de vida e autoestima;</li>
+              <li><strong>Intergeracionalidade</strong>: troca entre gerações combate estigma e preconceito;</li>
+              <li>Empoderamento pelo conhecimento: alfabetização, letramento digital e midiático.</li>
+            </ul>
+          </div>
         </article>
 
-        <!-- Vídeo 2: cQ6jaLPFKbw -->
-        <article role="listitem" class="figure" aria-labelledby="vid2-title">
-          <h4 id="vid2-title" class="sr-only">Inclusão digital e envelhecimento ativo — Vídeo 2</h4>
-          <div class="video-wrap" role="region" aria-label="Player do YouTube: Inclusão digital e envelhecimento ativo (Vídeo 2)">
-            <iframe
-              title="Inclusão digital e envelhecimento ativo — Vídeo 2"
-              src="https://www.youtube-nocookie.com/embed/cQ6jaLPFKbw?rel=0&modestbranding=1"
-              loading="lazy"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen></iframe>
+        <article class="card">
+          <div class="card-body">
+            <h3><i class="fa-solid fa-network-wired"></i> Ferramentas digitais úteis</h3>
+            <ul class="list checklist">
+              <li>Grupos de comunidade no WhatsApp/Telegram (com <em>moderadores</em> e regras claras);</li>
+              <li>Plataformas de cursos abertos ( vídeos, podcasts e trilhas para 60+ );</li>
+              <li>Serviços públicos digitais (agendamentos, documentos, saúde e previdência);</li>
+              <li>Apps de leitura e audiolivros com <strong>acessibilidade</strong> (fonte maior, contraste, leitor de tela).</li>
+            </ul>
           </div>
-          <figcaption class="video-caption">
-            Inclusão digital apoiando autocuidado e autonomia (Vídeo 2).
-            <br><a class="video-actions" href="https://youtu.be/cQ6jaLPFKbw" target="_blank" rel="noopener">Abrir no YouTube</a>
-          </figcaption>
         </article>
       </div>
     </section>
 
-    <!-- Imagem ilustrativa opcional -->
-    <section class="section container">
-      <h3 class="section-title"><i class="fa-regular fa-image"></i> Imagem ilustrativa</h3>
-      <figure class="figure">
-        <img src="https://doctorshoes.com.br/blog/wp-content/uploads/2018/02/174539-riscos-e-beneficios-da-inclusao-digital-para-idosos-e1519738128235.jpg" alt="Pessoa idosa usando tablet com apoio da família, simbolizando inclusão digital" />
-        <figcaption>A tecnologia aproxima, informa e dá suporte ao autocuidado — sem substituir o acompanhamento profissional.</figcaption>
-      </figure>
+    <!-- 6. SEGURANÇA DIGITAL -->
+    <section id="seguranca" class="section" data-animate>
+      <h2 class="section-title"><i class="fa-solid fa-shield-halved"></i> Segurança: golpes, privacidade e LGPD</h2>
+      <p>Aprender a navegar com segurança faz parte da inclusão digital. A <strong>LGPD</strong> protege seus dados, mas hábitos seguros são essenciais.</p>
+      <div class="grid grid-3">
+        <article class="card"><div class="card-body">
+          <h3><i class="fa-solid fa-circle-exclamation"></i> Golpes comuns</h3>
+          <ul class="list">
+            <li>Falsos prêmios e links por SMS/WhatsApp;</li>
+            <li>Perfis falsos pedindo dinheiro;</li>
+            <li>Sites falsos de bancos/serviços.</li>
+          </ul>
+        </div></article>
+        <article class="card"><div class="card-body">
+          <h3><i class="fa-solid fa-lock"></i> Boas práticas</h3>
+          <ul class="list">
+            <li>Desconfie de urgência e pedidos de código de verificação;</li>
+            <li>Ative <strong>verificação em duas etapas</strong>;</li>
+            <li>Use senhas fortes e não repita.</li>
+          </ul>
+        </div></article>
+        <article class="card"><div class="card-body">
+          <h3><i class="fa-solid fa-user-shield"></i> Privacidade</h3>
+          <ul class="list">
+            <li>Revise permissões de apps;</li>
+            <li>Compartilhe o mínimo necessário;</li>
+            <li>Prefira meios oficiais para pagamentos e dados.</li>
+          </ul>
+        </div></article>
+      </div>
+      <div class="highlight"><strong>Regra de ouro:</strong> na dúvida, <em>não clique</em> e peça ajuda a alguém de confiança.</div>
     </section>
 
-    <!-- Referências -->
-    <section id="referencias" class="section container">
-      <h3 class="section-title"><i class="fa-solid fa-book"></i> Referências</h3>
-      <ol class="refs">
-        <li>Vídeo 1 — Inclusão digital e envelhecimento ativo:
-          <a class="doi" href="https://youtu.be/jjG1j-Wn6ZE" target="_blank" rel="noopener">https://youtu.be/jjG1j-Wn6ZE</a>
-        </li>
-        <li>Vídeo 2 — Inclusão digital e envelhecimento ativo:
-          <a class="doi" href="https://youtu.be/cQ6jaLPFKbw" target="_blank" rel="noopener">https://youtu.be/cQ6jaLPFKbw</a>
-        </li>
-      </ol>
+    <!-- 7. VÍDEO -->
+    <section id="video" class="section" data-animate aria-labelledby="titulo-video">
+      <h2 id="titulo-video" class="section-title"><i class="fa-solid fa-video"></i> Vídeo explicativo</h2>
+      <div class="video-wrap" role="region" aria-label="Player do YouTube: Inclusão digital e envelhecimento ativo">
+        <iframe
+          title="Inclusão digital e envelhecimento ativo"
+          src="https://www.youtube-nocookie.com/embed/cQ6jaLPFKbw?rel=0&modestbranding=1"
+          loading="lazy"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen></iframe>
+      </div>
+      <p class="muted" style="margin-top:8px">Fonte: <a href="https://youtu.be/cQ6jaLPFKbw" target="_blank" rel="noopener">Assistir no YouTube</a></p>
     </section>
+
+    <!-- AVISO -->
+    <div class="alerta" data-animate>
+      <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
+      <p><strong>Aviso:</strong> Conteúdo educativo e informativo. Para avaliação médica, fisioterapêutica, jurídica ou social individual, procure profissionais qualificados.</p>
+    </div>
   </main>
 
-  <!-- Voltar ao topo -->
-  <button id="toTop" class="to-top" aria-label="Voltar ao topo"><i class="fa-solid fa-arrow-up"></i></button>
-
-  <!-- ===== FOOTER ===== -->
+  <!-- RODAPÉ -->
   <footer class="site-footer">
-    <div class="container">
-      <p>&copy; <span id="anoAtual"></span> Vida Saudável 60+. Conteúdo educativo.</p>
-    </div>
+    <p>&copy; <span id="anoAtual"></span> Vida Saudável 60+. Conteúdo educativo.</p>
   </footer>
 
+  <!-- VOLTAR AO TOPO -->
+  <button id="toTop" class="to-top" aria-label="Voltar ao topo"><i class="fa-solid fa-arrow-up"></i></button>
+
   <script>
-    // Data e ano
-    (function(){
-      const now = new Date();
-      const dataHoje = document.getElementById('dataHoje');
-      const anoAtual = document.getElementById('anoAtual');
-      if(dataHoje) dataHoje.textContent = now.toLocaleDateString('pt-BR', { day:'2-digit', month:'long', year:'numeric' });
-      if(anoAtual) anoAtual.textContent = now.getFullYear();
-    })();
+    // Ano corrente
+    document.getElementById('anoAtual').textContent = new Date().getFullYear();
 
-    // Menu mobile
-    (function(){
-      const btn = document.getElementById('menuBtn');
-      const nav = document.getElementById('topNav');
-      if(btn && nav){
-        btn.addEventListener('click', () => {
-          const open = nav.classList.toggle('open');
-          btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-        });
-      }
-    })();
+    // Botão voltar ao topo
+    const toTop = document.getElementById('toTop');
+    window.addEventListener('scroll', () => {
+      const h = document.documentElement;
+      toTop.classList.toggle('show', h.scrollTop > 300);
+    });
+    toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-    // Barra de progresso e botão topo
-    (function(){
-      const bar = document.getElementById('progressBar');
-      const toTop = document.getElementById('toTop');
-      const onScroll = () => {
-        const h = document.documentElement;
-        const scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
-        if(bar) bar.style.width = scrolled + '%';
-        if(toTop){ if(h.scrollTop > 240){ toTop.classList.add('show'); } else { toTop.classList.remove('show'); } }
-      };
-      window.addEventListener('scroll', onScroll, { passive:true });
-      onScroll();
-      toTop?.addEventListener('click', () => window.scrollTo({ top:0, behavior:'smooth' }));
-    })();
+    // Animação suave ao rolar
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.2 });
+    document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
   </script>
 </body>
 </html>
