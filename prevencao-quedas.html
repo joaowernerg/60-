@@ -55,8 +55,7 @@
           <ul>
             <li><a href="#prevencao">2. Prevenção de quedas e lesões</a></li>
             <li><a href="#solucoes">3. Soluções acessíveis e inovadoras</a></li>
-            <li><a href="#video">Vídeo explicativo</a></li>
-            <li><a href="#impacto">Quedas em idosos: impacto na autonomia</a></li>
+            <li><a href="#impacto">4. Quedas em idosos: impacto na autonomia</a></li>
           </ul>
         </nav>
       </div>
@@ -72,7 +71,7 @@
   </section>
 
   <main>
-    <!-- 2. Prevenção de Quedas e Lesões -->
+    <!-- ===== 2. Prevenção de Quedas e Lesões ===== -->
     <section id="prevencao" class="section container">
       <h3 class="section-title"><i class="fa-solid fa-shield-heart"></i> 2. Prevenção de Quedas e Lesões</h3>
       <p>As quedas são um grande problema de saúde pública e podem levar a graves limitações físicas e psicológicas. A <strong>Tecnologia Assistiva (TA)</strong> e as ações de <strong>reabilitação</strong> são estratégias essenciais para prevenir <em>lesões involuntárias</em>.</p>
@@ -96,7 +95,7 @@
       </div>
     </section>
 
-    <!-- 3. Soluções Acessíveis e Inovadoras -->
+    <!-- ===== 3. Soluções Acessíveis e Inovadoras ===== -->
     <section id="solucoes" class="section container">
       <h3 class="section-title"><i class="fa-solid fa-screwdriver-wrench"></i> 3. Soluções Acessíveis e Inovadoras (Tecnologias Assistivas de Baixo Custo)</h3>
       <p>Apesar de muitos dispositivos terem alto custo, há iniciativas eficazes e <strong>acessíveis</strong>:</p>
@@ -108,35 +107,41 @@
       <p><em>Em resumo</em>, a TA na mobilidade ajuda a <strong>prolongar a independência</strong>, <strong>reduzir riscos</strong> e garantir o exercício da <strong>autonomia</strong> no dia a dia.</p>
     </section>
 
-    
-    <!-- Impacto -->
+    <!-- ===== 4. Impacto ===== -->
+    <section id="impacto" class="section container">
+      <h3 class="section-title"><i class="fa-solid fa-person-walking-with-cane"></i> 4. Quedas em Idosos: Impacto na Autonomia</h3>
+      <p>As quedas afetam diretamente a <strong>qualidade de vida</strong>, podendo gerar medo de cair novamente, perda de confiança e isolamento social. A reabilitação física e emocional é essencial para a retomada da autonomia.</p>
 
-     <article class="card">
+      <div class="grid grid-2">
+        <article class="card">
           <div class="thumb">
-            <iframe title="150 minutos por semana - Animação" src="https://youtu.be/e3LzO5ED4z8?si=xZHjkcTOmIRrDWD8" loading="lazy" allowfullscreen></iframe>
+            <iframe title="150 minutos por semana - Animação" src="https://www.youtube.com/embed/e3LzO5ED4z8" loading="lazy" allowfullscreen></iframe>
           </div>
           <div class="card-body">
             <h4>150 min/semana</h4>
-            <p>Objetivo prático para reduzir riscos de doenças.</p>
-            <a class="btn btn-ghost" href="https://youtu.be/e3LzO5ED4z8?si=xZHjkcTOmIRrDWD8" target="_blank" rel="noopener">Abrir no YouTube</a>
+            <p>Praticar atividades físicas regulares ajuda a fortalecer músculos e prevenir quedas.</p>
+            <a class="btn btn-ghost" href="https://youtu.be/e3LzO5ED4z8" target="_blank" rel="noopener">Abrir no YouTube</a>
           </div>
         </article>
 
-         <article class="card">
+        <article class="card">
           <div class="thumb">
-            <iframe title="150 minutos por semana - Animação" src="https://youtu.be/rACtEpBg3Jk?si=ibXEL238-r3PAaA5" loading="lazy" allowfullscreen></iframe>
+            <iframe title="Dicas de Prevenção de Quedas" src="https://www.youtube.com/embed/rACtEpBg3Jk" loading="lazy" allowfullscreen></iframe>
           </div>
           <div class="card-body">
-            <h4>150 min/semana</h4>
-            <p>Objetivo prático para reduzir riscos de doenças.</p>
-            <a class="btn btn-ghost" href="https://youtu.be/rACtEpBg3Jk?si=ibXEL238-r3PAaA5" target="_blank" rel="noopener">Abrir no YouTube</a>
+            <h4>Dicas Práticas</h4>
+            <p>Saiba como adaptar sua casa e prevenir acidentes comuns na rotina.</p>
+            <a class="btn btn-ghost" href="https://youtu.be/rACtEpBg3Jk" target="_blank" rel="noopener">Abrir no YouTube</a>
           </div>
         </article>
-
-  
+      </div>
+    </section>
+  </main>
 
   <!-- Voltar ao topo -->
-  <button id="toTop" class="to-top" aria-label="Voltar ao topo"><i class="fa-solid fa-arrow-up"></i></button>
+  <button id="toTop" class="to-top" aria-label="Voltar ao topo">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
 
   <!-- ===== FOOTER ===== -->
   <footer class="site-footer">
@@ -148,21 +153,34 @@
   <!-- JS do projeto -->
   <script src="script.js"></script>
 
-  <!-- JS desta página (data, menu, barra de progresso e voltar ao topo) -->
+  <!-- JS da página -->
   <script>
-    (function(){
-      const d=new Date();
-      document.getElementById('dataHoje').textContent=d.toLocaleDateString('pt-BR',{day:'2-digit',month:'long',year:'numeric'});
-      document.getElementById('anoAtual').textContent=d.getFullYear();
+    (function() {
+      const d = new Date();
+      document.getElementById('dataHoje').textContent = d.toLocaleDateString('pt-BR', { day:'2-digit', month:'long', year:'numeric' });
+      document.getElementById('anoAtual').textContent = d.getFullYear();
 
-      const btn=document.getElementById('menuBtn'),nav=document.getElementById('topNav');
-      btn?.addEventListener('click',()=>{const o=nav.classList.toggle('open');btn.setAttribute('aria-expanded',o?'true':'false')});
+      const btn = document.getElementById('menuBtn');
+      const nav = document.getElementById('topNav');
+      btn?.addEventListener('click', () => {
+        const open = nav.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
 
-      const bar=document.getElementById('progressBar'),toTop=document.getElementById('toTop');
-      const onScroll=()=>{const h=document.documentElement,s=(h.scrollTop)/(h.scrollHeight-h.clientHeight)*100; if(bar) bar.style.width=s+'%'; if(toTop){h.scrollTop>240?toTop.classList.add('show'):toTop.classList.remove('show')}};
-      window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
+      const bar = document.getElementById('progressBar');
+      const toTop = document.getElementById('toTop');
+      const onScroll = () => {
+        const h = document.documentElement;
+        const s = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
+        if (bar) bar.style.width = s + '%';
+        if (toTop) {
+          h.scrollTop > 240 ? toTop.classList.add('show') : toTop.classList.remove('show');
+        }
+      };
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
 
-      toTop?.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+      toTop?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
     })();
   </script>
 </body>
