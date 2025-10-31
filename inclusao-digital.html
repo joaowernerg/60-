@@ -13,37 +13,35 @@
 
   <style>
     :root{
-      --bg:#fffaf3; --card:#fff; --text:#232323; --muted:#555;
-      --brand:#ff7a00; --brand-2:#ffd633; --border:#efe3cf;
-      --shadow:0 10px 22px rgba(0,0,0,.08);
-      --radius:18px; --container:1100px;
+      --bg:#fffaf3; --text:#232323; --muted:#444;
+      --brand:#ff7a00; --brand-2:#ffd633;
+      --card:#fff; --border:#efe3cf; --shadow:0 6px 16px rgba(0,0,0,.08);
+      --radius:16px; --container:1100px;
     }
-    ul {
-  list-style: none;
-  padding-left: 0;
-  margin-left: 0;
-}
-
     *{margin:0;padding:0;box-sizing:border-box}
     html{scroll-behavior:smooth}
-    body{font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,sans-serif;background:var(--bg);color:var(--text);line-height:1.8}
+    body{
+      font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,sans-serif;
+      background:var(--bg); color:var(--text); line-height:1.85; font-size:1.06rem;
+      -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+    }
+    body.easy-read{background:#fff;color:#000;font-size:1.2rem;line-height:2;letter-spacing:.2px}
     a{text-decoration:none;color:var(--brand)} a:hover{color:#b85d00}
-    img{max-width:100%;display:block;border-radius:14px}
     .container{width:min(var(--container),92%);margin:auto}
     .section{padding:clamp(28px,5vw,64px) 0}
     .section-title{font:700 clamp(22px,3vw,30px) 'Merriweather',serif;display:flex;align-items:center;gap:10px;margin-bottom:14px;color:#222}
     .muted{color:var(--muted)}
-    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    .lead{font-size:1.1rem;color:#333}
 
     /* HERO */
     .hero{
       background:
         radial-gradient(1200px 420px at 10% -10%, #fff1dc 0%, rgba(255,255,255,0) 60%),
         radial-gradient(1200px 420px at 90% -10%, #ffeaa6 0%, rgba(255,255,255,0) 60%);
-      padding:70px 0 36px;text-align:center;
+      padding:78px 0 36px;text-align:center;border-bottom:2px solid var(--border);
     }
     .hero h1{font:700 clamp(26px,4vw,40px) 'Merriweather',serif;color:#222}
-    .hero p{max-width:780px;margin:10px auto 18px;font-size:18px;color:#333}
+    .hero p{max-width:820px;margin:12px auto 18px;font-size:18px;color:#333}
     .pill{
       display:inline-flex;gap:8px;align-items:center;
       background:#fff;border:1px solid var(--border);padding:8px 12px;border-radius:999px;font-size:14px;color:#444;
@@ -57,73 +55,60 @@
 
     /* SUMÁRIO */
     .toc{margin-top:16px;background:#fff;border:1px solid var(--border);border-radius:16px;padding:14px;box-shadow:var(--shadow);text-align:left}
-    .toc strong{display:block;margin-bottom:8px}
-    .toc ul{display:grid;gap:8px}
-    .toc a{display:inline-flex;gap:8px;align-items:center}
+    .toc strong{display:block;margin-bottom:8px;color:#222}
+    .toc ul{display:grid;gap:8px;list-style:none}
+    .toc a{display:inline-flex;gap:8px;align-items:center;color:var(--brand)}
 
-    /* COMPONENTES */
-    .grid{display:grid;gap:16px}
-    @media (min-width:900px){ .grid-2{grid-template-columns:1fr 1fr} .grid-3{grid-template-columns:repeat(3,1fr)} }
-    .card{background:#fff;border:1px solid var(--border);border-radius:16px;box-shadow:var(--shadow);overflow:hidden}
-    .card-body{padding:14px}
-    .kpis{display:grid;gap:12px;margin:12px 0}
-    @media (min-width:760px){ .kpis{grid-template-columns:repeat(3,1fr)} }
-    .kpi{background:#fff;border:1px solid var(--border);border-radius:14px;padding:12px;box-shadow:var(--shadow)}
-    .kpi h4{font-size:15px;margin-bottom:6px}
-    .badge{display:inline-block;border:1px dashed var(--border);padding:8px 12px;border-radius:999px;background:#fff}
     .highlight{background:#fff9e6;border-left:6px solid var(--brand);padding:14px 18px;border-radius:12px;margin:14px 0}
     .list{margin:10px 0 12px 22px}
     .list li{margin-bottom:8px}
-    .clean{width:100%;border-collapse:collapse}
-    .clean th,.clean td{border:1px solid var(--border);padding:10px 12px;text-align:left;vertical-align:top;background:#fff}
-    .clean thead th{background:#fffdf7}
-    .table-wrap{overflow:auto;border-radius:16px;border:1px solid var(--border);box-shadow:var(--shadow)}
-    .checklist li{list-style:none;margin:8px 0;padding-left:28px;position:relative}
-    .checklist li::before{content:"\f14a";font-family:"Font Awesome 6 Free";font-weight:900;position:absolute;left:0;color:var(--brand)}
 
     /* VÍDEO */
-    .video-wrap{position:relative;width:100%;aspect-ratio:16/9;border-radius:16px;overflow:hidden;box-shadow:var(--shadow);margin-top:12px}
+    .video-wrap{position:relative;width:100%;aspect-ratio:16/9;border-radius:16px;overflow:hidden;box-shadow:var(--shadow);margin-top:12px;background:#000}
     iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 
-    /* ALERTA / FOOTER / TO-TOP */
+    /* ALERTA / FOOTER / TO-TOP / PROGRESS */
     .alerta{display:flex;gap:12px;align-items:flex-start;background:#fff;border:1px solid var(--border);border-radius:16px;padding:14px;box-shadow:var(--shadow);margin-top:20px}
     .alerta i{font-size:22px;color:var(--brand)}
     .site-footer{background:#fff;margin-top:40px;padding:24px 0;text-align:center;border-top:1px solid var(--border);color:#666;font-size:15px}
+    #progressBar{position:fixed;top:0;left:0;height:5px;background:var(--brand);width:0%;z-index:999}
     .to-top{position:fixed;right:16px;bottom:16px;z-index:50;width:44px;height:44px;display:none;align-items:center;justify-content:center;background:#fff;border:1px solid var(--border);border-radius:12px;box-shadow:var(--shadow);cursor:pointer}
     .to-top.show{display:flex}
+    #easyReadBtn{
+      position:fixed;left:16px;bottom:16px;z-index:50;padding:.6rem 1rem;border:0;border-radius:999px;background:var(--brand-2);color:#000;font-weight:700;box-shadow:var(--shadow);cursor:pointer
+    }
 
     /* ANIMAÇÃO */
     [data-animate]{opacity:0;transform:translateY(30px);transition:all .6s ease-out}
     [data-animate].visible{opacity:1;transform:none}
-
-    /* RESPONSIVO */
-    @media (max-width:600px){
-      .hero h1{font-size:26px}
-      .hero p{font-size:16px}
-      .alerta{flex-direction:column}
-    }
   </style>
 </head>
 <body>
+
+  <!-- Barra de Progresso -->
+  <div id="progressBar" aria-hidden="true"></div>
 
   <!-- HERO -->
   <section class="hero">
     <div class="container">
       <span class="pill"><i class="fa-solid fa-wifi"></i> Inclusão Digital • Autonomia • Cidadania</span>
       <h1>Inclusão Digital no Envelhecimento Ativo</h1>
-      <p>Como a tecnologia, os direitos digitais e a cidadania transformam o envelhecer em uma jornada de <strong>autonomia</strong>, <strong>participação</strong> e <strong>qualidade de vida</strong>.</p>
+      <p class="lead">Como a tecnologia, os direitos digitais e a cidadania transformam o envelhecer em uma jornada de <strong>autonomia</strong>, <strong>participação</strong> e <strong>qualidade de vida</strong>.</p>
       <a href="index.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Voltar para a página inicial</a>
 
+      <!-- SUMÁRIO -->
       <nav class="toc" aria-label="Sumário">
         <strong>Sumário</strong>
         <ul>
-          <li><a href="#conceito"><i class="fa-solid fa-seedling"></i> Envelhecimento ativo e tecnologia</a></li>
-          <li><a href="#inclusao"><i class="fa-solid fa-notes-medical"></i> Inclusão digital na saúde</a></li>
-          <li><a href="#ta"><i class="fa-solid fa-person-cane"></i> Tecnologia assistiva e mobilidade</a></li>
-          <li><a href="#estatuto"><i class="fa-solid fa-scale-balanced"></i> Estatuto e autonomia</a></li>
-          <li><a href="#cidadania"><i class="fa-solid fa-users"></i> Cidadania e participação</a></li>
-          <li><a href="#seguranca"><i class="fa-solid fa-shield-halved"></i> Segurança e golpes</a></li>
-          <li><a href="#video"><i class="fa-solid fa-video"></i> Vídeo</a></li>
+          <li><a href="#intro"><i class="fa-solid fa-paragraph"></i> Introdução</a></li>
+          <li><a href="#envelhecimento-ativo"><i class="fa-solid fa-seedling"></i> O que é Envelhecimento Ativo</a></li>
+          <li><a href="#inclusao-saude"><i class="fa-solid fa-notes-medical"></i> Inclusão digital na saúde</a></li>
+          <li><a href="#videos"><i class="fa-solid fa-video"></i> Vídeos</a></li>
+          <li><a href="#ta-mobilidade"><i class="fa-solid fa-person-cane"></i> Tecnologias assistivas na marcha e locomoção</a></li>
+          <li><a href="#estatuto"><i class="fa-solid fa-scale-balanced"></i> Estatuto e promoção da autonomia</a></li>
+          <li><a href="#cidadania"><i class="fa-solid fa-users"></i> Participação social e cidadania</a></li>
+          <li><a href="#autonomia-pilar"><i class="fa-solid fa-user-shield"></i> Autonomia: pilar ético e legal</a></li>
+          <li><a href="#curatela"><i class="fa-solid fa-gavel"></i> Curatela (tutela legal)</a></li>
         </ul>
       </nav>
     </div>
@@ -131,194 +116,154 @@
 
   <main class="container">
 
-    <!-- 1. ENVELHECIMENTO ATIVO -->
-    <section id="conceito" class="section" data-animate>
-      <h2 class="section-title"><i class="fa-solid fa-seedling"></i> Envelhecimento ativo com apoio da tecnologia</h2>
-      <p>O <strong>Envelhecimento Ativo</strong> otimiza oportunidades de <strong>saúde</strong>, <strong>participação</strong> e <strong>segurança</strong>. Não é apenas estar fisicamente ativo ou trabalhar: é manter o <strong>engajamento contínuo na vida</strong> — com determinantes comportamentais, sociais, econômicos e pessoais.</p>
-      <div class="kpis">
-        <div class="kpi">
-          <h4>Participação Social</h4>
-          <p>Amizades, conversas e convivência reduzem isolamento e risco de depressão.</p>
-        </div>
-        <div class="kpi">
-          <h4>Saúde Física e Mental</h4>
-          <p>Atividade física regular, caminhada e alimentação saudável melhoram o bem-estar.</p>
-        </div>
-        <div class="kpi">
-          <h4>Mente Ativa & Autonomia</h4>
-          <p>Leitura, jogos, cursos online e decisões próprias preservam independência.</p>
-        </div>
-      </div>
-      <p class="badge"><i class="fa-solid fa-circle-info"></i> A tecnologia torna tudo isso mais acessível: informação de qualidade, conexão com pessoas e serviços, e suporte ao autocuidado.</p>
+    <!-- INTRODUÇÃO -->
+    <section id="intro" class="section" data-animate>
+      <h2 class="section-title"><i class="fa-solid fa-paragraph"></i> Inclusão digital no envelhecimento ativo</h2>
+      <p>O aumento da expectativa de vida e o desejo por longevidade com qualidade de vida é um ideal para todos. O Envelhecimento Ativo é o processo de otimizar oportunidades para saúde, participação e segurança, a fim de realçar a qualidade de vida.</p>
+      <p>A tecnologia e a inclusão digital são ferramentas poderosas que ajudam você a viver essa fase com mais autonomia e bem-estar.</p>
     </section>
 
-    <!-- 2. INCLUSÃO DIGITAL NA SAÚDE -->
-    <section id="inclusao" class="section" data-animate>
-      <h2 class="section-title"><i class="fa-solid fa-notes-medical"></i> Inclusão digital na saúde</h2>
-      <p>Em um mundo digital, o acesso à informação é um <strong>princípio ético</strong>. A tecnologia facilita o <strong>autocuidado</strong>, essencial na monitoração de doenças crônicas.</p>
-
-      <div class="grid grid-2">
-        <article class="card">
-          <div class="card-body">
-            <h3><i class="fa-solid fa-mobile-screen-button"></i> Acompanhe sua saúde</h3>
-            <ul class="list checklist">
-              <li>Apps de <strong>pressão</strong>, <strong>glicemia</strong>, controle de <strong>medicação</strong> e agenda de consultas;</li>
-              <li><strong>Teleconsulta</strong> e <strong>telemonitoramento</strong> com equipe de saúde;</li>
-              <li>Uso responsável de <strong>wearables</strong> (relógios/sensores) com compartilhamento seguro dos dados.</li>
-            </ul>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="card-body">
-            <h3><i class="fa-solid fa-id-card-clip"></i> Registre suas informações</h3>
-            <p>Plataformas públicas e a <em>Caderneta de Saúde da Pessoa Idosa</em> ajudam a organizar histórico, exames e vacinas. O registro digital:</p>
-            <ul class="list checklist">
-              <li>Facilita decisões clínicas;</li>
-              <li>Melhora a continuidade do cuidado;</li>
-              <li>Favorece metas e lembretes de saúde.</li>
-            </ul>
-          </div>
-        </article>
-      </div>
-
-      <div class="highlight"><strong>Dica:</strong> Peça ajuda para configurar apps de saúde, notificações de remédio e contatos de emergência no celular.</div>
+    <!-- O QUE É ENVELHECIMENTO ATIVO -->
+    <section id="envelhecimento-ativo" class="section" data-animate>
+      <h2 class="section-title"><i class="fa-solid fa-seedling"></i> O que é Envelhecimento Ativo?</h2>
+      <p>Envelhecer ativamente não se restringe a ser fisicamente ativo ou estar na força de trabalho. Significa continuar o engajamento continuado na vida.</p>
+      <p>Para os idosos, um envelhecimento ativo envolve determinantes de caráter comportamental, social, econômico e pessoal. Envelhecer ativamente implica:</p>
+      <ul class="list">
+        <li><strong>Participação Social:</strong> Dialogar, conversar, ter amizade e convívio social. A inserção social é fundamental para evitar o isolamento e doenças mentais.</li>
+        <li><strong>Saúde Física e Mental:</strong> Praticar atividades físicas, caminhar, e ter uma alimentação saudável. O desempenho de atividades físicas previne doenças e proporciona bem-estar físico e mental.</li>
+        <li><strong>Mente Ativa:</strong> Ocupar o tempo livre com atividades prazerosas, trabalhar com a mente e exercitar a memória.</li>
+        <li><strong>Autonomia:</strong> Manter a independência funcional para realizar atividades diárias, garantindo a capacidade de autogoverno (autonomia).</li>
+      </ul>
     </section>
 
-    <!-- 3. TECNOLOGIA ASSISTIVA & MOBILIDADE -->
-    <section id="ta" class="section" data-animate>
-      <h2 class="section-title"><i class="fa-solid fa-person-cane"></i> Tecnologia assistiva e mobilidade</h2>
-      <p>As quedas são um grande problema de saúde pública: <strong>mais de um terço</strong> das pessoas idosas cai pelo menos uma vez ao ano. As causas são <strong>multifatoriais</strong> (marcha, visão, equilíbrio, medicamentos e ambiente).</p>
-
-      <div class="table-wrap" aria-label="Prevenção de quedas">
-        <table class="clean">
-          <thead>
-            <tr><th style="width:50%">Risco/Barreira</th><th>O que ajuda</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>Tapetes soltos e pouca iluminação</td><td>Fita antiderrapante, retirar tapetes; luz noturna e corrimãos</td></tr>
-            <tr><td>Calçados escorregadios</td><td>Sola antiderrapante e salto baixo</td></tr>
-            <tr><td>Vertigem por remédios</td><td>Revisar medicação com médico; levantar-se devagar</td></tr>
-            <tr><td>Marcha instável sem apoio</td><td>Avaliação para <strong>bengala/andador</strong> e treino com fisioterapeuta</td></tr>
-            <tr><td>Banheiro escorregadio</td><td>Barras de apoio, banco de banho e piso antiderrapante</td></tr>
-            <tr><td>Rotina desorganizada</td><td>Apps/lembretes, rotas sem obstáculos e pausas programadas</td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="grid grid-2" style="margin-top:14px">
-        <div>
-          <ul class="list">
-            <li><strong>Capacidade funcional:</strong> TA aumenta, mantém ou melhora a habilidade para ABVD/AIVD;</li>
-            <li><strong>Permanência no lar:</strong> adaptações e dispositivos certos mantêm segurança no ambiente habitual;</li>
-            <li><strong>Desempenho:</strong> profissionais identificam barreiras e monitoram metas de reabilitação.</li>
-          </ul>
-          <div class="highlight"><strong>Baixo custo:</strong> Oficinas comunitárias ensinam cuidadores a criar adaptações com <em>PVC, EVA e papelão</em>, ampliando o acesso em territórios vulneráveis.</div>
-        </div>
-        <figure>
-          <img src="https://doctorshoes.com.br/blog/wp-content/uploads/2018/02/174539-riscos-e-beneficios-da-inclusao-digital-para-idosos-e1519738128235.jpg" alt="Pessoa idosa usando tablet com apoio da família">
-          <figcaption>A tecnologia aproxima, informa e apoia a autonomia — não substitui o acompanhamento profissional.</figcaption>
-        </figure>
-      </div>
+    <!-- INCLUSÃO DIGITAL NA SAÚDE -->
+    <section id="inclusao-saude" class="section" data-animate>
+      <h2 class="section-title"><i class="fa-solid fa-notes-medical"></i> A inclusão digital na sua saúde</h2>
+      <p>Em um mundo altamente digital, o acesso à informação é um princípio ético importante. As tecnologias facilitam que você:</p>
+      <ol class="list">
+        <li><strong>Acompanhe sua Saúde:</strong> A informação facilita que você amplie seus recursos para compreender e atuar nas questões de saúde. Isso é crucial na velhice, pelo maior requerimento do autocuidado na monitoração de doenças crônicas.</li>
+        <li><strong>Tenha sua Saúde Registrada:</strong> Iniciativas de saúde pública já utilizam plataformas digitais para registrar informações (como a Caderneta de Saúde da Pessoa Idosa) e monitorar o envelhecimento ativo.</li>
+      </ol>
     </section>
 
-    <!-- 4. ESTATUTO & AUTONOMIA -->
+    <!-- VÍDEOS -->
+    <section id="videos" class="section" data-animate>
+      <h2 class="section-title"><i class="fa-solid fa-video"></i> Vídeos explicativos</h2>
+
+      <div class="video-wrap" role="group" aria-label="Vídeo 1">
+        <iframe
+          src="https://www.youtube.com/embed/jjG1j-Wn6ZE"
+          title="Vídeo 1 - Inclusão Digital no Envelhecimento Ativo"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen></iframe>
+      </div>
+      <p class="muted" style="margin:8px 0 24px;">Primeiro vídeo educativo sobre inclusão digital e envelhecimento ativo.</p>
+
+      <div class="video-wrap" role="group" aria-label="Vídeo 2">
+        <iframe
+          src="https://www.youtube.com/embed/Bz9CJr90Oo8"
+          title="Vídeo 2 - Inclusão Digital e Autonomia"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen></iframe>
+      </div>
+      <p class="muted">Segundo vídeo complementar sobre tecnologia e cidadania digital na terceira idade.</p>
+    </section>
+
+    <!-- TECNOLOGIAS ASSISTIVAS -->
+    <section id="ta-mobilidade" class="section" data-animate>
+      <h2 class="section-title"><i class="fa-solid fa-person-cane"></i> Uso de tecnologias assistivas na marcha e locomoção</h2>
+
+      <p>A capacidade funcional para manter a habilidade para realizar atividades básicas e instrumentais da vida diária é crucial para a manutenção de uma vida independente e autônoma. A capacidade de locomoção é uma das dimensões da capacidade funcional e é essencial para o envelhecimento ativo.</p>
+
+      <h3 style="margin-top:10px">Locomoção e o Risco de Quedas</h3>
+      <p>Há um grande problema de saúde pública no Brasil.</p>
+      <ul class="list">
+        <li>Mais de um terço das pessoas idosas sofrem pelo menos uma queda por ano.</li>
+        <li>As quedas podem levar a ferimentos, incapacidade e o medo de cair, limitando sua mobilidade.</li>
+        <li>As causas das quedas são multifatoriais e incluem alterações no padrão da marcha.</li>
+      </ul>
+
+      <h3 style="margin-top:10px">Como a Tecnologia Assistiva ajuda na Mobilidade?</h3>
+      <p>A capacidade de se locomover com segurança e de realizar as tarefas diárias é o pilar da sua autonomia e independência funcional. Quando falamos em Tecnologia Assistiva (TA) aplicada à mobilidade, estamos focando em estratégias de reabilitação que visam garantir que você possa continuar ativo e engajado na vida, mesmo na presença de limitações.</p>
+
+      <h4 style="margin-top:8px">1. Manutenção da Capacidade Funcional</h4>
+      <p>As Tecnologias Assistivas, como parte do processo de reabilitação, têm como objetivo principal aumentar, manter ou melhorar a sua capacidade funcional (ABVD e AIVD). No contexto da locomoção, isso se traduz em:</p>
+      <ul class="list">
+        <li><strong>Recuperação e Manutenção da Autonomia:</strong> recuperar ou manter a máxima autonomia e independência funcional (marcha, subir e descer escadas).</li>
+        <li><strong>Permanência no Lar:</strong> a assistência adequada e o ambiente propício viabilizados pela TA ajudam a assegurar a permanência no meio em que vive e facilitam as funções de autonomia.</li>
+        <li><strong>Melhoria do Desempenho:</strong> a reabilitação identifica barreiras, busca facilitadores e monitora o progresso para alcançar as metas funcionais.</li>
+      </ul>
+
+      <h4 style="margin-top:8px">2. Prevenção de Quedas e Lesões</h4>
+      <p>As quedas são um grande problema de saúde pública e podem levar a graves limitações físicas e psicológicas. A TA e as ações de reabilitação são estratégias essenciais para prevenir lesões involuntárias, com intervenções em:</p>
+      <ul class="list">
+        <li><strong>Fortalecimento e Equilíbrio:</strong> atividades focadas em força, equilíbrio estático e dinâmico, e psicomotricidade reduzem riscos.</li>
+        <li><strong>Atenção ao Ambiente:</strong> condições do domicílio e da comunidade (escadas, tapetes, vias) exigem adaptações ambientais.</li>
+      </ul>
+
+      <h4 style="margin-top:8px">3. Soluções Acessíveis e Inovadoras (Tecnologias Assistivas de Baixo Custo)</h4>
+      <ul class="list">
+        <li><strong>Oficinas de Adaptação:</strong> projetos treinam cuidadores para produzir adaptações com EVA, PVC e papelão.</li>
+        <li><strong>Reprodução no Domicílio:</strong> capacitação permite replicar instrumentos e adaptações em casa, aumentando a independência em comunidades de baixa renda.</li>
+        <li><strong>Intervenções Comunitárias:</strong> instalação de barras de apoio em vielas e melhorias simples no ambiente.</li>
+      </ul>
+
+      <p class="highlight"><strong>Em resumo:</strong> a TA na mobilidade prolonga a independência, reduz o risco de acidentes e assegura que você continue exercendo sua autonomia no dia a dia.</p>
+    </section>
+
+    <!-- ESTATUTO DA PESSOA IDOSA -->
     <section id="estatuto" class="section" data-animate>
       <h2 class="section-title"><i class="fa-solid fa-scale-balanced"></i> Estatuto da Pessoa Idosa e promoção da autonomia</h2>
-      <p>O <strong>Estatuto da Pessoa Idosa</strong> (Lei nº 10.741/2003, alterada pela Lei nº 14.423/2022) garante direitos a quem tem 60+ anos: <strong>saúde</strong>, <strong>dignidade</strong>, <strong>liberdade</strong> e <strong>respeito</strong>. Família, comunidade, sociedade e Poder Público devem assegurar tais direitos com <strong>prioridade absoluta</strong>.</p>
 
-      <div class="grid grid-3">
-        <article class="card">
-          <div class="card-body">
-            <h3><i class="fa-solid fa-heart-pulse"></i> Saúde e bem-estar</h3>
-            <p>Atendimento prioritário, acesso a serviços públicos de qualidade e prevenção da violência institucional.</p>
-          </div>
-        </article>
-        <article class="card">
-          <div class="card-body">
-            <h3><i class="fa-solid fa-user-lock"></i> Autonomia</h3>
-            <p>Direito à autodeterminação e a participar de decisões pessoais e sociais que impactam a vida do idoso.</p>
-          </div>
-        </article>
-        <article class="card">
-          <div class="card-body">
-            <h3><i class="fa-solid fa-shield"></i> Proteção</h3>
-            <p>Combate à negligência, discriminação, violência e opressão com responsabilização legal.</p>
-          </div>
-        </article>
-      </div>
+      <h3>1. Estatuto da Pessoa Idosa</h3>
+      <p>Você sabia que o Estatuto da Pessoa Idosa garante uma série de direitos importantes para proteger sua saúde, segurança e dignidade? Muitos idosos ainda não conhecem todos esses direitos e por isso queremos conversar com vocês sobre eles.</p>
+      <p>O envelhecimento é um direito personalíssimo e sua proteção é um direito social. O Estatuto da Pessoa Idosa (Lei nº 10.741/2003, alterada pela Lei nº 14.423/2022) é o marco legal que assegura ao cidadão com idade igual ou superior a 60 anos a efetivação dos direitos fundamentais, como saúde, dignidade, liberdade e respeito.</p>
+      <p>Lembre-se: a Lei exige que a família, a comunidade, a sociedade e o Poder Público assegurem esses direitos com absoluta prioridade. Nenhuma pessoa idosa pode sofrer negligência, discriminação, violência, crueldade ou opressão, e qualquer violação será punida na forma da lei.</p>
 
-      <div class="highlight">
-        <strong>Curatela (tutela legal):</strong> medida judicial <em>excepcional</em>, quando o idoso não pode gerir a própria vida e bens. Restringe direitos civis e <strong>qualquer abuso é punido por lei</strong>. O princípio é preservar ao máximo a <strong>autonomia</strong>.
-      </div>
+      <h3 style="margin-top:10px">2. Direitos Fundamentais Assegurados</h3>
+      <p><strong>a. Saúde e Bem Estar</strong></p>
+      <!-- Se quiser, posso expandir aqui com mais alíneas depois -->
     </section>
 
-    <!-- 5. CIDADANIA & PARTICIPAÇÃO -->
+    <!-- PARTICIPAÇÃO SOCIAL E CIDADANIA -->
     <section id="cidadania" class="section" data-animate>
-      <h2 class="section-title"><i class="fa-solid fa-users"></i> Participação social e cidadania digital</h2>
-      <p><strong>Autodeterminação</strong> e <strong>dignidade</strong> fundamentam o protagonismo no envelhecimento ativo. O paternalismo (decidir “o que é melhor” sem consultar o idoso) fere princípios éticos, <strong>aumenta dependência</strong> e reduz autoestima.</p>
+      <h2 class="section-title"><i class="fa-solid fa-users"></i> Participação social e cidadania no envelhecimento ativo</h2>
 
-      <div class="grid grid-2">
-        <article class="card">
-          <div class="card-body">
-            <h3><i class="fa-solid fa-handshake-angle"></i> Estratégias de inclusão</h3>
-            <ul class="list checklist">
-              <li>Lazer, cultura e atividades lúdicas para bem-estar;</li>
-              <li>Valorização da história de vida e autoestima;</li>
-              <li><strong>Intergeracionalidade</strong>: troca entre gerações combate estigma e preconceito;</li>
-              <li>Empoderamento pelo conhecimento: alfabetização, letramento digital e midiático.</li>
-            </ul>
-          </div>
-        </article>
+      <h3>a. Protagonismo e Participação Social</h3>
+      <h4 style="margin-top:6px">Cidadania e Autonomia como Fundamentos Legais</h4>
+      <p><strong>Autodeterminação e Dignidade:</strong> A autonomia é o direito à autodeterminação, mantendo a dignidade, integridade e liberdade de escolha. O idoso competente é presumidamente capaz de tomar decisões sobre sua vida, e o princípio da autonomia deve ser respeitado, pois envelhecimento não é sinônimo de perda do poder de decisão.</p>
+      <p><strong>Combate ao Paternalismo:</strong> O tratamento infantilizado ou paternalista, que decide “o que é melhor” para o idoso sob a alegação de incapacidade, interfere diretamente na qualidade de vida e pode infringir regras éticas, legais e morais. Mesmo na presença de dependência, a autonomia pode ser vivenciada ao se considerar suas escolhas e dar-lhe liberdade de agir.</p>
+      <p><strong>Protagonismo:</strong> Dado o número e a importância da pessoa idosa em todas as esferas da sociedade brasileira, há uma necessidade inadiável de investir no seu protagonismo. O idoso deve ser reconhecido como ator social e cidadão capaz de participar na formulação de políticas e programas que lhe dizem respeito.</p>
 
-        <article class="card">
-          <div class="card-body">
-            <h3><i class="fa-solid fa-network-wired"></i> Ferramentas digitais úteis</h3>
-            <ul class="list checklist">
-              <li>Grupos de comunidade no WhatsApp/Telegram (com <em>moderadores</em> e regras claras);</li>
-              <li>Plataformas de cursos abertos ( vídeos, podcasts e trilhas para 60+ );</li>
-              <li>Serviços públicos digitais (agendamentos, documentos, saúde e previdência);</li>
-              <li>Apps de leitura e audiolivros com <strong>acessibilidade</strong> (fonte maior, contraste, leitor de tela).</li>
-            </ul>
-          </div>
-        </article>
-      </div>
+      <h4 style="margin-top:8px">Participação Social</h4>
+      <p>É necessário que o idoso tenha participação em decisões da própria vida e que tenha convívio com a sociedade que o rodeia. Deve ser estimulada a participação ativa, seja em comunidade, com amigos, igreja ou clube de interação. Isso garante que saiam de um ambiente de pouca estimulação para um lugar de interação integral, sentindo-se parte de algo, valorizados e ouvidos. A inserção dos idosos em processos coletivos é crucial para a saúde tanto emocional quanto física.</p>
+
+      <h4 style="margin-top:8px">Estratégias de Inclusão e o Combate ao Estigma</h4>
+      <p>O envelhecimento ainda é, frequentemente, representado como sinônimo de perdas, incapacidades e declínio físico. Superar esses preconceitos e estigmas é parte fundamental das políticas de envelhecimento e do exercício da cidadania.</p>
+      <ul class="list">
+        <li><strong>Lazer e Inclusão Social:</strong> atividades de lazer, lúdicas e recreacionais são essenciais para o bem-estar e a saúde mental do idoso, facilitando o convívio, a solidariedade e a produção de sentido para a vida por meio da arte, cultura e lazer.</li>
+        <li><strong>Valorização da História e Autoestima:</strong> atividades que promovam a dignidade e ajudem a restaurar antigos papéis.</li>
+        <li><strong>Intergeracionalidade:</strong> a convivência entre gerações modifica a ideia preconceituosa de incapacidade associada apenas à idade e reintegra os idosos. Jovens se beneficiam do conhecimento e experiência de vida dos idosos.</li>
+        <li><strong>Empoderamento pelo Conhecimento:</strong> ações educativas, como alfabetização e letramento digital/midiático.</li>
+      </ul>
     </section>
 
-    <!-- 6. SEGURANÇA DIGITAL -->
-    <section id="seguranca" class="section" data-animate>
-      <h2 class="section-title"><i class="fa-solid fa-shield-halved"></i> Segurança: golpes, privacidade e LGPD</h2>
-      <p>Aprender a navegar com segurança faz parte da inclusão digital. A <strong>LGPD</strong> protege seus dados, mas hábitos seguros são essenciais.</p>
-      <div class="grid grid-3">
-        <article class="card"><div class="card-body">
-          <h3><i class="fa-solid fa-circle-exclamation"></i> Golpes comuns</h3>
-          <ul class="list">
-            <li>Falsos prêmios e links por SMS/WhatsApp;</li>
-            <li>Perfis falsos pedindo dinheiro;</li>
-            <li>Sites falsos de bancos/serviços.</li>
-          </ul>
-        </div></article>
-        <article class="card"><div class="card-body">
-          <h3><i class="fa-solid fa-lock"></i> Boas práticas</h3>
-          <ul class="list">
-            <li>Desconfie de urgência e pedidos de código de verificação;</li>
-            <li>Ative <strong>verificação em duas etapas</strong>;</li>
-            <li>Use senhas fortes e não repita.</li>
-          </ul>
-        </div></article>
-        <article class="card"><div class="card-body">
-          <h3><i class="fa-solid fa-user-shield"></i> Privacidade</h3>
-          <ul class="list">
-            <li>Revise permissões de apps;</li>
-            <li>Compartilhe o mínimo necessário;</li>
-            <li>Prefira meios oficiais para pagamentos e dados.</li>
-          </ul>
-        </div></article>
-      </div>
-      <div class="highlight"><strong>Regra de ouro:</strong> na dúvida, <em>não clique</em> e peça ajuda a alguém de confiança.</div>
+    <!-- AUTONOMIA: PILAR ÉTICO E LEGAL -->
+    <section id="autonomia-pilar" class="section" data-animate>
+      <h2 class="section-title"><i class="fa-solid fa-user-shield"></i> A autonomia como pilar ético e legal</h2>
+      <p>A autonomia é um pilar ético e legal essencial para o envelhecimento ativo, representando o direito do idoso à autodeterminação, dignidade e liberdade de escolha. Este princípio define a capacidade da pessoa de comandar a própria vida, tomar decisões e exercer sua cidadania, sendo um objetivo central das políticas públicas e dependendo diretamente de fatores como cognição e humor.</p>
+      <p>A premissa ética fundamental é que o envelhecimento não implica perda do poder de decisão; o idoso é considerado competente para decidir sobre sua vida até prova em contrário, sentindo-se mais valorizado e com a dignidade preservada ao ser reconhecido como autônomo.</p>
+      <p>A principal ameaça à autonomia do idoso é o paternalismo e a superproteção, que se manifestam como uma tutela informal que subtrai seu poder de decisão, frequentemente sob a falsa justificativa de “saber o que é melhor”. Posturas como o tratamento infantilizado ou o excesso de ajuda em atividades que o idoso ainda pode realizar, além de infringirem princípios éticos e legais, aumentam a dependência e diminuem a autoestima. Preservar a autonomia, especialmente quando as capacidades cognitivas estão intactas, é crucial para a qualidade de vida e o respeito à dignidade da pessoa idosa.</p>
     </section>
 
-    
+    <!-- CURATELA -->
+    <section id="curatela" class="section" data-animate>
+      <h2 class="section-title"><i class="fa-solid fa-gavel"></i> Curatela (tutela legal)</h2>
+      <p>A tutela legal, conhecida como curatela, é um processo judicial sério e delicado, acionado somente quando um idoso é considerado incapaz de gerir sua própria vida e bens. Através da interdição, a justiça nomeia um curador para tomar decisões em nome do idoso, visando sua proteção.</p>
+      <p>Contudo, essa medida não é trivial, pois restringe direitos civis, e o Estatuto do Idoso prevê punições rigorosas para qualquer abuso de poder ou manipulação nesse contexto.</p>
+    </section>
 
     <!-- AVISO -->
     <div class="alerta" data-animate>
@@ -332,26 +277,35 @@
     <p>&copy; <span id="anoAtual"></span> Vida Saudável 60+. Conteúdo educativo.</p>
   </footer>
 
-  <!-- VOLTAR AO TOPO -->
+  <!-- VOLTAR AO TOPO + LEITURA FÁCIL -->
   <button id="toTop" class="to-top" aria-label="Voltar ao topo"><i class="fa-solid fa-arrow-up"></i></button>
+  <button id="easyReadBtn" aria-label="Ativar modo leitura fácil">👁️ Leitura Fácil</button>
 
   <script>
     // Ano corrente
     document.getElementById('anoAtual').textContent = new Date().getFullYear();
 
-    // Botão voltar ao topo
+    // Barra de progresso + botão voltar ao topo
+    const bar = document.getElementById('progressBar');
     const toTop = document.getElementById('toTop');
     window.addEventListener('scroll', () => {
       const h = document.documentElement;
+      const s = (h.scrollTop)/(h.scrollHeight - h.clientHeight) * 100;
+      bar.style.width = s + '%';
       toTop.classList.toggle('show', h.scrollTop > 300);
-    });
-    toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    }, { passive: true });
+    toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior:'smooth' }));
 
-    // Animação suave ao rolar
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-    }, { threshold: 0.2 });
-    document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
+    // Animação de entrada
+    const ob = new IntersectionObserver(entries=>{
+      entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('visible'); });
+    }, {threshold:0.2});
+    document.querySelectorAll('[data-animate]').forEach(el=>ob.observe(el));
+
+    // Leitura Fácil
+    document.getElementById('easyReadBtn').addEventListener('click', () => {
+      document.body.classList.toggle('easy-read');
+    });
   </script>
 </body>
 </html>
