@@ -32,7 +32,6 @@
       <nav id="topNav" class="top-nav" aria-label="Navegação principal">
         <a href="#noticias">Notícias</a>
         <a href="#jogos">Jogos</a>
-        <a href="#videos">Vídeos</a>
         <a href="#dicas">Dicas</a>
         <a href="#sobre">Sobre</a>
       </nav>
@@ -40,53 +39,54 @@
   </header>
 
   <!-- ===== HERO ===== -->
-  <section class="hero">
-    <div class="container hero-grid">
-      <div class="hero-text">
-        <small id="dataHoje" class="hero-date" aria-live="polite"></small>
-        <h2>Bem-vindo(a) ao <span>Vida Saudável 60+</span></h2>
-        <p>Conteúdo simples, confiável e feito para o seu dia a dia: receba  dicas práticas de saúde, assista a  vídeos curtos e jogue para exercitar a mente..</p>
+<section class="hero">
+  <div class="container hero-grid">
+    <div class="hero-text">
+      <small id="dataHoje" class="hero-date" aria-live="polite"></small>
+      <h2>Bem-vindo(a) ao <span>Vida Saudável 60+</span></h2>
+      <p>Conteúdo simples, confiável e feito para o seu dia a dia: receba dicas práticas de saúde, assista a vídeos curtos e jogue para exercitar a mente.</p>
 
-        <form id="buscaForm" class="search" role="search" aria-label="Buscar conteúdo">
-          <label for="busca" class="sr-only">Buscar</label>
-          <input id="busca" type="search" placeholder="Busque por 'notícias', 'jogos', 'vídeos' ou 'dicas'..." aria-label="Campo de busca" />
-          <button class="btn" type="submit" aria-label="Buscar">
-            <i class="fa-solid fa-magnifying-glass"></i> Buscar
-          </button>
-        </form>
-      </div>
-
-      <ul class="features" aria-label="Seções do site">
-        <li class="feature-card">
-          <i class="fa-solid fa-newspaper" aria-hidden="true"></i>
-          <h3>Notícias</h3>
-          <p>Fique por dentro do que importa para sua saúde e bem-estar.</p>
-          <a class="btn btn-light" href="#noticias">Ver notícias</a>
-        </li>
-
-        <li class="feature-card">
-          <i class="fa-solid fa-gamepad" aria-hidden="true"></i>
-          <h3>Jogos</h3>
-          <p>Exercite sua memória e atenção com jogos leves e divertidos.</p>
-          <a class="btn btn-light" href="#jogos">Ir aos jogos</a>
-        </li>
-
-        <li class="feature-card">
-          <i class="fa-solid fa-video" aria-hidden="true"></i>
-          <h3>Vídeos</h3>
-          <p>Aprenda com vídeos curtos e objetivos sobre temas do dia a dia.</p>
-          <a class="btn btn-light" href="#videos">Assistir</a>
-        </li>
-
-        <li class="feature-card">
-          <i class="fa-solid fa-lightbulb" aria-hidden="true"></i>
-          <h3>Dicas</h3>
-          <p>Dicas práticas de alimentação, movimento e autocuidado.</p>
-          <a class="btn btn-light" href="#dicas">Ver dicas</a>
-        </li>
-      </ul>
+      <form id="buscaForm" class="search" role="search" aria-label="Buscar conteúdo">
+        <label for="busca" class="sr-only">Buscar</label>
+        <input id="busca" type="search" placeholder="Busque por 'notícias', 'jogos', 'vídeos' ou 'dicas'..." aria-label="Campo de busca" />
+        <button class="btn" type="submit" aria-label="Buscar">
+          <i class="fa-solid fa-magnifying-glass"></i> Buscar
+        </button>
+      </form>
     </div>
-  </section>
+
+    <ul class="features" aria-label="Seções do site">
+      <li class="feature-card">
+        <i class="fa-solid fa-newspaper" aria-hidden="true"></i>
+        <h3>Notícias</h3>
+        <p>Fique por dentro do que importa para sua saúde e bem-estar.</p>
+        <a class="btn btn-light" href="#noticias">Ver notícias</a>
+      </li>
+
+      <li class="feature-card">
+        <i class="fa-solid fa-gamepad" aria-hidden="true"></i>
+        <h3>Jogos</h3>
+        <p>Exercite sua memória e atenção com jogos leves e divertidos.</p>
+        <a class="btn btn-light" href="#jogos">Ir aos jogos</a>
+      </li>
+
+      <li class="feature-card">
+        <i class="fa-solid fa-lightbulb" aria-hidden="true"></i>
+        <h3>Dicas</h3>
+        <p>Dicas práticas de alimentação, movimento e autocuidado.</p>
+        <a class="btn btn-light" href="#dicas">Ver dicas</a>
+      </li>
+
+      <!-- 🟧 NOVO CARD ADICIONADO -->
+      <li class="feature-card">
+        <i class="fa-solid fa-hands-bubbles" aria-hidden="true"></i>
+        <h3>Cuidados do Dia a Dia</h3>
+        <p>Veja atitudes simples para viver com mais segurança, higiene e bem-estar.</p>
+        <a class="btn btn-light" href="#Cuidados">Ver cuidados</a>
+      </li>
+    </ul>
+  </div>
+</section>
 
   <main>
     <!-- ===== NOTÍCIAS ===== -->
@@ -177,15 +177,16 @@
           </div>
         </article>
         
-        <article class="card">
-          <a class="thumb" href=Cuidadogolpes.html">
-            <img src="" alt="Cuidadora conversando com idoso" />
+                <article class="card">
+          <a class="thumb" href="Cuidadogolpes.html">
+            <img src="https://sindifisco.org.br/wp-content/uploads/2023/08/Golpe.jpg" alt="Cuidado com golpes pela Internet e as Fake News">
           </a>
           <div class="card-body">
             <h4><a href="Cuidadogolpes.html">Cuidado com golpes pela Internet e as “Fake News”</a></h4>
-            <p>Está cada vez mais comum casos até subnotificados mas, relatados por pessoas próximas que caíram em golpes pela Internet. E tal fato pode ocorrer de diversas formas.</p>
+            <p>Está cada vez mais comum casos relatados por pessoas próximas que caíram em golpes pela Internet. E tal fato pode ocorrer de diversas formas.</p>
           </div>
         </article>
+
       </div>
     </section>
 
@@ -216,52 +217,32 @@
       </div>
     </section>
 
+    <!-- ===== GALERIA: CUIDADOS DO DIA A DIA ===== -->
+<section id="cuidados" class="galeria section container" data-animate>
+  <h2 class="section-title"><i class="fa-solid fa-hands-bubbles"></i> Cuidados do Dia a Dia</h2>
+  <p class="muted">Pequenas ações que fortalecem a segurança, a saúde e o bem-estar da pessoa idosa no cotidiano.</p>
+
+  <div id="galeriaGrid" class="galeria-grid">
+    <button class="media" aria-label="Abrir imagem"><img loading="lazy" src="Captura de tela 2025-10-28 154727.png" alt="Higiene das mãos" /></button>
+    <button class="media" aria-label="Abrir imagem"><img loading="lazy" src="1.png" alt="Atividade física" /></button>
+    <button class="media" aria-label="Abrir imagem"><img loading="lazy" src="2.png" alt="Alimentação saudável" /></button>
+    <button class="media" aria-label="Abrir imagem"><img loading="lazy" src="3.png" alt="Hidratação" /></button>
+    <button class="media" aria-label="Abrir imagem"><img loading="lazy" src="4.png" alt="Uso de máscara" /></button>
+    <button class="media" aria-label="Abrir imagem"><img loading="lazy" src="5.png" alt="Cuidado com sol" /></button>
+    <button class="media" aria-label="Abrir imagem"><img loading="lazy" src="6.png" alt="Sono adequado" /></button>
+    <button class="media" aria-label="Abrir imagem"><img loading="lazy" src="8.png" alt="Relações sociais" /></button>
+    <button class="media" aria-label="Abrir imagem"><img loading="lazy" src="9.png" alt="Exercícios em grupo" /></button>
+    <button class="media" aria-label="Abrir imagem"><img loading="lazy" src="12.png" alt="Leitura" /></button>
+    <button class="media" aria-label="Abrir imagem"><img loading="lazy" src="13.png" alt="Cuidados domésticos" /></button>
+    <button class="media" aria-label="Abrir imagem"><img loading="lazy" src="14.png" alt="Meditação e relaxamento" /></button>
+  </div>
+</section>
 
 
-    <!-- ===== GALERIA ===== -->
-    <section class="galeria section container">
-      <h2 class="sr-only">Galeria de imagens</h2>
-      <div id="galeriaGrid" class="galeria-grid">
-        <button class="media" aria-label="Abrir imagem">
-          <img loading="lazy" src="Captura de tela 2025-10-28 154727.png" alt="Imagem 1" />
-        </button>
-        <button class="media" aria-label="Abrir imagem">
-          <img loading="lazy" src="1.png" alt="Imagem 1" />
-        </button>
-        <button class="media" aria-label="Abrir imagem">
-          <img loading="lazy" src="2.png" alt="Imagem 2" />
-        </button>
-        <button class="media" aria-label="Abrir imagem">
-          <img loading="lazy" src="3.png" alt="Imagem 3" />
-        </button>
-        <button class="media" aria-label="Abrir imagem">
-          <img loading="lazy" src="4.png" alt="Imagem 4" />
-        </button>
-        <button class="media" aria-label="Abrir imagem">
-          <img loading="lazy" src="5.png" alt="Imagem 5" />
-        </button>
-        <button class="media" aria-label="Abrir imagem">
-          <img loading="lazy" src="6.png" alt="Imagem 6" />
-        </button>
-        <button class="media" aria-label="Abrir imagem">
-          <img loading="lazy" src="8.png" alt="Imagem 8" />
-        </button>
-        <button class="media" aria-label="Abrir imagem">
-          <img loading="lazy" src="9.png" alt="Imagem 9" />
-        </button>
-         <button class="media" aria-label="Abrir imagem">
-          <img loading="lazy" src="12.png" alt="Imagem 6" />
-        </button>
-         <button class="media" aria-label="Abrir imagem">
-          <img loading="lazy" src="13.png" alt="Imagem 6" />
-        </button>
-        <button class="media" aria-label="Abrir imagem">
-          <img loading="lazy" src="14.png" alt="Imagem 6" />
-        </button>
-      </div>
 
 
-    </section>
+    
+    
 
     <!-- Lightbox -->
     <div id="galeriaLightbox" class="galeria-lightbox" aria-hidden="true" role="dialog" aria-label="Visualizador de imagem">
@@ -288,7 +269,7 @@
     <!-- ===== SOBRE ===== -->
     <section id="sobre" class="section container">
       <h3 class="section-title"><i class="fa-solid fa-circle-info"></i> Sobre o projeto</h3>
-      <p>O <strong><strong> éEste material foi produzido por alunos do curso de Fisioterapia da Faculdade de Ciências Médicas, como parte do Projeto de Produção Interdisciplinar III.
+      <p>O <strong><strong> Este material foi produzido por alunos do curso de Fisioterapia da Faculdade de Ciências Médicas, como parte do Projeto de Produção Interdisciplinar III.
 
 O roteiro foi elaborado pelos próprios estudantes, com base em pesquisa e conhecimentos adquiridos ao longo da formação. Algumas imagens e vídeos complementares foram criados com o auxílio de inteligência artificial (IA), com o objetivo de enriquecer a representação visual dos conteúdos apresentados.
 
