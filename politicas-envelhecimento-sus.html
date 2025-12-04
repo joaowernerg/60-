@@ -12,6 +12,67 @@
 
   <!-- CSS do projeto -->
   <link rel="stylesheet" href="style.css" />
+
+  <!-- ===== Extras (A11y + Áudio) ===== -->
+  <style>
+    :root{ font-size:18px; }
+
+    /* SR only */
+    .sr-only{
+      position:absolute; width:1px; height:1px; padding:0; margin:-1px;
+      overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;
+    }
+
+    /* Leitura fácil */
+    body.easy-read{
+      background:#fff !important; color:#000 !important;
+      font-size:1.18rem; line-height:2;
+      letter-spacing:.2px;
+    }
+
+    /* Barra A11y no header */
+    .a11y-row{ margin-top:.75rem; }
+    .a11y-inner{
+      display:flex; gap:10px; flex-wrap:wrap; align-items:center;
+      padding-top:.4rem;
+      border-top:1px solid rgba(0,0,0,.12);
+    }
+    .btn-a11y, .audio-btn{
+      border:1px solid rgba(0,0,0,.12);
+      background:#fff;
+      border-radius:12px;
+      padding:10px 12px;
+      font-weight:700;
+      cursor:pointer;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      box-shadow:0 3px 8px rgba(0,0,0,.05);
+    }
+    .btn-a11y:hover, .audio-btn:hover{ transform:translateY(-1px); }
+    .btn-a11y:focus, .audio-btn:focus{ outline:3px solid rgba(255,122,0,.25); outline-offset:2px; }
+    .a11y-sep{ width:1px; height:32px; background:rgba(0,0,0,.12); margin:0 2px; }
+    .font-hint{ font-size:14px; opacity:.75; margin-left:6px; }
+
+    /* Toolbar de áudio por tópico */
+    .audio-toolbar{ margin:0 0 12px; }
+
+    /* Botão leitura fácil fixo */
+    #easyReadBtn{
+      position:fixed; left:16px; bottom:16px; z-index:999;
+      border:0; border-radius:999px;
+      background:#ffd633; color:#000;
+      font-weight:800;
+      padding:.65rem 1rem;
+      box-shadow:0 8px 18px rgba(0,0,0,.12);
+      cursor:pointer;
+    }
+
+    @media (max-width:768px){
+      .btn-a11y, .audio-btn{ padding:9px 10px; }
+      .a11y-inner{ gap:8px; }
+    }
+  </style>
 </head>
 <body>
   <!-- Barra de progresso -->
@@ -39,6 +100,23 @@
         <a href="index.html#dicas">Dicas</a>
       </nav>
     </div>
+
+    <!-- A11y + Áudio (igual os outros) -->
+    <div class="container a11y-row" role="region" aria-label="Acessibilidade e leitura em áudio">
+      <div class="a11y-inner">
+        <button class="btn-a11y" id="fontDec" type="button" aria-label="Diminuir tamanho da letra">A-</button>
+        <button class="btn-a11y" id="fontInc" type="button" aria-label="Aumentar tamanho da letra">A+</button>
+        <button class="btn-a11y" id="fontReset" type="button" aria-label="Voltar tamanho padrão">Padrão</button>
+        <span class="font-hint" id="fontHint" aria-live="polite"></span>
+
+        <span class="a11y-sep" aria-hidden="true"></span>
+
+        <button class="btn-a11y" id="ttsPlayPage" type="button" aria-label="Ouvir a página inteira">🔊 Ouvir página</button>
+        <button class="btn-a11y" id="ttsPause" type="button" aria-label="Pausar ou continuar leitura">⏸ Pausar</button>
+        <button class="btn-a11y" id="ttsStop" type="button" aria-label="Parar leitura">⏹ Parar</button>
+        <small id="ttsStatus" class="sr-only" aria-live="polite"></small>
+      </div>
+    </div>
   </header>
 
   <!-- ===== HERO ===== -->
@@ -48,6 +126,10 @@
         <small id="dataHoje" class="hero-date" aria-live="polite"></small>
         <h2>Políticas de <span>Envelhecimento Ativo</span> no SUS</h2>
         <p>Envelhecimento ativo é otimizar oportunidades de <strong>saúde</strong>, <strong>participação</strong> e <strong>segurança</strong> para melhorar a qualidade de vida à medida que envelhecemos. Veja como o SUS organiza esse cuidado.</p>
+
+        <div class="audio-toolbar">
+          <button class="audio-btn" type="button" data-section="page-all">🔊 Ouvir a página inteira</button>
+        </div>
 
         <!-- Sumário -->
         <nav class="toc" aria-label="Sumário desta página">
@@ -76,12 +158,20 @@
   <main>
     <!-- Conceito OMS -->
     <section id="conceito-oms" class="section container">
+      <div class="audio-toolbar">
+        <button class="audio-btn" type="button" data-section="conceito-oms">🔊 Ouvir este tópico</button>
+      </div>
+
       <h3 class="section-title"><i class="fa-solid fa-globe"></i> Conceito estratégico (OMS)</h3>
       <p>A Organização Mundial da Saúde (OMS) define <strong>envelhecimento ativo</strong> como o processo de <em>otimizar oportunidades para saúde, participação e segurança</em> com o objetivo de realçar a qualidade de vida ao envelhecer. No SUS, esse conceito orienta políticas, serviços e ações intersetoriais.</p>
     </section>
 
     <!-- 1. Marco Legal e Conceitual -->
     <section id="marco-legal" class="section container">
+      <div class="audio-toolbar">
+        <button class="audio-btn" type="button" data-section="marco-legal">🔊 Ouvir este tópico</button>
+      </div>
+
       <h3 class="section-title"><i class="fa-solid fa-scale-balanced"></i> 1. Marco legal e conceitual no SUS</h3>
       <p>A <strong>Política Nacional de Saúde da Pessoa Idosa (PNSPI)</strong> (2006), consolidada na <strong>Portaria de Consolidação GM/MS nº 2/2017</strong>, organiza a atenção à saúde do idoso no Brasil com foco em:</p>
 
@@ -103,6 +193,10 @@
 
     <!-- 2. Instrumentos de Gestão e Cuidado -->
     <section id="instrumentos" class="section container">
+      <div class="audio-toolbar">
+        <button class="audio-btn" type="button" data-section="instrumentos">🔊 Ouvir este tópico</button>
+      </div>
+
       <h3 class="section-title"><i class="fa-solid fa-toolbox"></i> 2. Instrumentos de gestão e cuidado no SUS</h3>
 
       <div class="callouts">
@@ -127,6 +221,10 @@
 
     <!-- 3. Participação e Protagonismo -->
     <section id="participacao" class="section container">
+      <div class="audio-toolbar">
+        <button class="audio-btn" type="button" data-section="participacao">🔊 Ouvir este tópico</button>
+      </div>
+
       <h3 class="section-title"><i class="fa-solid fa-users"></i> 3. Ênfase na participação e no protagonismo</h3>
       <p>Envelhecer ativamente é <strong>mais que ausência de doença</strong>: envolve manter a capacidade funcional com <strong>engajamento ativo</strong> na vida comunitária.</p>
 
@@ -138,6 +236,10 @@
 
     <!-- 5. Políticas públicas de mobilidade -->
     <section id="mobilidade" class="section container">
+      <div class="audio-toolbar">
+        <button class="audio-btn" type="button" data-section="mobilidade">🔊 Ouvir este tópico</button>
+      </div>
+
       <h3 class="section-title"><i class="fa-solid fa-person-walking-with-cane"></i> 5. Políticas públicas de mobilidade e envelhecimento</h3>
       <p>A mobilidade segura sustenta a <strong>autonomia</strong>, o acesso a serviços e a participação social. Ações intersetoriais (saúde, transporte, urbanismo, assistência) favorecem o <strong>envelhecimento ativo</strong> no território.</p>
 
@@ -201,37 +303,42 @@
   </main>
 
   <!-- Vídeo -->
-<section id="video" class="section container" aria-labelledby="titulo-video">
-  <h3 id="titulo-video" class="section-title">
-    <i class="fa-solid fa-video" aria-hidden="true"></i> Vídeo explicativo
-  </h3>
-
-  <figure class="figure" role="group" aria-label="Vídeo: políticas de envelhecimento ativo no SUS">
-    <div class="video-wrap" role="region" aria-label="Player do YouTube: Políticas de envelhecimento ativo no SUS" style="position:relative; width:100%; aspect-ratio:16/9; background:#000; border-radius:14px; overflow:hidden;">
-      <iframe
-        title="Políticas de Envelhecimento Ativo no SUS — Vídeo"
-        src="https://www.youtube-nocookie.com/embed/K3C0PdKDgIM?rel=0&modestbranding=1"
-        loading="lazy"
-        referrerpolicy="strict-origin-when-cross-origin"
-        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen
-        style="position:absolute; inset:0; width:100%; height:100%; border:0;">
-      </iframe>
+  <section id="video" class="section container" aria-labelledby="titulo-video">
+    <div class="audio-toolbar">
+      <button class="audio-btn" type="button" data-section="video">🔊 Ouvir este tópico</button>
     </div>
-    <figcaption class="video-caption" style="padding:12px; color:#444; font-size:15px;">
-      Políticas de envelhecimento ativo no SUS e como acessar serviços na rede.
-      <br>
-      <a class="video-actions" href="https://youtu.be/K3C0PdKDgIM" target="_blank" rel="noopener" style="text-decoration:underline; font-weight:500;">
-        Abrir no YouTube
-      </a>
-    </figcaption>
-  </figure>
-</section>
 
-  
+    <h3 id="titulo-video" class="section-title">
+      <i class="fa-solid fa-video" aria-hidden="true"></i> Vídeo explicativo
+    </h3>
+
+    <figure class="figure" role="group" aria-label="Vídeo: políticas de envelhecimento ativo no SUS">
+      <div class="video-wrap" role="region" aria-label="Player do YouTube: Políticas de envelhecimento ativo no SUS" style="position:relative; width:100%; aspect-ratio:16/9; background:#000; border-radius:14px; overflow:hidden;">
+        <iframe
+          title="Políticas de Envelhecimento Ativo no SUS — Vídeo"
+          src="https://www.youtube-nocookie.com/embed/K3C0PdKDgIM?rel=0&modestbranding=1"
+          loading="lazy"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+          style="position:absolute; inset:0; width:100%; height:100%; border:0;">
+        </iframe>
+      </div>
+      <figcaption class="video-caption" style="padding:12px; color:#444; font-size:15px;">
+        Políticas de envelhecimento ativo no SUS e como acessar serviços na rede.
+        <br>
+        <a class="video-actions" href="https://youtu.be/K3C0PdKDgIM" target="_blank" rel="noopener" style="text-decoration:underline; font-weight:500;">
+          Abrir no YouTube
+        </a>
+      </figcaption>
+    </figure>
+  </section>
 
   <!-- Voltar ao topo -->
   <button id="toTop" class="to-top" aria-label="Voltar ao topo"><i class="fa-solid fa-arrow-up"></i></button>
+
+  <!-- Leitura fácil -->
+  <button id="easyReadBtn" type="button" aria-label="Ativar modo leitura fácil">👁️ Leitura Fácil</button>
 
   <!-- ===== FOOTER ===== -->
   <footer class="site-footer">
@@ -240,20 +347,20 @@
     </div>
   </footer>
 
-  <!-- JS do projeto -->
+  <!-- JS do projeto (mantém) -->
   <script src="script.js"></script>
 
-  <!-- JS desta página -->
+  <!-- JS desta página (com áudio + A11y) -->
   <script>
     (function(){
-      // Data e ano
+      // ===== Data e ano =====
       const d = new Date();
       const dataHoje = document.getElementById('dataHoje');
       const anoAtual = document.getElementById('anoAtual');
       if(dataHoje) dataHoje.textContent = d.toLocaleDateString('pt-BR',{day:'2-digit',month:'long',year:'numeric'});
       if(anoAtual) anoAtual.textContent = d.getFullYear();
 
-      // Menu mobile
+      // ===== Menu mobile =====
       const btn = document.getElementById('menuBtn');
       const nav = document.getElementById('topNav');
       btn?.addEventListener('click', () => {
@@ -261,7 +368,7 @@
         btn.setAttribute('aria-expanded', open ? 'true' : 'false');
       });
 
-      // Barra de progresso + voltar ao topo
+      // ===== Barra de progresso + voltar ao topo =====
       const bar = document.getElementById('progressBar');
       const toTop = document.getElementById('toTop');
       const onScroll = () => {
@@ -275,6 +382,158 @@
       window.addEventListener('scroll', onScroll, { passive: true });
       onScroll();
       toTop?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+      // ===== Leitura Fácil =====
+      document.getElementById('easyReadBtn')?.addEventListener('click', () => {
+        document.body.classList.toggle('easy-read');
+      });
+
+      // ===== Fonte (A- / A+ / Padrão) =====
+      const MIN_PX = 16, MAX_PX = 26, STEP = 1, DEFAULT_PX = 18;
+      const hint = document.getElementById('fontHint');
+
+      function getFontPx() {
+        const saved = Number(localStorage.getItem("vs60_font_px"));
+        if (saved && saved >= MIN_PX && saved <= MAX_PX) return saved;
+        const css = Number(getComputedStyle(document.documentElement).fontSize.replace("px",""));
+        return css || DEFAULT_PX;
+      }
+      function setFontPx(px) {
+        const v = Math.max(MIN_PX, Math.min(MAX_PX, px));
+        document.documentElement.style.fontSize = v + "px";
+        localStorage.setItem("vs60_font_px", String(v));
+        if (hint) hint.textContent = `Tamanho: ${v}px`;
+      }
+      setFontPx(getFontPx());
+      document.getElementById("fontDec")?.addEventListener("click", () => setFontPx(getFontPx() - STEP));
+      document.getElementById("fontInc")?.addEventListener("click", () => setFontPx(getFontPx() + STEP));
+      document.getElementById("fontReset")?.addEventListener("click", () => setFontPx(DEFAULT_PX));
+
+      // ===== Leitura em voz alta (TTS) =====
+      const hasTTS = "speechSynthesis" in window && "SpeechSynthesisUtterance" in window;
+      const statusEl = document.getElementById("ttsStatus");
+      const setStatus = (msg) => { if (statusEl) statusEl.textContent = msg; };
+
+      function pickPtVoice() {
+        const voices = speechSynthesis.getVoices?.() || [];
+        return voices.find(v => /pt-BR/i.test(v.lang)) || voices.find(v => /^pt/i.test(v.lang)) || null;
+      }
+
+      function stopSpeak() {
+        if (!hasTTS) return;
+        speechSynthesis.cancel();
+        setStatus("Leitura parada.");
+      }
+
+      function pauseOrResume() {
+        if (!hasTTS) return;
+        if (speechSynthesis.speaking && !speechSynthesis.paused) {
+          speechSynthesis.pause();
+          setStatus("Leitura pausada.");
+          return;
+        }
+        if (speechSynthesis.paused) {
+          speechSynthesis.resume();
+          setStatus("Leitura retomada.");
+        }
+      }
+
+      function speakText(text) {
+        if (!hasTTS) {
+          alert("Seu navegador não suporta leitura em voz. Use o Google Chrome 😉");
+          return;
+        }
+        const clean = (text || "").replace(/\s+/g, " ").trim();
+        if (!clean) return;
+
+        stopSpeak();
+
+        const u = new SpeechSynthesisUtterance(clean);
+        const voice = pickPtVoice();
+        if (voice) u.voice = voice;
+
+        u.lang = voice?.lang || "pt-BR";
+        u.rate = 0.95;
+        u.pitch = 1.0;
+        u.volume = 1.0;
+
+        u.onstart = () => setStatus("Lendo em voz alta...");
+        u.onend   = () => setStatus("Leitura concluída.");
+        u.onerror = () => setStatus("Não foi possível ler este trecho.");
+
+        speechSynthesis.speak(u);
+      }
+
+      function extractCleanText(root) {
+        if (!root) return "";
+        const clone = root.cloneNode(true);
+
+        // mantém texto dos links
+        clone.querySelectorAll("a").forEach(a => {
+          const t = document.createTextNode(a.textContent || "");
+          a.replaceWith(t);
+        });
+
+        // remove controles e coisas sem interesse na leitura
+        const removeSelectors = [
+          ".audio-toolbar",
+          ".a11y-row",
+          "#progressBar",
+          "nav",
+          "button",
+          "script",
+          "style",
+          "i",
+          "#toTop",
+          "#easyReadBtn",
+          "iframe"
+        ];
+        clone.querySelectorAll(removeSelectors.join(",")).forEach(el => el.remove());
+
+        return (clone.textContent || "")
+          .replace(/[ \t]+\n/g, "\n")
+          .replace(/\n{3,}/g, "\n\n")
+          .replace(/[ \t]{2,}/g, " ")
+          .trim();
+      }
+
+      // Botões globais
+      document.getElementById("ttsPlayPage")?.addEventListener("click", () => {
+        const main = document.querySelector("main");
+        // inclui também a seção de vídeo (fora do main)
+        const video = document.getElementById("video");
+        const text = extractCleanText(main) + "\n\n" + extractCleanText(video);
+        speakText(text);
+      });
+      document.getElementById("ttsPause")?.addEventListener("click", pauseOrResume);
+      document.getElementById("ttsStop")?.addEventListener("click", stopSpeak);
+
+      // Botões por tópico (e “page-all”)
+      document.querySelectorAll(".audio-btn").forEach(b => {
+        b.addEventListener("click", () => {
+          const target = b.getAttribute("data-section");
+          if (target === "page-all") {
+            document.getElementById("ttsPlayPage")?.click();
+            return;
+          }
+          const sec = document.getElementById(target);
+          speakText(extractCleanText(sec));
+        });
+      });
+
+      // Atalhos: Alt+L (página), Alt+P (pausar), Alt+X (parar)
+      document.addEventListener("keydown", (e) => {
+        if (!e.altKey) return;
+        const k = e.key.toLowerCase();
+        if (k === "l") { e.preventDefault(); document.getElementById("ttsPlayPage")?.click(); }
+        if (k === "p") { e.preventDefault(); pauseOrResume(); }
+        if (k === "x") { e.preventDefault(); stopSpeak(); }
+      });
+
+      if (hasTTS && speechSynthesis.onvoiceschanged !== undefined) {
+        speechSynthesis.onvoiceschanged = () => {};
+      }
+      window.addEventListener("beforeunload", stopSpeak);
     })();
   </script>
 </body>

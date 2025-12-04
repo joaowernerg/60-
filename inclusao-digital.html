@@ -17,6 +17,7 @@
       --brand:#ff7a00; --brand-2:#ffd633;
       --card:#fff; --border:#efe3cf; --shadow:0 6px 16px rgba(0,0,0,.08);
       --radius:16px; --container:1100px;
+      font-size:18px; /* fonte base (A+/A- vai alterar aqui) */
     }
     *{margin:0;padding:0;box-sizing:border-box}
     html{scroll-behavior:smooth}
@@ -78,15 +79,66 @@
       position:fixed;left:16px;bottom:16px;z-index:50;padding:.6rem 1rem;border:0;border-radius:999px;background:var(--brand-2);color:#000;font-weight:700;box-shadow:var(--shadow);cursor:pointer
     }
 
-    /* ANIMAÇÃO */
+    /* Barra de acessibilidade + áudio */
+    .a11y-bar{
+      position: sticky; top: 0; z-index: 1000;
+      background: rgba(255,255,255,.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+    .a11y-inner{
+      display:flex; gap:10px; flex-wrap:wrap; align-items:center;
+      padding:10px 0;
+    }
+    .btn-a11y, .audio-btn{
+      border:1px solid var(--border);
+      background:#fff;
+      border-radius:12px;
+      padding:10px 12px;
+      font-weight:700;
+      cursor:pointer;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      box-shadow: var(--shadow);
+    }
+    .btn-a11y:focus, .audio-btn:focus{ outline:3px solid rgba(255,122,0,.25); outline-offset:2px; }
+    .a11y-sep{ width:1px; height:32px; background:var(--border); margin:0 2px; }
+    .font-hint{ font-size:14px; opacity:.75; margin-left:6px; }
+    .sr-only{
+      position:absolute; width:1px; height:1px; padding:0; margin:-1px;
+      overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;
+    }
+
+    /* Animação */
     [data-animate]{opacity:0;transform:translateY(30px);transition:all .6s ease-out}
     [data-animate].visible{opacity:1;transform:none}
+
+    .audio-toolbar{ margin: 10px 0 14px; }
   </style>
 </head>
-<body>
 
+<body>
   <!-- Barra de Progresso -->
   <div id="progressBar" aria-hidden="true"></div>
+
+  <!-- Barra A11y + Áudio -->
+  <div class="a11y-bar" role="region" aria-label="Acessibilidade: tamanho da letra e leitura em áudio">
+    <div class="container a11y-inner">
+      <button class="btn-a11y" id="fontDec" type="button" aria-label="Diminuir tamanho da letra">A-</button>
+      <button class="btn-a11y" id="fontInc" type="button" aria-label="Aumentar tamanho da letra">A+</button>
+      <button class="btn-a11y" id="fontReset" type="button" aria-label="Voltar tamanho padrão">Padrão</button>
+      <span class="font-hint" id="fontHint" aria-live="polite"></span>
+
+      <span class="a11y-sep" aria-hidden="true"></span>
+
+      <button class="btn-a11y" id="ttsPlayPage" type="button" aria-label="Ouvir a página inteira">🔊 Ouvir página</button>
+      <button class="btn-a11y" id="ttsPause" type="button" aria-label="Pausar ou continuar leitura">⏸ Pausar</button>
+      <button class="btn-a11y" id="ttsStop" type="button" aria-label="Parar leitura">⏹ Parar</button>
+
+      <small id="ttsStatus" class="sr-only" aria-live="polite"></small>
+    </div>
+  </div>
 
   <!-- HERO -->
   <section class="hero">
@@ -95,6 +147,10 @@
       <h1>Inclusão Digital no Envelhecimento Ativo</h1>
       <p class="lead">Como a tecnologia, os direitos digitais e a cidadania transformam o envelhecer em uma jornada de <strong>autonomia</strong>, <strong>participação</strong> e <strong>qualidade de vida</strong>.</p>
       <a href="index.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Voltar para a página inicial</a>
+
+      <div class="audio-toolbar">
+        <button class="audio-btn" type="button" data-section="page-all">🔊 Ouvir a página inteira</button>
+      </div>
 
       <!-- SUMÁRIO -->
       <nav class="toc" aria-label="Sumário">
@@ -118,6 +174,10 @@
 
     <!-- INTRODUÇÃO -->
     <section id="intro" class="section" data-animate>
+      <div class="audio-toolbar">
+        <button class="audio-btn" type="button" data-section="intro">🔊 Ouvir este tópico</button>
+      </div>
+
       <h2 class="section-title"><i class="fa-solid fa-paragraph"></i> Inclusão digital no envelhecimento ativo</h2>
       <p>O aumento da expectativa de vida e o desejo por longevidade com qualidade de vida é um ideal para todos. O Envelhecimento Ativo é o processo de otimizar oportunidades para saúde, participação e segurança, a fim de realçar a qualidade de vida.</p>
       <p>A tecnologia e a inclusão digital são ferramentas poderosas que ajudam você a viver essa fase com mais autonomia e bem-estar.</p>
@@ -125,29 +185,41 @@
 
     <!-- O QUE É ENVELHECIMENTO ATIVO -->
     <section id="envelhecimento-ativo" class="section" data-animate>
+      <div class="audio-toolbar">
+        <button class="audio-btn" type="button" data-section="envelhecimento-ativo">🔊 Ouvir este tópico</button>
+      </div>
+
       <h2 class="section-title"><i class="fa-solid fa-seedling"></i> O que é Envelhecimento Ativo?</h2>
       <p>Envelhecer ativamente não se restringe a ser fisicamente ativo ou estar na força de trabalho. Significa continuar o engajamento continuado na vida.</p>
       <p>Para os idosos, um envelhecimento ativo envolve determinantes de caráter comportamental, social, econômico e pessoal. Envelhecer ativamente implica:</p>
       <ul class="list">
-        <li><strong>Participação Social:</strong> Dialogar, conversar, ter amizade e convívio social. A inserção social é fundamental para evitar o isolamento e doenças mentais.</li>
-        <li><strong>Saúde Física e Mental:</strong> Praticar atividades físicas, caminhar, e ter uma alimentação saudável. O desempenho de atividades físicas previne doenças e proporciona bem-estar físico e mental.</li>
-        <li><strong>Mente Ativa:</strong> Ocupar o tempo livre com atividades prazerosas, trabalhar com a mente e exercitar a memória.</li>
-        <li><strong>Autonomia:</strong> Manter a independência funcional para realizar atividades diárias, garantindo a capacidade de autogoverno (autonomia).</li>
+        <li><strong>Participação Social:</strong> Dialogar, conversar, ter amizade e convívio social.</li>
+        <li><strong>Saúde Física e Mental:</strong> Praticar atividades físicas e ter alimentação saudável.</li>
+        <li><strong>Mente Ativa:</strong> Ocupar o tempo livre com atividades prazerosas e exercitar a memória.</li>
+        <li><strong>Autonomia:</strong> Manter independência funcional para realizar atividades diárias.</li>
       </ul>
     </section>
 
     <!-- INCLUSÃO DIGITAL NA SAÚDE -->
     <section id="inclusao-saude" class="section" data-animate>
+      <div class="audio-toolbar">
+        <button class="audio-btn" type="button" data-section="inclusao-saude">🔊 Ouvir este tópico</button>
+      </div>
+
       <h2 class="section-title"><i class="fa-solid fa-notes-medical"></i> A inclusão digital na sua saúde</h2>
       <p>Em um mundo altamente digital, o acesso à informação é um princípio ético importante. As tecnologias facilitam que você:</p>
       <ol class="list">
-        <li><strong>Acompanhe sua Saúde:</strong> A informação facilita que você amplie seus recursos para compreender e atuar nas questões de saúde. Isso é crucial na velhice, pelo maior requerimento do autocuidado na monitoração de doenças crônicas.</li>
-        <li><strong>Tenha sua Saúde Registrada:</strong> Iniciativas de saúde pública já utilizam plataformas digitais para registrar informações (como a Caderneta de Saúde da Pessoa Idosa) e monitorar o envelhecimento ativo.</li>
+        <li><strong>Acompanhe sua Saúde:</strong> ampliar recursos para compreender e atuar nas questões de saúde.</li>
+        <li><strong>Tenha sua Saúde Registrada:</strong> usar plataformas digitais para registrar e acompanhar informações.</li>
       </ol>
     </section>
 
     <!-- VÍDEOS -->
     <section id="videos" class="section" data-animate>
+      <div class="audio-toolbar">
+        <button class="audio-btn" type="button" data-section="videos">🔊 Ouvir este tópico</button>
+      </div>
+
       <h2 class="section-title"><i class="fa-solid fa-video"></i> Vídeos explicativos</h2>
 
       <div class="video-wrap" role="group" aria-label="Vídeo 1">
@@ -173,96 +245,110 @@
 
     <!-- TECNOLOGIAS ASSISTIVAS -->
     <section id="ta-mobilidade" class="section" data-animate>
-      <h2 class="section-title"><i class="fa-solid fa-person-cane"></i> Uso de tecnologias assistivas na marcha e locomoção</h2>
+      <div class="audio-toolbar">
+        <button class="audio-btn" type="button" data-section="ta-mobilidade">🔊 Ouvir este tópico</button>
+      </div>
 
+      <h2 class="section-title"><i class="fa-solid fa-person-cane"></i> Uso de tecnologias assistivas na marcha e locomoção</h2>
       <p>A capacidade funcional para manter a habilidade para realizar atividades básicas e instrumentais da vida diária é crucial para a manutenção de uma vida independente e autônoma. A capacidade de locomoção é uma das dimensões da capacidade funcional e é essencial para o envelhecimento ativo.</p>
 
       <h3 style="margin-top:10px">Locomoção e o Risco de Quedas</h3>
       <p>Há um grande problema de saúde pública no Brasil.</p>
       <ul class="list">
         <li>Mais de um terço das pessoas idosas sofrem pelo menos uma queda por ano.</li>
-        <li>As quedas podem levar a ferimentos, incapacidade e o medo de cair, limitando sua mobilidade.</li>
+        <li>As quedas podem levar a ferimentos, incapacidade e o medo de cair.</li>
         <li>As causas das quedas são multifatoriais e incluem alterações no padrão da marcha.</li>
       </ul>
 
       <h3 style="margin-top:10px">Como a Tecnologia Assistiva ajuda na Mobilidade?</h3>
-      <p>A capacidade de se locomover com segurança e de realizar as tarefas diárias é o pilar da sua autonomia e independência funcional. Quando falamos em Tecnologia Assistiva (TA) aplicada à mobilidade, estamos focando em estratégias de reabilitação que visam garantir que você possa continuar ativo e engajado na vida, mesmo na presença de limitações.</p>
+      <p>A capacidade de se locomover com segurança e de realizar as tarefas diárias é o pilar da sua autonomia e independência funcional.</p>
 
       <h4 style="margin-top:8px">1. Manutenção da Capacidade Funcional</h4>
-      <p>As Tecnologias Assistivas, como parte do processo de reabilitação, têm como objetivo principal aumentar, manter ou melhorar a sua capacidade funcional (ABVD e AIVD). No contexto da locomoção, isso se traduz em:</p>
       <ul class="list">
-        <li><strong>Recuperação e Manutenção da Autonomia:</strong> recuperar ou manter a máxima autonomia e independência funcional (marcha, subir e descer escadas).</li>
-        <li><strong>Permanência no Lar:</strong> a assistência adequada e o ambiente propício viabilizados pela TA ajudam a assegurar a permanência no meio em que vive e facilitam as funções de autonomia.</li>
-        <li><strong>Melhoria do Desempenho:</strong> a reabilitação identifica barreiras, busca facilitadores e monitora o progresso para alcançar as metas funcionais.</li>
+        <li><strong>Recuperação e Manutenção da Autonomia:</strong> recuperar ou manter a máxima autonomia e independência funcional.</li>
+        <li><strong>Permanência no Lar:</strong> adaptações e ambiente propício viabilizados pela TA.</li>
+        <li><strong>Melhoria do Desempenho:</strong> identificar barreiras, buscar facilitadores e monitorar progresso.</li>
       </ul>
 
       <h4 style="margin-top:8px">2. Prevenção de Quedas e Lesões</h4>
-      <p>As quedas são um grande problema de saúde pública e podem levar a graves limitações físicas e psicológicas. A TA e as ações de reabilitação são estratégias essenciais para prevenir lesões involuntárias, com intervenções em:</p>
       <ul class="list">
-        <li><strong>Fortalecimento e Equilíbrio:</strong> atividades focadas em força, equilíbrio estático e dinâmico, e psicomotricidade reduzem riscos.</li>
-        <li><strong>Atenção ao Ambiente:</strong> condições do domicílio e da comunidade (escadas, tapetes, vias) exigem adaptações ambientais.</li>
+        <li><strong>Fortalecimento e Equilíbrio:</strong> reduzir riscos com exercícios e treino funcional.</li>
+        <li><strong>Atenção ao Ambiente:</strong> adaptações em casa e na comunidade.</li>
       </ul>
 
-      <h4 style="margin-top:8px">3. Soluções Acessíveis e Inovadoras (Tecnologias Assistivas de Baixo Custo)</h4>
+      <h4 style="margin-top:8px">3. Soluções Acessíveis e Inovadoras</h4>
       <ul class="list">
-        <li><strong>Oficinas de Adaptação:</strong> projetos treinam cuidadores para produzir adaptações com EVA, PVC e papelão.</li>
-        <li><strong>Reprodução no Domicílio:</strong> capacitação permite replicar instrumentos e adaptações em casa, aumentando a independência em comunidades de baixa renda.</li>
-        <li><strong>Intervenções Comunitárias:</strong> instalação de barras de apoio em vielas e melhorias simples no ambiente.</li>
+        <li><strong>Oficinas de Adaptação:</strong> adaptações com baixo custo.</li>
+        <li><strong>Reprodução no Domicílio:</strong> replicar instrumentos e adaptações em casa.</li>
+        <li><strong>Intervenções Comunitárias:</strong> melhorias simples no ambiente.</li>
       </ul>
 
-      <p class="highlight"><strong>Em resumo:</strong> a TA na mobilidade prolonga a independência, reduz o risco de acidentes e assegura que você continue exercendo sua autonomia no dia a dia.</p>
+      <p class="highlight"><strong>Em resumo:</strong> a TA na mobilidade prolonga a independência, reduz o risco de acidentes e assegura autonomia no dia a dia.</p>
     </section>
 
     <!-- ESTATUTO DA PESSOA IDOSA -->
     <section id="estatuto" class="section" data-animate>
+      <div class="audio-toolbar">
+        <button class="audio-btn" type="button" data-section="estatuto">🔊 Ouvir este tópico</button>
+      </div>
+
       <h2 class="section-title"><i class="fa-solid fa-scale-balanced"></i> Estatuto da Pessoa Idosa e promoção da autonomia</h2>
 
       <h3>1. Estatuto da Pessoa Idosa</h3>
-      <p>Você sabia que o Estatuto da Pessoa Idosa garante uma série de direitos importantes para proteger sua saúde, segurança e dignidade? Muitos idosos ainda não conhecem todos esses direitos e por isso queremos conversar com vocês sobre eles.</p>
-      <p>O envelhecimento é um direito personalíssimo e sua proteção é um direito social. O Estatuto da Pessoa Idosa (Lei nº 10.741/2003, alterada pela Lei nº 14.423/2022) é o marco legal que assegura ao cidadão com idade igual ou superior a 60 anos a efetivação dos direitos fundamentais, como saúde, dignidade, liberdade e respeito.</p>
-      <p>Lembre-se: a Lei exige que a família, a comunidade, a sociedade e o Poder Público assegurem esses direitos com absoluta prioridade. Nenhuma pessoa idosa pode sofrer negligência, discriminação, violência, crueldade ou opressão, e qualquer violação será punida na forma da lei.</p>
+      <p>O Estatuto da Pessoa Idosa (Lei nº 10.741/2003, alterada pela Lei nº 14.423/2022) assegura ao cidadão com 60+ a efetivação de direitos fundamentais, como saúde, dignidade, liberdade e respeito.</p>
+      <p>Nenhuma pessoa idosa pode sofrer negligência, discriminação, violência, crueldade ou opressão, e violações são punidas na forma da lei.</p>
 
       <h3 style="margin-top:10px">2. Direitos Fundamentais Assegurados</h3>
-      <p><strong>a. Saúde e Bem Estar</strong></p>
-      <!-- Se quiser, posso expandir aqui com mais alíneas depois -->
+      <p><strong>a. Saúde e Bem-Estar</strong></p>
+      <!-- Você pode expandir aqui depois -->
     </section>
 
     <!-- PARTICIPAÇÃO SOCIAL E CIDADANIA -->
     <section id="cidadania" class="section" data-animate>
+      <div class="audio-toolbar">
+        <button class="audio-btn" type="button" data-section="cidadania">🔊 Ouvir este tópico</button>
+      </div>
+
       <h2 class="section-title"><i class="fa-solid fa-users"></i> Participação social e cidadania no envelhecimento ativo</h2>
 
       <h3>a. Protagonismo e Participação Social</h3>
       <h4 style="margin-top:6px">Cidadania e Autonomia como Fundamentos Legais</h4>
-      <p><strong>Autodeterminação e Dignidade:</strong> A autonomia é o direito à autodeterminação, mantendo a dignidade, integridade e liberdade de escolha. O idoso competente é presumidamente capaz de tomar decisões sobre sua vida, e o princípio da autonomia deve ser respeitado, pois envelhecimento não é sinônimo de perda do poder de decisão.</p>
-      <p><strong>Combate ao Paternalismo:</strong> O tratamento infantilizado ou paternalista, que decide “o que é melhor” para o idoso sob a alegação de incapacidade, interfere diretamente na qualidade de vida e pode infringir regras éticas, legais e morais. Mesmo na presença de dependência, a autonomia pode ser vivenciada ao se considerar suas escolhas e dar-lhe liberdade de agir.</p>
-      <p><strong>Protagonismo:</strong> Dado o número e a importância da pessoa idosa em todas as esferas da sociedade brasileira, há uma necessidade inadiável de investir no seu protagonismo. O idoso deve ser reconhecido como ator social e cidadão capaz de participar na formulação de políticas e programas que lhe dizem respeito.</p>
+      <p><strong>Autodeterminação e Dignidade:</strong> A autonomia é o direito à autodeterminação, mantendo dignidade e liberdade de escolha.</p>
+      <p><strong>Combate ao Paternalismo:</strong> Tratamento infantilizado ou excesso de tutela pode reduzir autonomia e autoestima.</p>
+      <p><strong>Protagonismo:</strong> O idoso deve ser reconhecido como ator social e cidadão capaz de participar de decisões e políticas.</p>
 
       <h4 style="margin-top:8px">Participação Social</h4>
-      <p>É necessário que o idoso tenha participação em decisões da própria vida e que tenha convívio com a sociedade que o rodeia. Deve ser estimulada a participação ativa, seja em comunidade, com amigos, igreja ou clube de interação. Isso garante que saiam de um ambiente de pouca estimulação para um lugar de interação integral, sentindo-se parte de algo, valorizados e ouvidos. A inserção dos idosos em processos coletivos é crucial para a saúde tanto emocional quanto física.</p>
+      <p>Participar de decisões da própria vida e conviver com a sociedade é essencial para saúde emocional e física.</p>
 
       <h4 style="margin-top:8px">Estratégias de Inclusão e o Combate ao Estigma</h4>
-      <p>O envelhecimento ainda é, frequentemente, representado como sinônimo de perdas, incapacidades e declínio físico. Superar esses preconceitos e estigmas é parte fundamental das políticas de envelhecimento e do exercício da cidadania.</p>
       <ul class="list">
-        <li><strong>Lazer e Inclusão Social:</strong> atividades de lazer, lúdicas e recreacionais são essenciais para o bem-estar e a saúde mental do idoso, facilitando o convívio, a solidariedade e a produção de sentido para a vida por meio da arte, cultura e lazer.</li>
-        <li><strong>Valorização da História e Autoestima:</strong> atividades que promovam a dignidade e ajudem a restaurar antigos papéis.</li>
-        <li><strong>Intergeracionalidade:</strong> a convivência entre gerações modifica a ideia preconceituosa de incapacidade associada apenas à idade e reintegra os idosos. Jovens se beneficiam do conhecimento e experiência de vida dos idosos.</li>
-        <li><strong>Empoderamento pelo Conhecimento:</strong> ações educativas, como alfabetização e letramento digital/midiático.</li>
+        <li><strong>Lazer e Inclusão Social:</strong> convívio, cultura e atividades recreativas.</li>
+        <li><strong>Valorização da História e Autoestima:</strong> restaurar papéis e sentido.</li>
+        <li><strong>Intergeracionalidade:</strong> convivência entre gerações reduz preconceito.</li>
+        <li><strong>Empoderamento pelo Conhecimento:</strong> alfabetização e letramento digital/midiático.</li>
       </ul>
     </section>
 
     <!-- AUTONOMIA: PILAR ÉTICO E LEGAL -->
     <section id="autonomia-pilar" class="section" data-animate>
+      <div class="audio-toolbar">
+        <button class="audio-btn" type="button" data-section="autonomia-pilar">🔊 Ouvir este tópico</button>
+      </div>
+
       <h2 class="section-title"><i class="fa-solid fa-user-shield"></i> A autonomia como pilar ético e legal</h2>
-      <p>A autonomia é um pilar ético e legal essencial para o envelhecimento ativo, representando o direito do idoso à autodeterminação, dignidade e liberdade de escolha. Este princípio define a capacidade da pessoa de comandar a própria vida, tomar decisões e exercer sua cidadania, sendo um objetivo central das políticas públicas e dependendo diretamente de fatores como cognição e humor.</p>
-      <p>A premissa ética fundamental é que o envelhecimento não implica perda do poder de decisão; o idoso é considerado competente para decidir sobre sua vida até prova em contrário, sentindo-se mais valorizado e com a dignidade preservada ao ser reconhecido como autônomo.</p>
-      <p>A principal ameaça à autonomia do idoso é o paternalismo e a superproteção, que se manifestam como uma tutela informal que subtrai seu poder de decisão, frequentemente sob a falsa justificativa de “saber o que é melhor”. Posturas como o tratamento infantilizado ou o excesso de ajuda em atividades que o idoso ainda pode realizar, além de infringirem princípios éticos e legais, aumentam a dependência e diminuem a autoestima. Preservar a autonomia, especialmente quando as capacidades cognitivas estão intactas, é crucial para a qualidade de vida e o respeito à dignidade da pessoa idosa.</p>
+      <p>A autonomia representa o direito do idoso à autodeterminação, dignidade e liberdade de escolha, sendo objetivo central das políticas públicas.</p>
+      <p>A principal ameaça é o paternalismo e a superproteção, que podem subtrair o poder de decisão e aumentar dependência.</p>
     </section>
 
     <!-- CURATELA -->
     <section id="curatela" class="section" data-animate>
+      <div class="audio-toolbar">
+        <button class="audio-btn" type="button" data-section="curatela">🔊 Ouvir este tópico</button>
+      </div>
+
       <h2 class="section-title"><i class="fa-solid fa-gavel"></i> Curatela (tutela legal)</h2>
-      <p>A tutela legal, conhecida como curatela, é um processo judicial sério e delicado, acionado somente quando um idoso é considerado incapaz de gerir sua própria vida e bens. Através da interdição, a justiça nomeia um curador para tomar decisões em nome do idoso, visando sua proteção.</p>
-      <p>Contudo, essa medida não é trivial, pois restringe direitos civis, e o Estatuto do Idoso prevê punições rigorosas para qualquer abuso de poder ou manipulação nesse contexto.</p>
+      <p>A curatela é um processo judicial aplicado somente quando um idoso é considerado incapaz de gerir sua vida e bens. A justiça nomeia um curador para decisões, visando proteção.</p>
+      <p>É uma medida séria que restringe direitos civis e prevê punições para abuso de poder.</p>
     </section>
 
     <!-- AVISO -->
@@ -306,6 +392,140 @@
     document.getElementById('easyReadBtn').addEventListener('click', () => {
       document.body.classList.toggle('easy-read');
     });
+
+    // ===== Fonte (A- / A+ / Padrão) =====
+    const MIN_PX = 16, MAX_PX = 26, STEP = 1, DEFAULT_PX = 18;
+    const hint = document.getElementById('fontHint');
+
+    function getFontPx() {
+      const saved = Number(localStorage.getItem("vs60_font_px"));
+      if (saved && saved >= MIN_PX && saved <= MAX_PX) return saved;
+      const css = Number(getComputedStyle(document.documentElement).fontSize.replace("px",""));
+      return css || DEFAULT_PX;
+    }
+    function setFontPx(px) {
+      const v = Math.max(MIN_PX, Math.min(MAX_PX, px));
+      document.documentElement.style.fontSize = v + "px";
+      localStorage.setItem("vs60_font_px", String(v));
+      if (hint) hint.textContent = `Tamanho: ${v}px`;
+    }
+    setFontPx(getFontPx());
+    document.getElementById("fontDec")?.addEventListener("click", () => setFontPx(getFontPx() - STEP));
+    document.getElementById("fontInc")?.addEventListener("click", () => setFontPx(getFontPx() + STEP));
+    document.getElementById("fontReset")?.addEventListener("click", () => setFontPx(DEFAULT_PX));
+
+    // ===== Leitura por voz (áudio descrição por tópico) =====
+    const hasTTS = "speechSynthesis" in window && "SpeechSynthesisUtterance" in window;
+    const statusEl = document.getElementById("ttsStatus");
+    const setStatus = (msg) => { if (statusEl) statusEl.textContent = msg; };
+
+    function pickPtVoice() {
+      const voices = speechSynthesis.getVoices?.() || [];
+      return voices.find(v => /pt-BR/i.test(v.lang)) || voices.find(v => /^pt/i.test(v.lang)) || null;
+    }
+
+    function stopSpeak() {
+      if (!hasTTS) return;
+      speechSynthesis.cancel();
+      setStatus("Leitura parada.");
+    }
+
+    function pauseOrResume() {
+      if (!hasTTS) return;
+      if (speechSynthesis.speaking && !speechSynthesis.paused) {
+        speechSynthesis.pause();
+        setStatus("Leitura pausada.");
+        return;
+      }
+      if (speechSynthesis.paused) {
+        speechSynthesis.resume();
+        setStatus("Leitura retomada.");
+      }
+    }
+
+    function speakText(text) {
+      if (!hasTTS) { alert("Seu navegador não suporta leitura em voz. Use o Google Chrome 😉"); return; }
+      const clean = (text || "").replace(/\s+/g, " ").trim();
+      if (!clean) return;
+
+      stopSpeak();
+
+      const u = new SpeechSynthesisUtterance(clean);
+      const voice = pickPtVoice();
+      if (voice) u.voice = voice;
+
+      u.lang = voice?.lang || "pt-BR";
+      u.rate = 0.95;
+      u.pitch = 1.0;
+      u.volume = 1.0;
+
+      u.onstart = () => setStatus("Lendo em voz alta...");
+      u.onend = () => setStatus("Leitura concluída.");
+      u.onerror = () => setStatus("Não foi possível ler este trecho.");
+
+      speechSynthesis.speak(u);
+    }
+
+    function extractCleanText(root) {
+      if (!root) return "";
+      const clone = root.cloneNode(true);
+
+      const removeSelectors = [
+        ".a11y-bar",
+        ".audio-toolbar",
+        "#progressBar",
+        "nav", "button", "a",
+        "iframe", ".video-wrap",
+        "script", "style",
+        "i",
+        "footer",
+        "#toTop",
+        "#easyReadBtn"
+      ];
+      clone.querySelectorAll(removeSelectors.join(",")).forEach(el => el.remove());
+
+      return (clone.textContent || "")
+        .replace(/[ \t]+\n/g, "\n")
+        .replace(/\n{3,}/g, "\n\n")
+        .replace(/[ \t]{2,}/g, " ")
+        .trim();
+    }
+
+    // Botões globais
+    document.getElementById("ttsPlayPage")?.addEventListener("click", () => {
+      const main = document.querySelector("main");
+      speakText(extractCleanText(main));
+    });
+    document.getElementById("ttsPause")?.addEventListener("click", pauseOrResume);
+    document.getElementById("ttsStop")?.addEventListener("click", stopSpeak);
+
+    // Botões por tópico
+    document.querySelectorAll(".audio-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const target = btn.getAttribute("data-section");
+        if (target === "page-all") {
+          const main = document.querySelector("main");
+          speakText(extractCleanText(main));
+          return;
+        }
+        const sec = document.getElementById(target);
+        speakText(extractCleanText(sec));
+      });
+    });
+
+    // Atalhos: Alt+L (página), Alt+P (pausar), Alt+X (parar)
+    document.addEventListener("keydown", (e) => {
+      if (!e.altKey) return;
+      const k = e.key.toLowerCase();
+      if (k === "l") { e.preventDefault(); document.getElementById("ttsPlayPage")?.click(); }
+      if (k === "p") { e.preventDefault(); pauseOrResume(); }
+      if (k === "x") { e.preventDefault(); stopSpeak(); }
+    });
+
+    if (hasTTS && speechSynthesis.onvoiceschanged !== undefined) {
+      speechSynthesis.onvoiceschanged = () => {};
+    }
+    window.addEventListener("beforeunload", stopSpeak);
   </script>
 </body>
 </html>

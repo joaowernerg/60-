@@ -39,31 +39,30 @@
   </header>
 
   <!-- ===== HERO ===== -->
-<section class="hero">
-  <div class="container hero-grid">
+  <section class="hero">
+    <div class="container hero-grid">
 
-    <!-- Texto principal -->
-    <div class="hero-text">
-      <small id="dataHoje" class="hero-date" aria-live="polite"></small>
-      <h2>Bem-vindo(a) ao <span>Vida Saudável 60+</span></h2>
-      <p>Conteúdo simples, confiável e feito para o seu dia a dia: receba dicas práticas de saúde, assista a vídeos curtos e jogue para exercitar a mente.</p>
+      <!-- Texto principal -->
+      <div class="hero-text">
+        <small id="dataHoje" class="hero-date" aria-live="polite"></small>
+        <h2>Bem-vindo(a) ao <span>Vida Saudável 60+</span></h2>
+        <p>Conteúdo simples, confiável e feito para o seu dia a dia: receba dicas práticas de saúde, assista a vídeos curtos e jogue para exercitar a mente.</p>
+      </div>
+
+      <!-- Imagem do Hero -->
+      <div class="hero-image">
+        <img src="https://telesintese.com.br/wp-content/uploads/2022/09/idoso_idosa_inclusao-digital-celular-velhice-credito_-freepik.jpg"
+             alt="Idosos aprendendo tecnologia em ambiente feliz" loading="lazy">
+      </div>
+
     </div>
-
-    <!-- Imagem do Hero -->
-    <div class="hero-image">
-      <img src="https://telesintese.com.br/wp-content/uploads/2022/09/idoso_idosa_inclusao-digital-celular-velhice-credito_-freepik.jpg"
-           alt="Idosos aprendendo tecnologia em ambiente feliz" loading="lazy">
-    </div>
-
-  </div>
-</section>
+  </section>
 
   <main>
     <!-- ===== NOTÍCIAS ===== -->
     <section id="noticias" class="section container">
       <div class="section-head">
         <h3 class="section-title"><i class="fa-solid fa-newspaper"></i> Notícias</h3>
-        <!-- sem "Ver mais" -->
       </div>
 
       <div class="news-grid">
@@ -89,7 +88,7 @@
 
         <article class="card">
           <a class="thumb" href="cuidando-do-coracao.html">
-            <img src="https://www.ipasemar.pa.gov.br/wp-content/uploads/2018/11/agua.jpg" />
+            <img src="https://www.ipasemar.pa.gov.br/wp-content/uploads/2018/11/agua.jpg" alt="Copo de água" />
           </a>
           <div class="card-body">
             <h4><a href="cuidando-do-coracao.html">Cuidando do Coração na Melhor Idade</a></h4>
@@ -129,7 +128,7 @@
 
         <article class="card">
           <a class="thumb" href="politicas-envelhecimento-sus.html">
-            <img src="https://ginast.com.br/wp-content/uploads/2017/02/Idosos-na-academia-ao-ar-livre-800x533-800x470-1.jpg" alt="Símbolo do SUS com pessoas idosas" />
+            <img src="https://ginast.com.br/wp-content/uploads/2017/02/Idosos-na-academia-ao-ar-livre-800x533-800x470-1.jpg" alt="Pessoas idosas praticando atividade física" />
           </a>
           <div class="card-body">
             <h4><a href="politicas-envelhecimento-sus.html">Políticas de envelhecimento ativo no SUS</a></h4>
@@ -146,8 +145,8 @@
             <p>Respeito, autonomia e comunicação clara como base do cuidado.</p>
           </div>
         </article>
-        
-                <article class="card">
+
+        <article class="card">
           <a class="thumb" href="Cuidadogolpes.html">
             <img src="https://sindifisco.org.br/wp-content/uploads/2023/08/Golpe.jpg" alt="Cuidado com golpes pela Internet e as Fake News">
           </a>
@@ -156,7 +155,6 @@
             <p>Está cada vez mais comum casos relatados por pessoas próximas que caíram em golpes pela Internet. E tal fato pode ocorrer de diversas formas.</p>
           </div>
         </article>
-
       </div>
     </section>
 
@@ -187,12 +185,29 @@
       </div>
     </section>
 
-   
+    <!-- ===== VÍDEO SHORT (NOVO) ===== -->
+    <section id="videos" class="section container" aria-labelledby="titulo-videos">
+      <div class="section-head">
+        <h3 id="titulo-videos" class="section-title"><i class="fa-solid fa-video"></i> Vídeo rápido</h3>
+      </div>
 
+      <!-- Shorts precisa do /embed/<ID> (aqui o ID é oNFIRc5tl-U) -->
+      <div class="video-wrap" role="region" aria-label="Player do YouTube: vídeo rápido">
+        <iframe
+          title="Vídeo curto — Vida Saudável 60+"
+          src="https://www.youtube-nocookie.com/embed/oNFIRc5tl-U?rel=0&modestbranding=1"
+          loading="lazy"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen></iframe>
+      </div>
 
-
-    
-    
+      <p class="video-actions" style="margin-top:10px">
+        <a class="btn btn-light" href="https://youtube.com/shorts/oNFIRc5tl-U?si=8emdOZhgWhyCqAuX" target="_blank" rel="noopener">
+          <i class="fa-brands fa-youtube"></i> Abrir no YouTube
+        </a>
+      </p>
+    </section>
 
     <!-- Lightbox -->
     <div id="galeriaLightbox" class="galeria-lightbox" aria-hidden="true" role="dialog" aria-label="Visualizador de imagem">
@@ -217,30 +232,31 @@
     </section>
 
     <!-- ===== SOBRE ===== -->
-<section id="sobre" class="section container">
-  <h3 class="section-title"><i class="fa-solid fa-circle-info"></i> Sobre o projeto</h3>
+    <section id="sobre" class="section container">
+      <h3 class="section-title"><i class="fa-solid fa-circle-info"></i> Sobre o projeto</h3>
 
-  <p>
-    O <strong>material foi produzido por alunos do curso de Fisioterapia da Faculdade de Ciências Médicas</strong>,
-    como parte do Projeto de Produção Interdisciplinar III.
-  </p>
+      <p>
+        O <strong>material foi produzido por alunos do curso de Fisioterapia da Faculdade de Ciências Médicas</strong>,
+        como parte do Projeto de Produção Interdisciplinar III.
+      </p>
 
-  <p>
-    O roteiro foi elaborado pelos próprios estudantes, com base em pesquisa e conhecimentos adquiridos ao longo da formação.
-    Algumas imagens e vídeos complementares foram criados com o auxílio de inteligência artificial (IA), com o objetivo
-    de enriquecer a representação visual dos conteúdos apresentados.
-  </p>
+      <p>
+        O roteiro foi elaborado pelos próprios estudantes, com base em pesquisa e conhecimentos adquiridos ao longo da formação.
+        Algumas imagens e vídeos complementares foram criados com o auxílio de inteligência artificial (IA), com o objetivo
+        de enriquecer a representação visual dos conteúdos apresentados.
+      </p>
 
-  <p>
-    O material tem caráter educativo e acadêmico, buscando integrar teoria e prática na comunicação de temas relevantes
-    para a fisioterapia e para a promoção da saúde.
-  </p>
+      <p>
+        O material tem caráter educativo e acadêmico, buscando integrar teoria e prática na comunicação de temas relevantes
+        para a fisioterapia e para a promoção da saúde.
+      </p>
 
-  <p>
-    <em>Desenvolvido por <strong>João de cristo </strong> —Estudante do 2º período de
-    <strong>Análise e Desenvolvimento de Sistemas (ADS)</strong> na <strong>PUC Minas</strong>.</em>
-  </p>
-</section>
+      <p>
+        <em>Desenvolvido por <strong>João de Cristo</strong> — Estudante do 2º período de
+        <strong>Análise e Desenvolvimento de Sistemas (ADS)</strong> na <strong>PUC Minas</strong>.</em>
+      </p>
+    </section>
+  </main>
 
   <!-- ===== FOOTER ===== -->
   <footer class="site-footer">
@@ -251,5 +267,23 @@
 
   <!-- JS -->
   <script src="script.js"></script>
+
+  <!-- (Opcional) Se seu script.js não preencher data/ano, esse fallback resolve -->
+  <script>
+    (function(){
+      const d = new Date();
+      const dataHoje = document.getElementById('dataHoje');
+      const anoAtual = document.getElementById('anoAtual');
+      if(dataHoje) dataHoje.textContent = d.toLocaleDateString('pt-BR',{day:'2-digit',month:'long',year:'numeric'});
+      if(anoAtual) anoAtual.textContent = d.getFullYear();
+    })();
+  </script>
+
+  <!-- CSS mínimo só para o vídeo ficar responsivo caso seu style.css não tenha -->
+  <style>
+    .video-wrap{position:relative;width:100%;aspect-ratio:16/9;background:#000;border-radius:14px;overflow:hidden}
+    .video-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+    .video-actions .btn{display:inline-flex;gap:8px;align-items:center}
+  </style>
 </body>
 </html>

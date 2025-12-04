@@ -12,20 +12,86 @@
 
   <!-- CSS -->
   <link rel="stylesheet" href="style1.css" />
+
+  <!-- ATUALIZADO: Fonte + Áudio por tópicos + vídeo responsivo -->
+  <style>
+    :root { font-size: 18px; }
+    body { line-height: 1.7; }
+
+    /* Barra acessível (fonte + áudio) */
+    .a11y-bar{
+      position: sticky; top: 0; z-index: 80;
+      background: rgba(255,255,255,.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+    .a11y-inner{
+      display:flex; gap:10px; flex-wrap:wrap; align-items:center;
+      padding:10px 0;
+    }
+    .btn-a11y{
+      border:1px solid var(--border);
+      background:#fff;
+      border-radius:12px;
+      padding:10px 12px;
+      font-weight:700;
+      cursor:pointer;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+    }
+    .btn-a11y:focus{ outline:3px solid rgba(12,107,95,.25); outline-offset:2px; }
+    .a11y-sep{ width:1px; height:32px; background:var(--border); margin:0 2px; }
+    .font-hint{ font-size:14px; opacity:.75; margin-left:6px; }
+    .sr-only{
+      position:absolute; width:1px; height:1px; padding:0; margin:-1px;
+      overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;
+    }
+
+    /* Botão de áudio por tópico */
+    .audio-toolbar{ margin: 10px 0 14px; }
+    .audio-btn{
+      border:1px solid var(--border);
+      background:#fff;
+      border-radius:12px;
+      padding:10px 12px;
+      font-weight:700;
+      cursor:pointer;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+    }
+    .audio-btn:focus{ outline:3px solid rgba(12,107,95,.25); outline-offset:2px; }
+
+    /* Vídeo responsivo (você já usa .video-wrap) */
+    .video-wrap{
+      position:relative;
+      width:100%;
+      padding-top:56.25%;
+      border-radius:16px;
+      overflow:hidden;
+      background:#000;
+    }
+    .video-wrap iframe{
+      position:absolute; inset:0;
+      width:100%; height:100%;
+      border:0;
+    }
+  </style>
 </head>
+
 <body>
   <!-- Barra de progresso de leitura -->
-  <div id="progressBar"></div>
+  <div id="progressBar" aria-hidden="true"></div>
 
   <!-- Cabeçalho -->
   <header class="site-header">
     <div class="container header-flex">
-      <!-- AGORA VOLTA PARA O SEU INDEX NA SEÇÃO DE NOTÍCIAS -->
       <a class="brand" href="index.html#noticias" aria-label="Página inicial Vida Saudável 60+">
         <span class="brand-badge" aria-hidden="true">60+</span>
         <div class="brand-text">
           <h1>Vida Saudável</h1>
-          <p>Saúde Movimento  Longevidade</p>
+          <p>Saúde • Movimento • Longevidade</p>
         </div>
       </a>
 
@@ -34,9 +100,9 @@
       </button>
 
       <nav id="topNav" class="top-nav" aria-label="Navegação principal">
-        <!-- mantém navegação interna desta página -->
         <a href="#inicio">Início</a>
         <a href="#fisiologia">Fisiologia</a>
+        <a href="#sinergia">Coração, pulmão e músculos</a>
         <a href="#movimento">Movimento</a>
         <a href="#videos">Vídeos</a>
         <a href="#imagem">Imagem</a>
@@ -45,7 +111,24 @@
     </div>
   </header>
 
-  <!-- BOTÃO DE VOLTA PARA O INDEX -->
+  <!-- Barra fixa (A-/A+/Padrão + áudio global) -->
+  <div class="a11y-bar" role="region" aria-label="Acessibilidade: tamanho da letra e áudio">
+    <div class="container a11y-inner">
+      <button class="btn-a11y" id="fontDec" type="button" aria-label="Diminuir tamanho da letra">A-</button>
+      <button class="btn-a11y" id="fontInc" type="button" aria-label="Aumentar tamanho da letra">A+</button>
+      <button class="btn-a11y" id="fontReset" type="button" aria-label="Voltar tamanho padrão">Padrão</button>
+      <span class="font-hint" id="fontHint" aria-live="polite"></span>
+
+      <span class="a11y-sep" aria-hidden="true"></span>
+
+      <button class="btn-a11y" id="ttsPlayPage" type="button" aria-label="Ouvir a página inteira">🔊 Ouvir página</button>
+      <button class="btn-a11y" id="ttsPause" type="button" aria-label="Pausar ou continuar">⏸ Pausar</button>
+      <button class="btn-a11y" id="ttsStop" type="button" aria-label="Parar leitura">⏹ Parar</button>
+      <small id="ttsStatus" class="sr-only" aria-live="polite"></small>
+    </div>
+  </div>
+
+  <!-- Botão de volta para o index -->
   <section class="section container" style="padding-top:20px; padding-bottom:0;">
     <a class="btn btn-light" href="index.html#noticias">← Voltar para a página inicial</a>
   </section>
@@ -58,7 +141,11 @@
         <h2>Entendendo seu <span>Coração</span></h2>
         <p>Como ele funciona, por que o movimento diário é essencial e como a <strong>reabilitação cardíaca</strong> pode transformar sua saúde.</p>
 
-        <!-- Sumário rápido -->
+        <!-- Ouvir a página inteira (por tópico) -->
+        <div class="audio-toolbar">
+          <button class="audio-btn" type="button" data-section="page-all">🔊 Ouvir a página inteira</button>
+        </div>
+
         <nav class="toc" aria-label="Sumário desta página">
           <strong>Sumário</strong>
           <ul>
@@ -83,8 +170,12 @@
   </section>
 
   <main>
-    <!-- Seção Fisiologia -->
+    <!-- Fisiologia -->
     <section id="fisiologia" class="section container">
+      <div class="audio-toolbar">
+        <button class="audio-btn" type="button" data-section="fisiologia">🔊 Ouvir este tópico</button>
+      </div>
+
       <h3 class="section-title"><i class="fa-solid fa-heart-pulse"></i> Cuidando do Coração: Energia para a Vida</h3>
 
       <p>O coração é o <strong>motor da vida</strong>, responsável por levar sangue e energia para todo o corpo. Ele funciona como uma bomba:</p>
@@ -108,16 +199,24 @@
       </div>
     </section>
 
-    <!-- Sinergia dos sistemas -->
+    <!-- Sinergia -->
     <section id="sinergia" class="section container">
+      <div class="audio-toolbar">
+        <button class="audio-btn" type="button" data-section="sinergia">🔊 Ouvir este tópico</button>
+      </div>
+
       <h3 class="section-title"><i class="fa-solid fa-lungs"></i> Coração, pulmão e músculos: trabalho em equipe</h3>
       <p>O pulmão coloca oxigênio no sangue, o coração o distribui pelo corpo e os músculos usam esse oxigênio para gerar <strong>energia e movimento</strong>. Quando essa parceria funciona bem, o corpo fica mais forte e saudável.</p>
       <p><strong>Ficar parado por muito tempo faz mal</strong>: enfraquece os músculos, piora a circulação e aumenta o risco de pressão alta e doenças do coração. <em>Pequenas pausas</em> para levantar, caminhar ou alongar já ajudam o coração a trabalhar melhor.</p>
       <p>Durante o movimento, coração e pulmão aceleram para levar mais oxigênio aos músculos. Com <strong>atividades leves e regulares</strong>, o coração se fortalece, a circulação melhora e o corpo fica mais resistente ao cansaço.</p>
     </section>
 
-    <!-- Movimento e Reabilitação -->
+    <!-- Movimento -->
     <section id="movimento" class="section container">
+      <div class="audio-toolbar">
+        <button class="audio-btn" type="button" data-section="movimento">🔊 Ouvir este tópico</button>
+      </div>
+
       <h3 class="section-title"><i class="fa-solid fa-person-walking"></i> Mexa-se todos os dias</h3>
       <p><strong>Caminhar, dançar ou alongar</strong> diariamente é uma das melhores formas de manter o coração saudável.</p>
 
@@ -139,10 +238,15 @@
 
     <!-- Vídeos -->
     <section id="videos" class="section container">
+      <div class="audio-toolbar">
+        <button class="audio-btn" type="button" data-section="videos">🔊 Ouvir este tópico</button>
+      </div>
+
       <div class="section-head">
         <h3 class="section-title"><i class="fa-solid fa-video"></i> Vídeos e recursos</h3>
       </div>
 
+      <!-- CORRIGIDO: HTML do grid (sem tags sobrando) -->
       <div class="video-grid">
         <article class="card">
           <div class="thumb">
@@ -188,75 +292,71 @@
           </div>
         </article>
 
-       <!-- Vídeo: Prof.ª Clarissa - Fisiologia do Coração -->
-<article class="card" aria-label="Vídeo da Prof.ª Clarissa sobre fisiologia do coração">
-  <div class="video-wrap">
-    <iframe
-      title="Prof.ª Clarissa - Fisiologia do coração"
-      src="https://www.youtube.com/embed/bAyIGuffWuU"
-      loading="lazy"
-      frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      allowfullscreen>
-    </iframe>
-  </div>
-
-  <div class="card-body">
-    <h4>Fisiologia do Coração</h4>
-    <p>Explicação sobre o funcionamento do coração e a importância da fisiologia para a prática clínica e os exercícios físicos.</p>
-    <div class="actions-row">
-      <a class="btn btn-ghost"
-         href="https://youtu.be/bAyIGuffWuU?si=0_FYCBlO2SzauUBv"
-         target="_blank"
-         rel="noopener noreferrer"
-         aria-label="Abrir vídeo da Prof.ª Clarissa sobre fisiologia do coração no YouTube">
-        <i class="fa-brands fa-youtube"></i> Abrir no YouTube
-      </a>
-    </div>
-  </div>
-</article>
-
-<!-- Vídeo: Prof.ª Clarissa - Fisioterapia e Exercício Físico -->
-<article class="card" aria-label="Vídeo da Prof.ª Clarissa sobre fisioterapia e exercício físico">
-  <div class="video-wrap">
-    <iframe
-      title="Prof.ª Clarissa - Fisioterapia e exercício físico"
-      src="https://www.youtube.com/embed/kY2DeYHNVb8"
-      loading="lazy"
-      frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      allowfullscreen>
-    </iframe>
-  </div>
-
-  <div class="card-body">
-    <h4>Fisioterapia e Exercício Físico</h4>
-    <p>Discussão sobre o papel da fisioterapia e dos exercícios físicos na reabilitação e prevenção de doenças cardiovasculares.</p>
-    <div class="actions-row">
-      <a class="btn btn-ghost"
-         href="https://youtu.be/kY2DeYHNVb8?si=KKUdr_WNNU70TBIx"
-         target="_blank"
-         rel="noopener noreferrer"
-         aria-label="Abrir vídeo da Prof.ª Clarissa sobre fisioterapia e exercício físico no YouTube">
-        <i class="fa-brands fa-youtube"></i> Abrir no YouTube
-      </a>
-    </div>
-  </div>
-</article>
-
-
-          
+        <article class="card" aria-label="Vídeo da Prof.ª Clarissa sobre fisiologia do coração">
+          <div class="video-wrap">
+            <iframe
+              title="Prof.ª Clarissa - Fisiologia do coração"
+              src="https://www.youtube.com/embed/bAyIGuffWuU"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen></iframe>
+          </div>
+          <div class="card-body">
+            <h4>Fisiologia do Coração</h4>
+            <p>Funcionamento do coração e importância da fisiologia para exercícios.</p>
+            <div class="actions-row">
+              <a class="btn btn-ghost" href="https://youtu.be/bAyIGuffWuU?si=0_FYCBlO2SzauUBv" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-youtube"></i> Abrir no YouTube
+              </a>
+            </div>
           </div>
         </article>
 
-        
-  </div>
-</article>
+        <article class="card" aria-label="Vídeo da Prof.ª Clarissa sobre fisioterapia e exercício físico">
+          <div class="video-wrap">
+            <iframe
+              title="Prof.ª Clarissa - Fisioterapia e exercício físico"
+              src="https://www.youtube.com/embed/kY2DeYHNVb8"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen></iframe>
+          </div>
+          <div class="card-body">
+            <h4>Fisioterapia e Exercício Físico</h4>
+            <p>Papel da fisioterapia na reabilitação e prevenção.</p>
+            <div class="actions-row">
+              <a class="btn btn-ghost" href="https://youtu.be/kY2DeYHNVb8?si=KKUdr_WNNU70TBIx" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-youtube"></i> Abrir no YouTube
+              </a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
 
+    <!-- Imagem (você tinha no menu, então eu coloquei aqui) -->
+    <section id="imagem" class="section container">
+      <div class="audio-toolbar">
+        <button class="audio-btn" type="button" data-section="imagem">🔊 Ouvir este tópico</button>
+      </div>
 
+      <h3 class="section-title"><i class="fa-solid fa-image"></i> Imagem explicativa</h3>
+      <p>Para entender melhor, observe a ideia geral: o sangue vai aos pulmões para receber oxigênio e depois volta para o coração, que distribui esse sangue para todo o corpo.</p>
+
+      <figure class="figure">
+        <!-- Troque por sua imagem local se quiser: img/coracao-esquematico.jpg -->
+        <img src="https://images.unsplash.com/photo-1543716091-a840c05249ec?q=80&w=1200&auto=format&fit=crop"
+             alt="Ilustração relacionada à saúde do coração e circulação sanguínea." />
+        <figcaption>O coração bombeia sangue para todo o corpo — movimento e hábitos saudáveis ajudam a proteger essa função.</figcaption>
+      </figure>
+    </section>
 
     <!-- Referências -->
     <section id="referencias" class="section container">
+      <div class="audio-toolbar">
+        <button class="audio-btn" type="button" data-section="referencias">🔊 Ouvir este tópico</button>
+      </div>
+
       <h3 class="section-title"><i class="fa-solid fa-book"></i> Referências bibliográficas</h3>
 
       <ol class="refs">
@@ -285,7 +385,9 @@
   </main>
 
   <!-- Voltar ao topo -->
-  <button id="toTop" class="to-top" aria-label="Voltar ao topo"><i class="fa-solid fa-arrow-up"></i></button>
+  <button id="toTop" class="to-top" aria-label="Voltar ao topo">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
 
   <!-- Rodapé -->
   <footer class="site-footer">
@@ -294,7 +396,164 @@
     </div>
   </footer>
 
-  <!-- JS -->
+  <!-- JS base do seu projeto -->
   <script src="script1.js"></script>
+
+  <!-- JS extra (ATUALIZADO: fonte + áudio) -->
+  <script>
+    // Data de hoje + ano no rodapé
+    (function () {
+      const dataEl = document.getElementById("dataHoje");
+      if (dataEl) {
+        const agora = new Date();
+        const dias = ["domingo","segunda-feira","terça-feira","quarta-feira","quinta-feira","sexta-feira","sábado"];
+        const meses = ["janeiro","fevereiro","março","abril","maio","junho","julho","agosto","setembro","outubro","novembro","dezembro"];
+        dataEl.textContent = `${dias[agora.getDay()]}, ${agora.getDate()} de ${meses[agora.getMonth()]} de ${agora.getFullYear()}`;
+      }
+      const ano = document.getElementById("anoAtual");
+      if (ano) ano.textContent = new Date().getFullYear();
+    })();
+
+    // ===== AUMENTAR/DIMINUIR LETRA (A- / A+ / Padrão) =====
+    (function fontControls(){
+      const MIN_PX = 16, MAX_PX = 26, STEP = 1, DEFAULT_PX = 18;
+      const hint = document.getElementById('fontHint');
+
+      function getFontPx(){
+        const saved = Number(localStorage.getItem("vs60_font_px"));
+        if (saved && saved >= MIN_PX && saved <= MAX_PX) return saved;
+        const css = Number(getComputedStyle(document.documentElement).fontSize.replace("px",""));
+        return css || DEFAULT_PX;
+      }
+
+      function setFontPx(px){
+        const v = Math.max(MIN_PX, Math.min(MAX_PX, px));
+        document.documentElement.style.fontSize = v + "px";
+        localStorage.setItem("vs60_font_px", String(v));
+        if (hint) hint.textContent = `Tamanho: ${v}px`;
+      }
+
+      setFontPx(getFontPx());
+      document.getElementById("fontDec")?.addEventListener("click", () => setFontPx(getFontPx() - STEP));
+      document.getElementById("fontInc")?.addEventListener("click", () => setFontPx(getFontPx() + STEP));
+      document.getElementById("fontReset")?.addEventListener("click", () => setFontPx(DEFAULT_PX));
+    })();
+
+    // ===== ÁUDIO DESCRIÇÃO (por tópico e página inteira) =====
+    const hasTTS = "speechSynthesis" in window && "SpeechSynthesisUtterance" in window;
+
+    function setTtsStatus(msg){
+      const el = document.getElementById("ttsStatus");
+      if (el) el.textContent = msg;
+    }
+
+    function pickPtVoice(){
+      const voices = speechSynthesis.getVoices?.() || [];
+      return voices.find(v => /pt-BR/i.test(v.lang)) || voices.find(v => /^pt/i.test(v.lang)) || null;
+    }
+
+    function stopSpeak(){
+      if (!hasTTS) return;
+      speechSynthesis.cancel();
+      setTtsStatus("Leitura parada.");
+    }
+
+    function pauseOrResume(){
+      if (!hasTTS) return;
+      if (speechSynthesis.speaking && !speechSynthesis.paused){
+        speechSynthesis.pause();
+        setTtsStatus("Leitura pausada.");
+        return;
+      }
+      if (speechSynthesis.paused){
+        speechSynthesis.resume();
+        setTtsStatus("Leitura retomada.");
+      }
+    }
+
+    function speakText(text){
+      if (!hasTTS){
+        alert("Seu navegador não suporta leitura em voz. Use o Google Chrome 😉");
+        return;
+      }
+      const clean = (text || "").replace(/\s+/g, " ").trim();
+      if (!clean) return;
+
+      stopSpeak();
+
+      const u = new SpeechSynthesisUtterance(clean);
+      const voice = pickPtVoice();
+      if (voice) u.voice = voice;
+      u.lang = voice?.lang || "pt-BR";
+      u.rate = 0.95;
+      u.pitch = 1.0;
+      u.volume = 1.0;
+
+      u.onstart = () => setTtsStatus("Lendo em voz alta...");
+      u.onend   = () => setTtsStatus("Leitura concluída.");
+      u.onerror = () => setTtsStatus("Não foi possível ler este trecho.");
+
+      speechSynthesis.speak(u);
+    }
+
+    // Remove coisas que não devem ser lidas (menu, botões, links, vídeos etc.)
+    function extractCleanText(root){
+      if (!root) return "";
+
+      const clone = root.cloneNode(true);
+
+      const removeSelectors = [
+        "header","footer","nav",
+        ".audio-toolbar","button",
+        "a","iframe","script","style",
+        ".thumb",".actions-row",
+        "#progressBar","#toTop",
+        "i"
+      ];
+
+      clone.querySelectorAll(removeSelectors.join(",")).forEach(el => el.remove());
+
+      return (clone.textContent || "")
+        .replace(/[ \t]+\n/g, "\n")
+        .replace(/\n{3,}/g, "\n\n")
+        .replace(/[ \t]{2,}/g, " ")
+        .trim();
+    }
+
+    // Botões por tópico
+    document.querySelectorAll(".audio-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const target = btn.getAttribute("data-section");
+
+        if (target === "page-all") {
+          const main = document.querySelector("main");
+          const text = extractCleanText(main);
+          if (text) speakText(text);
+          return;
+        }
+
+        const section = document.getElementById(target);
+        const text = extractCleanText(section);
+        if (text) speakText(text);
+      });
+    });
+
+    // Botões globais
+    document.getElementById("ttsPlayPage")?.addEventListener("click", () => {
+      const main = document.querySelector("main");
+      const text = extractCleanText(main);
+      if (text) speakText(text);
+    });
+    document.getElementById("ttsPause")?.addEventListener("click", pauseOrResume);
+    document.getElementById("ttsStop")?.addEventListener("click", stopSpeak);
+
+    // Carrega vozes (alguns navegadores precisam)
+    if (hasTTS && speechSynthesis.onvoiceschanged !== undefined){
+      speechSynthesis.onvoiceschanged = () => {};
+    }
+
+    // Cancela ao sair
+    window.addEventListener("beforeunload", stopSpeak);
+  </script>
 </body>
 </html>
