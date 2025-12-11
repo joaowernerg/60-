@@ -185,25 +185,30 @@
       </div>
     </section>
 
-    <!-- ===== VÍDEO SHORT (NOVO) ===== -->
+    <!-- ===== VÍDEO / SOBRE ===== -->
     <section id="videos" class="section container" aria-labelledby="titulo-videos">
       <div class="section-head">
-        <h3 id="titulo-videos" class="section-title"><i class="fa-solid fa-video"></i> Vídeo rápido</h3>
+        <h3 id="titulo-videos" class="section-title">
+          <i class="fa-solid fa-video"></i> Sobre
+        </h3>
       </div>
 
-      <!-- Shorts precisa do /embed/<ID> (aqui o ID é oNFIRc5tl-U) -->
-      <div class="video-wrap" role="region" aria-label="Player do YouTube: vídeo rápido">
+      <!-- Player responsivo com o Shorts correto -->
+      <div class="video-wrap" role="region" aria-label="Vídeo sobre o projeto Vida Saudável 60+">
         <iframe
-          title="sobre — Vida Saudável 60+"
-          src="https://youtube.com/shorts/-e_gipgOzWE?si=KxLYi0RSOKaSW56e"
+          title="Sobre — Vida Saudável 60+"
+          src="https://www.youtube.com/embed/-e_gipgOzWE"
           loading="lazy"
           referrerpolicy="strict-origin-when-cross-origin"
           allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen></iframe>
+          allowfullscreen>
+        </iframe>
       </div>
 
       <p class="video-actions" style="margin-top:10px">
-        <a class="btn btn-light" href="https://youtube.com/shorts/-e_gipgOzWE?si=wQmcTvHA32dJ9XU9" target="_blank" rel="noopener">
+        <a class="btn btn-light"
+           href="https://youtube.com/shorts/-e_gipgOzWE?si=4o4TBYuUFHWgbk6X"
+           target="_blank" rel="noopener">
           <i class="fa-brands fa-youtube"></i> Abrir no YouTube
         </a>
       </p>
@@ -231,7 +236,7 @@
       </ul>
     </section>
 
-    <!-- ===== SOBRE ===== -->
+    <!-- ===== SOBRE TEXTO ===== -->
     <section id="sobre" class="section container">
       <h3 class="section-title"><i class="fa-solid fa-circle-info"></i> Sobre o projeto</h3>
 
@@ -268,22 +273,47 @@
   <!-- JS -->
   <script src="script.js"></script>
 
-  <!-- (Opcional) Se seu script.js não preencher data/ano, esse fallback resolve -->
+  <!-- Fallback para data e ano -->
   <script>
     (function(){
       const d = new Date();
       const dataHoje = document.getElementById('dataHoje');
       const anoAtual = document.getElementById('anoAtual');
-      if(dataHoje) dataHoje.textContent = d.toLocaleDateString('pt-BR',{day:'2-digit',month:'long',year:'numeric'});
-      if(anoAtual) anoAtual.textContent = d.getFullYear();
+      if (dataHoje) {
+        dataHoje.textContent = d.toLocaleDateString('pt-BR', {
+          day:'2-digit',
+          month:'long',
+          year:'numeric'
+        });
+      }
+      if (anoAtual) {
+        anoAtual.textContent = d.getFullYear();
+      }
     })();
   </script>
 
-  <!-- CSS mínimo só para o vídeo ficar responsivo caso seu style.css não tenha -->
+  <!-- CSS mínimo para o vídeo ficar responsivo caso seu style.css não tenha -->
   <style>
-    .video-wrap{position:relative;width:100%;aspect-ratio:16/9;background:#000;border-radius:14px;overflow:hidden}
-    .video-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-    .video-actions .btn{display:inline-flex;gap:8px;align-items:center}
+    .video-wrap {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16/9;
+      background: #000;
+      border-radius: 14px;
+      overflow: hidden;
+    }
+    .video-wrap iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+    .video-actions .btn {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+    }
   </style>
 </body>
 </html>
