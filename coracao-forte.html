@@ -13,23 +13,27 @@
   <!-- CSS base do projeto -->
   <link rel="stylesheet" href="style1.css" />
 
-  <!-- ATUALIZADO: Fonte + Áudio (mantém seus botões por tópico) -->
   <style>
-    /* Letras maiores por padrão (60+) */
     :root { font-size: 18px; }
     body { line-height: 1.7; }
 
-    /* Barra acessível (fonte + áudio) */
     .a11y-bar{
-      position: sticky; top: 0; z-index: 80;
+      position: sticky;
+      top: 0;
+      z-index: 80;
       background: rgba(255,255,255,.92);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--border);
     }
+
     .a11y-inner{
-      display:flex; gap:10px; flex-wrap:wrap; align-items:center;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
       padding:10px 0;
     }
+
     .btn-a11y{
       border:1px solid var(--border);
       background:#fff;
@@ -41,16 +45,39 @@
       align-items:center;
       gap:8px;
     }
-    .btn-a11y:focus{ outline:3px solid rgba(12,107,95,.25); outline-offset:2px; }
-    .a11y-sep{ width:1px; height:32px; background:var(--border); margin:0 2px; }
-    .font-hint{ font-size:14px; opacity:.75; margin-left:6px; }
-    .sr-only{
-      position:absolute; width:1px; height:1px; padding:0; margin:-1px;
-      overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;
+
+    .btn-a11y:focus{
+      outline:3px solid rgba(12,107,95,.25);
+      outline-offset:2px;
     }
 
-    /* Caso seu style1.css não tenha isso */
+    .a11y-sep{
+      width:1px;
+      height:32px;
+      background:var(--border);
+      margin:0 2px;
+    }
+
+    .font-hint{
+      font-size:14px;
+      opacity:.75;
+      margin-left:6px;
+    }
+
+    .sr-only{
+      position:absolute;
+      width:1px;
+      height:1px;
+      padding:0;
+      margin:-1px;
+      overflow:hidden;
+      clip:rect(0,0,0,0);
+      white-space:nowrap;
+      border:0;
+    }
+
     .audio-toolbar{ margin: 10px 0 14px; }
+
     .audio-btn{
       border:1px solid var(--border);
       background:#fff;
@@ -62,22 +89,23 @@
       align-items:center;
       gap:8px;
     }
-    .audio-btn:focus{ outline:3px solid rgba(12,107,95,.25); outline-offset:2px; }
+
+    .audio-btn:focus{
+      outline:3px solid rgba(12,107,95,.25);
+      outline-offset:2px;
+    }
   </style>
 </head>
 
 <body>
-  <!-- Barra de progresso de leitura -->
   <div id="progressBar" aria-hidden="true"></div>
 
-  <!-- Cabeçalho -->
   <header class="site-header">
     <div class="container header-flex">
-      <!-- volta para o index na seção de notícias -->
-      <a class="brand" href="index.html#noticias" aria-label="Página inicial Vida Saudável 60+">
+      <a class="brand" href="index.html#noticias" aria-label="Página inicial Portal saude 60+">
         <span class="brand-badge" aria-hidden="true">60+</span>
         <div class="brand-text">
-          <h1>Vida Saudável</h1>
+          <h1>Portal saude 60+</h1>
           <p>Saúde • Movimento • Longevidade</p>
         </div>
       </a>
@@ -98,7 +126,6 @@
     </div>
   </header>
 
-  <!-- ATUALIZADO: Barra fixa com A-/A+/Padrão + Ouvir/Pausar/Parar -->
   <div class="a11y-bar" role="region" aria-label="Acessibilidade: tamanho da letra e áudio">
     <div class="container a11y-inner">
       <button class="btn-a11y" id="fontDec" type="button" aria-label="Diminuir tamanho da letra">A-</button>
@@ -115,12 +142,10 @@
     </div>
   </div>
 
-  <!-- Botão voltar -->
   <section class="section container" style="padding-top:20px; padding-bottom:0;">
     <a class="btn btn-light" href="index.html#noticias">← Voltar para a página inicial</a>
   </section>
 
-  <!-- Hero -->
   <section id="inicio" class="hero" data-animate>
     <div class="container hero-grid">
       <div class="hero-text">
@@ -128,14 +153,12 @@
         <h2>Entendendo seu <span>Coração</span></h2>
         <p>Como ele funciona, por que o movimento diário é essencial e como a <strong>reabilitação cardíaca</strong> pode transformar sua saúde.</p>
 
-        <!-- Áudio da página inteira (mantido) -->
         <div class="audio-toolbar">
           <button class="audio-btn" type="button" data-section="page-all">
             🔊 Ouvir a página inteira
           </button>
         </div>
 
-        <!-- Sumário rápido -->
         <nav class="toc" aria-label="Sumário desta página">
           <strong>Sumário</strong>
           <ul>
@@ -160,7 +183,6 @@
   </section>
 
   <main>
-    <!-- Seção Fisiologia -->
     <section id="fisiologia" class="section container" data-animate>
       <div class="audio-toolbar">
         <button class="audio-btn" type="button" data-section="fisiologia">🔊 Ouvir este tópico</button>
@@ -189,7 +211,6 @@
       </div>
     </section>
 
-    <!-- Sinergia dos sistemas -->
     <section id="sinergia" class="section container" data-animate>
       <div class="audio-toolbar">
         <button class="audio-btn" type="button" data-section="sinergia">🔊 Ouvir este tópico</button>
@@ -201,7 +222,6 @@
       <p>Durante o movimento, coração e pulmão aceleram para levar mais oxigênio aos músculos. Com <strong>atividades leves e regulares</strong>, o coração se fortalece, a circulação melhora e o corpo fica mais resistente ao cansaço.</p>
     </section>
 
-    <!-- Movimento e Reabilitação -->
     <section id="movimento" class="section container" data-animate>
       <div class="audio-toolbar">
         <button class="audio-btn" type="button" data-section="movimento">🔊 Ouvir este tópico</button>
@@ -226,7 +246,6 @@
       </div>
     </section>
 
-    <!-- Vídeos -->
     <section id="videos" class="section container" data-animate>
       <div class="audio-toolbar">
         <button class="audio-btn" type="button" data-section="videos">🔊 Ouvir explicação dos vídeos</button>
@@ -313,7 +332,6 @@
       </div>
     </section>
 
-    <!-- Imagem explicativa -->
     <section id="imagem" class="section container" data-animate>
       <div class="audio-toolbar">
         <button class="audio-btn" type="button" data-section="imagem">🔊 Ouvir descrição da imagem</button>
@@ -334,7 +352,6 @@
       </figure>
     </section>
 
-    <!-- Referências -->
     <section id="referencias" class="section container" data-animate>
       <div class="audio-toolbar">
         <button class="audio-btn" type="button" data-section="referencias">🔊 Ouvir este tópico</button>
@@ -387,42 +404,38 @@
     </section>
   </main>
 
-  <!-- Voltar ao topo -->
   <button id="toTop" class="to-top" aria-label="Voltar ao topo">
     <i class="fa-solid fa-arrow-up"></i>
   </button>
 
-  <!-- Botão modo leitura fácil (mantido) -->
   <button id="easyReadBtn" aria-label="Ativar modo leitura fácil">
     👁️ Leitura Fácil
   </button>
 
-  <!-- Rodapé -->
   <footer class="site-footer">
     <div class="container">
-      <p>&copy; <span id="anoAtual"></span> Vida Saudável 60+. Conteúdo educativo.</p>
+      <p>&copy; <span id="anoAtual"></span> Portal saude 60+. Conteúdo educativo.</p>
     </div>
   </footer>
 
-  <!-- JS da página (ATUALIZADO) -->
   <script>
-    // Data de hoje em português
     (function setDataHoje(){
       const el = document.getElementById('dataHoje');
       if(!el) return;
+
       const agora = new Date();
       const dias = ['domingo','segunda-feira','terça-feira','quarta-feira','quinta-feira','sexta-feira','sábado'];
       const meses = ['janeiro','fevereiro','março','abril','maio','junho','julho','agosto','setembro','outubro','novembro','dezembro'];
       const texto = `${dias[agora.getDay()]}, ${agora.getDate()} de ${meses[agora.getMonth()]} de ${agora.getFullYear()}`;
+
       el.textContent = texto;
     })();
 
-    // Ano atual no rodapé
     document.getElementById('anoAtual').textContent = new Date().getFullYear();
 
-    // Menu responsivo
     const menuBtn = document.getElementById('menuBtn');
     const topNav = document.getElementById('topNav');
+
     if (menuBtn && topNav) {
       menuBtn.addEventListener('click', () => {
         const isOpen = topNav.classList.toggle('open');
@@ -430,13 +443,13 @@
       });
     }
 
-    // Barra de progresso + botão voltar ao topo
     const bar = document.getElementById('progressBar');
     const toTop = document.getElementById('toTop');
 
     window.addEventListener('scroll', () => {
       const h = document.documentElement;
       const s = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
+
       if (bar) bar.style.width = s + '%';
       if (toTop) toTop.classList.toggle('show', h.scrollTop > 300);
     }, { passive: true });
@@ -447,31 +460,37 @@
       });
     }
 
-    // Animação de entrada
     const ob = new IntersectionObserver(entries => {
-      entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
-    }, {threshold:0.2});
+      entries.forEach(e => {
+        if (e.isIntersecting) e.target.classList.add('visible');
+      });
+    }, { threshold: 0.2 });
+
     document.querySelectorAll('[data-animate]').forEach(el => ob.observe(el));
 
-    // Modo leitura fácil
     const easyBtn = document.getElementById('easyReadBtn');
+
     if (easyBtn) {
       easyBtn.addEventListener('click', () => {
         document.body.classList.toggle('easy-read');
       });
     }
 
-    // ===== AUMENTAR/DIMINUIR LETRA (A- / A+ / Padrão) =====
     (function fontControls(){
-      const MIN_PX = 16, MAX_PX = 26, STEP = 1, DEFAULT_PX = 18;
+      const MIN_PX = 16;
+      const MAX_PX = 26;
+      const STEP = 1;
+      const DEFAULT_PX = 18;
       const hint = document.getElementById('fontHint');
 
       function getFontPx(){
         const saved = Number(localStorage.getItem("vs60_font_px"));
         if (saved && saved >= MIN_PX && saved <= MAX_PX) return saved;
+
         const css = Number(getComputedStyle(document.documentElement).fontSize.replace("px",""));
         return css || DEFAULT_PX;
       }
+
       function setFontPx(px){
         const v = Math.max(MIN_PX, Math.min(MAX_PX, px));
         document.documentElement.style.fontSize = v + "px";
@@ -480,12 +499,12 @@
       }
 
       setFontPx(getFontPx());
+
       document.getElementById("fontDec")?.addEventListener("click", () => setFontPx(getFontPx() - STEP));
       document.getElementById("fontInc")?.addEventListener("click", () => setFontPx(getFontPx() + STEP));
       document.getElementById("fontReset")?.addEventListener("click", () => setFontPx(DEFAULT_PX));
     })();
 
-    // ===== ÁUDIO DESCRIÇÃO (por tópico e página inteira) =====
     const hasTTS = "speechSynthesis" in window && "SpeechSynthesisUtterance" in window;
 
     function setTtsStatus(msg){
@@ -506,11 +525,13 @@
 
     function pauseOrResume(){
       if (!hasTTS) return;
+
       if (speechSynthesis.speaking && !speechSynthesis.paused){
         speechSynthesis.pause();
         setTtsStatus("Leitura pausada.");
         return;
       }
+
       if (speechSynthesis.paused){
         speechSynthesis.resume();
         setTtsStatus("Leitura retomada.");
@@ -522,6 +543,7 @@
         alert("Seu navegador não suporta leitura em voz. Use o Google Chrome 😉");
         return;
       }
+
       const clean = (text || "").replace(/\s+/g, " ").trim();
       if (!clean) return;
 
@@ -529,6 +551,7 @@
 
       const u = new SpeechSynthesisUtterance(clean);
       const voice = pickPtVoice();
+
       if (voice) u.voice = voice;
       u.lang = voice?.lang || "pt-BR";
       u.rate = 0.95;
@@ -536,24 +559,23 @@
       u.volume = 1.0;
 
       u.onstart = () => setTtsStatus("Lendo em voz alta...");
-      u.onend   = () => setTtsStatus("Leitura concluída.");
+      u.onend = () => setTtsStatus("Leitura concluída.");
       u.onerror = () => setTtsStatus("Não foi possível ler este trecho.");
 
       speechSynthesis.speak(u);
     }
 
-    // Remove coisas que não devem ser lidas (menu, botões, links, vídeos etc.)
     function extractCleanText(root){
       if (!root) return "";
 
       const clone = root.cloneNode(true);
 
       const removeSelectors = [
-        "header","footer","nav",
-        ".audio-toolbar","button",
-        "a","iframe","script","style",
-        ".thumb",".actions-row",
-        "#progressBar","#toTop","#easyReadBtn",
+        "header", "footer", "nav",
+        ".audio-toolbar", "button",
+        "a", "iframe", "script", "style",
+        ".thumb", ".actions-row",
+        "#progressBar", "#toTop", "#easyReadBtn",
         "i"
       ];
 
@@ -566,7 +588,6 @@
         .trim();
     }
 
-    // Botões por tópico (os seus)
     document.querySelectorAll(".audio-btn").forEach(btn => {
       btn.addEventListener("click", () => {
         const target = btn.getAttribute("data-section");
@@ -584,21 +605,19 @@
       });
     });
 
-    // Botões globais (barra fixa)
     document.getElementById("ttsPlayPage")?.addEventListener("click", () => {
       const main = document.querySelector("main");
       const text = extractCleanText(main);
       if (text) speakText(text);
     });
+
     document.getElementById("ttsPause")?.addEventListener("click", pauseOrResume);
     document.getElementById("ttsStop")?.addEventListener("click", stopSpeak);
 
-    // Alguns navegadores precisam desse “gatilho” para carregar vozes
     if (hasTTS && speechSynthesis.onvoiceschanged !== undefined){
       speechSynthesis.onvoiceschanged = () => {};
     }
 
-    // Cancela ao sair
     window.addEventListener("beforeunload", stopSpeak);
   </script>
 </body>
